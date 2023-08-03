@@ -1,5 +1,9 @@
-export default function Works(){
-    return (
-        <h1>Works main page</h1>
-    )
+export default function Works() {
+  return (
+    <>
+      <div>
+        <p>asd</p>
+      </div>
+    </>
+  );
 }
