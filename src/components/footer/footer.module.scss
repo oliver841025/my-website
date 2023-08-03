@@ -1,0 +1,18 @@
+$copy-email-btn-background-color: #fed9ff;
+$shadow-color: rgba(0, 0, 0, 0.2);
+
+.whole_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: 73vh;
+}
+
+.copy_email_btn {
+  border: 0;
+  background: $copy-email-btn-background-color;
+  box-shadow: 0px 4px 4px 0px $shadow-color;
+  height: 40px;
+  width: 100%;
+}
