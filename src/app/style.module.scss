@@ -1,3 +1,32 @@
-.whole_wrapper {
-  border: 1px solid red;
+.wrapper {
+  margin: 0 20px 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 78vh;
+  padding-bottom: 25px;
+
+  img {
+    margin-top: 60px;
+  }
+}
+
+.author {
+  border: 1px solid green;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  width: 120px;
+  font-size: 12px;
+}
+
+.recommendation {
+  white-space: nowrap;
+}
+
+.recommendation_wrapper {
+  overflow: auto;
 }
