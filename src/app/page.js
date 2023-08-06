@@ -4,13 +4,20 @@ import Image from 'next/image';
 export default function Home() {
   return (
     <>
+      <section>
+        <div>
+          <div>History</div>
+          <div>clear history</div>
+        </div>
+        <div></div>
+      </section>
       <div className={classes.wrapper}>
         <Image src="/doggy.jpeg" width={350} height={350} alt="Picture of the author" />
         <div className={classes.author}>OLIVER HUANG</div>
       </div>
       <div className={classes.recommendation_wrapper}>
         <p id="recommendation-text" className={classes.recommendation}>
-          Available 24 hours, contact me (☞ﾟヮﾟ)☞ Available 24 hours, contact me (☞ﾟヮﾟ)☞ 
+          Available 24 hours, contact me (☞ﾟヮﾟ)☞ Available 24 hours, contact me (☞ﾟヮﾟ)☞
         </p>
       </div>
     </>
