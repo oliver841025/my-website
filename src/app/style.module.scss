@@ -31,3 +31,27 @@
   overflow: auto;
   margin-bottom: 10px;
 }
+
+.history_wrapper {
+  left: 20px;
+  margin-top: 40px;
+  position: absolute;
+}
+
+.history_title_wrapper {
+  display: flex;
+  border: 1px solid red;
+  align-items: center;
+  justify-content: space-between;
+  width: 180px;
+}
+
+.history_content_wrapper {
+  margin-top: 35px;
+  // border: 1px solid green;
+}
+
+.history_content {
+  // border: 1px solid blue;
+  height: 85px;
+}

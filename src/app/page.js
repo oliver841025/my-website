@@ -4,13 +4,33 @@ import Image from 'next/image';
 export default function Home() {
   return (
     <>
-      <section>
-        <div>
+      <section className={classes.history_wrapper}>
+        <div className={classes.history_title_wrapper}>
           <div>History</div>
           <div>clear history</div>
         </div>
-        <div></div>
+        <div className={classes.history_content_wrapper}>
+          <div className={classes.history_content}>
+            <p>Fri Jul 28 17:39:47</p>
+            <p>Logged in</p>
+            <p>
+              Click to explore {'>'}
+              {'>'}
+            </p>
+          </div>
+          <div className={classes.history_content}>
+            <p>Fri Jul 28 17:39:47</p>
+            <p>Glasses</p>
+            <p>Something about glasses</p>
+          </div>
+          <div className={classes.history_content}>
+            <p>Fri Jul 28 17:39:47</p>
+            <p>Glasses</p>
+            <p>Something about glasses</p>
+          </div>
+        </div>
       </section>
+
       <div className={classes.wrapper}>
         <Image src="/doggy.jpeg" width={350} height={350} alt="Picture of the author" />
         <div className={classes.author}>OLIVER HUANG</div>
