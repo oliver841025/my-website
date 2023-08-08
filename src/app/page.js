@@ -11,7 +11,6 @@ export default function Home() {
   return (
     <>
       <Header filter={filter} setFilter={setFilter} />
-      {filter === 'info' && <Info />}
       <section className={classes.history_wrapper}>
         <div className={classes.history_title_wrapper}>
           <div className={classes.history_title}>History</div>
@@ -43,6 +42,7 @@ export default function Home() {
           Available 24 hours, contact me (☞ﾟヮﾟ)☞ Available 24 hours, contact me (☞ﾟヮﾟ)☞
         </p>
       </div>
+      {filter === 'info' && <Info />}
       <Footer />
     </>
   );
