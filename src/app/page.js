@@ -6,12 +6,12 @@ export default function Home() {
     <>
       <section className={classes.history_wrapper}>
         <div className={classes.history_title_wrapper}>
-          <div>History</div>
-          <div>clear history</div>
+          <div className={classes.history_title}>History</div>
+          <div className={classes.clear_button}>Clear history</div>
         </div>
         <div className={classes.history_content_wrapper}>
           <div className={classes.history_content}>
-            <p>Fri Jul 28 17:39:47</p>
+            <p className={classes.time}>Fri Jul 28 17:39:47</p>
             <p>Logged in</p>
             <p>
               Click to explore {'>'}
@@ -19,12 +19,12 @@ export default function Home() {
             </p>
           </div>
           <div className={classes.history_content}>
-            <p>Fri Jul 28 17:39:47</p>
+            <p className={classes.time}>Fri Jul 28 17:39:47</p>
             <p>Glasses</p>
             <p>Something about glasses</p>
           </div>
           <div className={classes.history_content}>
-            <p>Fri Jul 28 17:39:47</p>
+            <p className={classes.time}>Fri Jul 28 17:39:47</p>
             <p>Glasses</p>
             <p>Something about glasses</p>
           </div>
