@@ -1,9 +1,17 @@
+'use client';
+import { useState } from 'react';
+import Footer from '../components/footer/footer';
+import Header from '../components/header/header';
+import Info from '../components/info/info';
 import classes from './style.module.scss';
 import Image from 'next/image';
 
 export default function Home() {
+  const [filter, setFilter] = useState(null);
   return (
     <>
+      <Header filter={filter} setFilter={setFilter} />
+      {filter === 'info' && <Info />}
       <section className={classes.history_wrapper}>
         <div className={classes.history_title_wrapper}>
           <div className={classes.history_title}>History</div>
@@ -27,7 +35,7 @@ export default function Home() {
       </section>
 
       <div className={classes.wrapper}>
-        <Image src="/doggy.jpeg" width={350} height={350} alt="Picture of the author" />
+        {/* <Image src="/doggy.jpeg" width={350} height={350} alt="Picture of the author" /> */}
         <div className={classes.author}>OLIVER HUANG</div>
       </div>
       <div className={classes.recommendation_wrapper}>
@@ -35,6 +43,7 @@ export default function Home() {
           Available 24 hours, contact me (☞ﾟヮﾟ)☞ Available 24 hours, contact me (☞ﾟヮﾟ)☞
         </p>
       </div>
+      <Footer />
     </>
   );
 }

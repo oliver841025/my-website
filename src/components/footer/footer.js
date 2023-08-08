@@ -1,10 +1,10 @@
-import styles from './footer.module.scss';
+import classes from './footer.module.scss';
 
 export default function Footer() {
   return (
     <>
-      <div className={styles.whole_wrapper}>
-        <button className={styles.copy_email_btn}>COPY EMAIL</button>
+      <div className={classes.whole_wrapper}>
+        <button className={classes.copy_email_btn}>COPY EMAIL</button>
       </div>
     </>
   );
