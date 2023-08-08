@@ -23,11 +23,6 @@ export default function Home() {
             <p>Glasses</p>
             <p>Something about glasses</p>
           </div>
-          <div className={classes.history_content}>
-            <p className={classes.time}>Fri Jul 28 17:39:47</p>
-            <p>Glasses</p>
-            <p>Something about glasses</p>
-          </div>
         </div>
       </section>
 
