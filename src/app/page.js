@@ -34,7 +34,7 @@ export default function Home() {
       </section>
 
       <div className={classes.wrapper}>
-        {/* <Image src="/doggy.jpeg" width={350} height={350} alt="Picture of the author" /> */}
+        <Image src="/doggy.jpeg" width={350} height={350} alt="Picture of the author" />
         <div className={classes.author}>OLIVER HUANG</div>
       </div>
       <div className={classes.recommendation_wrapper}>
