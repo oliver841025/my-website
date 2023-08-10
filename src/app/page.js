@@ -1,9 +1,9 @@
 'use client';
 import { useState } from 'react';
-import Footer from '../components/footer/Footer';
-import Header from '../components/header/Header';
-import Info from '../components/info/Info';
-import Work from '../components/work/Work';
+import Footer from '../components/footer/footer';
+import Header from '../components/header/header';
+import Info from '../components/info/info';
+import Work from '../components/work/work';
 import classes from './style.module.scss';
 import Image from 'next/image';
 
