@@ -1,22 +1,18 @@
 'use client';
 import { useState } from 'react';
+import Cross from '../cross/Cross';
 import classes from './header.module.scss';
 
 export default function Header(props) {
   const { filter, setFilter } = props;
 
-  const [workClicked, setWorkClicked] = useState(false);
-  const [infoClicked, setInfoClicked] = useState(false);
-
   const handleClick = (param) => {
     setFilter(param);
 
     if (param === 'work') {
-      setWorkClicked(true);
-      setInfoClicked(false);
+      setFilter('work');
     } else if (param === 'info') {
-      setWorkClicked(false);
-      setInfoClicked(true);
+      setFilter('info');
     }
   };
 
@@ -25,7 +21,7 @@ export default function Header(props) {
       <div className={classes.whole_wrapper}>
         <section className={classes.left_wrapper}>
           <div
-            className={`${classes.work_btn} ${workClicked ? classes.clicked : ''}`}
+            className={`${classes.work_btn} ${filter === 'work' ? classes.clicked : ''}`}
             onClick={() => {
               handleClick('work');
             }}
@@ -33,13 +29,16 @@ export default function Header(props) {
             WORK
           </div>
           <div
-            className={`${classes.info_btn} ${infoClicked ? classes.clicked : ''}`}
+            className={`${classes.info_btn} ${filter === 'info' ? classes.clicked : ''}`}
             onClick={() => {
               handleClick('info');
             }}
           >
             INFO
           </div>
+        </section>
+        <section className={classes.right_wrapper}>
+          {filter !== null && <Cross filter={filter} setFilter={setFilter} />}
         </section>
       </div>
     </>
