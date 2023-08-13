@@ -1,5 +1,4 @@
 'use client';
-import { useState } from 'react';
 import Cross from '../cross/Cross';
 import classes from './header.module.scss';
 

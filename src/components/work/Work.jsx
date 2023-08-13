@@ -7,7 +7,7 @@ import Motion from '../motion/Motion';
 import Graphic from '../graphic/Graphic';
 
 export default function Info() {
-  const [cardFilter, setCardFilter] = useState(null);
+  const [cardFilter, setCardFilter] = useState('website');
 
   const handleClick = (param) => {
     setCardFilter(param);
@@ -17,17 +17,17 @@ export default function Info() {
     <>
       <div className={classes.wrapper}>
         <section className={classes.top_wrapper}>
-          <div className={`${classes.filter} ${classes.website}`} onClick={() => {
+          <div className={`${classes.filter} ${classes.website} ${cardFilter === 'website' ? classes.clicked : ''}`} onClick={() => {
               handleClick('website');
             }}>
             WEBSITE
           </div>
-          <div className={`${classes.filter} ${classes.video}`} onClick={() => {
+          <div className={`${classes.filter} ${classes.video} ${cardFilter === 'motion' ? classes.clicked : ''}`} onClick={() => {
               handleClick('motion');
             }}>
             MOTION
           </div>
-          <div className={`${classes.filter} ${classes.graphic}`} onClick={() => {
+          <div className={`${classes.filter} ${classes.graphic} ${cardFilter === 'graphic' ? classes.clicked : ''}`} onClick={() => {
               handleClick('graphic');
             }}>
             GRAPHIC
