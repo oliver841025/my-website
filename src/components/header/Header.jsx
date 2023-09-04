@@ -1,11 +1,15 @@
 'use client';
+import { useState } from 'react';
 import Cross from '../cross/Cross';
 import classes from './header.module.scss';
+import { useRouter } from 'next/navigation';
 
-export default function Header(props) {
-  const { filter, setFilter } = props;
+export default function Header() {
+  const router = useRouter();
+  const [filter, setFilter] = useState(null);
 
   const handleClick = (param) => {
+    router.push(`/?filter=${param}`);
     setFilter(param);
 
     if (param === 'work') {
@@ -37,7 +41,7 @@ export default function Header(props) {
           </div>
         </section>
         <section className={classes.right_wrapper}>
-          {filter !== null && <Cross filter={filter} setFilter={setFilter} />}
+          {filter !== null && <Cross setFilter={setFilter}/>}
         </section>
       </div>
     </>

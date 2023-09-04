@@ -1,13 +1,19 @@
 import classes from './info.module.scss';
 import Image from 'next/image';
-import { createClient } from 'next-sanity';
+import { client } from '../../utils/configSanity';
 
-export default function Info({ names }) {
-  console.log('names', names);
+async function getData() {
+  const names = await client.fetch(`*[_type == "info"]`);
+  return names;
+}
+
+export default async function Info() {
+  const data = await getData();
+  // console.log('data', data);
   return (
     <>
       <div className={classes.wrapper}>
-        <h2 className={classes.author}>{names?.name}</h2>
+        <h2 className={classes.author}>{data[0].name}</h2>
         <section>
           <p className={classes.about}>
             currently a frontend engineer who enjoys exploring technology. I appreciate maintaining flexibility in life
@@ -32,22 +38,4 @@ export default function Info({ names }) {
       </div>
     </>
   );
-}
-
-const client = createClient({
-  projectId: 'hj4awfcj',
-  dataset: 'production',
-  apiVersion: '2023-08-27',
-  useCdn: false,
-});
-
-export async function getStaticProps() {
-  const names = await client.fetch(`*[_type == "info"]`);
-  console.log('names', names);
-
-  return {
-    props: {
-      names,
-    },
-  };
 }

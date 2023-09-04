@@ -1,10 +1,14 @@
+'use client';
 import Image from 'next/image';
 import crossImg from '../../../public/cross.svg';
+import { useRouter } from 'next/navigation';
 
 export default function Cross(props) {
-  const { filter, setFilter } = props;
+  const { setFilter } = props;
+  const router = useRouter();
 
   const handleCrossClick = () => {
+    router.push('/');
     setFilter(null);
   };
 

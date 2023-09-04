@@ -1,5 +1,3 @@
-'use client';
-import { useState } from 'react';
 import Footer from '../components/footer/Footer';
 import Header from '../components/header/Header';
 import Info from '../components/info/Info';
@@ -7,11 +5,11 @@ import Work from '../components/work/Work';
 import classes from './style.module.scss';
 import Image from 'next/image';
 
-export default function Home() {
-  const [filter, setFilter] = useState(null);
+export default function Home({ searchParams }) {
+  const filter = searchParams.filter;
   return (
     <>
-      <Header filter={filter} setFilter={setFilter} />
+      <Header />
       <section className={classes.history_wrapper}>
         <div className={classes.history_title_wrapper}>
           <div className={classes.history_title}>History</div>
