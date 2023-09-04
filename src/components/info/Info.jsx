@@ -9,17 +9,13 @@ async function getData() {
 
 export default async function Info() {
   const data = await getData();
-  // console.log('data', data);
+  console.log('data', data);
   return (
     <>
       <div className={classes.wrapper}>
         <h2 className={classes.author}>{data[0].name}</h2>
         <section>
-          <p className={classes.about}>
-            currently a frontend engineer who enjoys exploring technology. I appreciate maintaining flexibility in life
-            and gravitate towards possibilities-rich endeavors. I also have a fondness for indulging in a delicious
-            matcha latte.
-          </p>
+          <p className={classes.about}>{data[0].content}</p>
           <div className={classes.image_wrapper}>
             <Image src="/doggy.jpeg" width={300} height={300} alt="Picture of the author" />
           </div>
