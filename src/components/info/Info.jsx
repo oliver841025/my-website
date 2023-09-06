@@ -1,6 +1,7 @@
 import classes from './info.module.scss';
 import Image from 'next/image';
 import { client } from '../../utils/configSanity';
+import { getCurrentDate } from '../../utils/getDate';
 
 async function getData() {
   const names = await client.fetch(`*[_type == "info"]`);
@@ -9,7 +10,7 @@ async function getData() {
 
 export default async function Info() {
   const data = await getData();
-  console.log('data', data);
+  console.log('data', data.experience[0]);
   return (
     <>
       <div className={classes.wrapper}>
