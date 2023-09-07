@@ -10,7 +10,7 @@ async function getData() {
 
 export default async function Info() {
   const data = await getData();
-  console.log('data yoyo', data);
+  // console.log('data yoyo', data);
   return (
     <>
       <div className={classes.wrapper}>
@@ -23,14 +23,14 @@ export default async function Info() {
         </section>
         <section>
           <h3 className={classes.experience_title}>EXPERIENCE</h3>
-          <div className={classes.experience_content}>
-            <div>2023 / 05 - now</div>
-            <div>KICKSCREW Front-end Engineer</div>
-          </div>
-          <div className={classes.experience_content}>
-            <div>2023 / 05 - now</div>
-            <div>KICKSCREW Front-end Engineer</div>
-          </div>
+          {data.experience.map((item, index) => (
+            <div className={classes.experience_content} key={index}>
+              <div>{item.duration}</div>
+              <div>
+                {item.company} / {item.position}
+              </div>
+            </div>
+          ))}
         </section>
       </div>
     </>
