@@ -1,10 +1,9 @@
 import classes from './info.module.scss';
 import Image from 'next/image';
 import { client } from '../../utils/configSanity';
-import { getCurrentDate } from '../../utils/getDate';
 
 async function getData() {
-  const response = await client.fetch(`*[_type == "info"]`);
+  const response = await client.fetch(`*[_type == "info"]`, { next: { revalidate: 600 } });
   // console.log('response', response);
   return response[0];
 }
