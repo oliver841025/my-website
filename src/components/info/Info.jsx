@@ -4,19 +4,20 @@ import { client } from '../../utils/configSanity';
 import { getCurrentDate } from '../../utils/getDate';
 
 async function getData() {
-  const names = await client.fetch(`*[_type == "info"]`);
-  return names;
+  const response = await client.fetch(`*[_type == "info"]`);
+  // console.log('response', response);
+  return response[0];
 }
 
 export default async function Info() {
   const data = await getData();
-  console.log('data', data.experience[0]);
+  console.log('data yoyo', data);
   return (
     <>
       <div className={classes.wrapper}>
-        <h2 className={classes.author}>{data[0].name}</h2>
+        <h2 className={classes.author}>{data.name}</h2>
         <section>
-          <p className={classes.about}>{data[0].content}</p>
+          <p className={classes.about}>{data.content}</p>
           <div className={classes.image_wrapper}>
             <Image src="/doggy.jpeg" width={300} height={300} alt="Picture of the author" />
           </div>
