@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { client } from '../../utils/configSanity';
 
 async function getData() {
-  const response = await client.fetch(`*[_type == "info"]`, { next: { revalidate: 600 } });
+  const response = await client.fetch(`*[_type == "info"]`, { next: { revalidate: 10 } });
   // console.log('response', response);
   return response[0];
 }

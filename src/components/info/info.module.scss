@@ -2,10 +2,18 @@
   position: absolute;
   top: 80px;
   height: 79vh;
-  background: #bfc2ff;
+  // background: #bfc2ff;
+  background: #e1e1e1;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   margin: 0 20px;
   padding: 10px;
+  width: 420px;
+}
+
+@media (max-width: 480px) {
+  .wrapper {
+    width: 340px;
+  }
 }
 
 .author {

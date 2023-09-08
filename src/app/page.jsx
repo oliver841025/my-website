@@ -43,7 +43,6 @@ export default function Home({ searchParams }) {
       </div>
       {filter === 'info' && <Info />}
       {filter === 'work' && <Work />}
-      <Footer />
     </>
   );
 }
