@@ -2,11 +2,29 @@ import Footer from '../components/footer/Footer';
 import Header from '../components/header/Header';
 import Info from '../components/info/Info';
 import Work from '../components/work/Work';
+import { client } from '../utils/configSanity';
 import classes from './style.module.scss';
 import Image from 'next/image';
 
-export default function Home({ searchParams }) {
+async function getWebsiteData() {
+  const response = await client.fetch(
+    `*[_type == "website"]{
+    name,
+    description,
+    'imgUrl': array_of_posters[0].asset->url,
+  }`,
+    {
+      next: { revalidate: 60 },
+    },
+  );
+  // console.log('response', response);
+  return response;
+}
+
+export default async function Home({ searchParams }) {
   const filter = searchParams.filter;
+  const websiteData = await getWebsiteData();
+
   return (
     <>
       <Header />
@@ -42,7 +60,7 @@ export default function Home({ searchParams }) {
         </p>
       </div>
       {filter === 'info' && <Info />}
-      {filter === 'work' && <Work />}
+      {filter === 'work' && <Work websiteData={websiteData} />}
     </>
   );
 }

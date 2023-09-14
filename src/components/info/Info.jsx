@@ -21,7 +21,6 @@ async function getData() {
 
 export default async function Info() {
   const data = await getData();
-  console.log('data yoyo', data);
   return (
     <>
       <div className={classes.wrapper}>
