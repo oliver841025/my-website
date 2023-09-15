@@ -7,12 +7,14 @@ export default function Website(props) {
   console.log('data', websiteData);
   return (
     <>
-      <div className={classes.website}>
-        <div className={classes.cover}>
-          <h4 className={classes.title}>{websiteData[2].name}</h4>
+      {websiteData.map((item) => (
+        <div className={classes.website} key={item.name}>
+          <div className={classes.cover}>
+            <h4 className={classes.title}>{item.name}</h4>
+          </div>
+          <Image src={item.imgUrl} width={400} height={230} alt={item.name} />
         </div>
-        <Image src={websiteData[2].imgUrl} width={400} height={230} alt="KICKSCREW" />
-      </div>
+      ))}
     </>
   );
 }

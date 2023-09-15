@@ -5,9 +5,10 @@
 
 .title {
   position: absolute;
-  bottom: 50%;
-  left: 38%;
-  color: black;
+  bottom: 5%;
+  left: 2%;
+  color: white;
+  font-weight: 100;
 }
 
 .cover {
@@ -15,8 +16,7 @@
   width: 100%;
   height: 100%;
   position: absolute;
-  background: rgb(92, 92, 92);
-  transition: .4s;
+  transition: 0.4s;
 }
 
 .cover:hover {
@@ -25,4 +25,5 @@
   position: absolute;
   background: rgb(92, 92, 92);
   opacity: 0.7;
+  cursor: pointer;
 }

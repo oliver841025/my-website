@@ -6,7 +6,7 @@ import Website from '../website/Website';
 import Motion from '../motion/Motion';
 import Graphic from '../graphic/Graphic';
 
-export default function Info(props) {
+export default function Work(props) {
   const { websiteData } = props;
   const [cardFilter, setCardFilter] = useState('website');
 

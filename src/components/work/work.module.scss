@@ -45,6 +45,10 @@
   }
 }
 
+.bottom_wrapper::-webkit-scrollbar {
+  display: none;
+}
+
 .website,
 .video {
   border-right: 1px solid;
