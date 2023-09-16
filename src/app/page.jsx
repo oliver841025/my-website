@@ -21,9 +21,25 @@ async function getWebsiteData() {
   return response;
 }
 
+async function getMotionData() {
+  const response = await client.fetch(
+    `*[_type == "motion"]{
+    name,
+    description,
+    'imgUrl': array_of_posters[0].asset->url,
+  }`,
+    {
+      next: { revalidate: 60 },
+    },
+  );
+  // console.log('response', response);
+  return response;
+}
+
 export default async function Home({ searchParams }) {
   const filter = searchParams.filter;
   const websiteData = await getWebsiteData();
+  const motionData = await getMotionData();
 
   return (
     <>
@@ -60,7 +76,7 @@ export default async function Home({ searchParams }) {
         </p>
       </div>
       {filter === 'info' && <Info />}
-      {filter === 'work' && <Work websiteData={websiteData} />}
+      {filter === 'work' && <Work websiteData={websiteData} motionData={motionData}/>}
     </>
   );
 }

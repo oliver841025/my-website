@@ -8,6 +8,7 @@ async function getData() {
     name,
     content,
     'imgUrl': avatar[0].avatar.asset->url,
+    experience
   }`,
     { next: { revalidate: 60 } },
   );
@@ -16,7 +17,6 @@ async function getData() {
 
 export default async function Info() {
   const data = await getData();
-  console.log('data', data);
   return (
     <>
       <div className={classes.wrapper}>
@@ -27,7 +27,7 @@ export default async function Info() {
             <Image src={data.imgUrl} width={300} height={140} alt="avatar" />
           </div>
         </section>
-        {/* <section>
+        <section>
           <h3 className={classes.experience_title}>EXPERIENCE</h3>
           {data.experience.map((item, index) => (
             <div className={classes.experience_content} key={index}>
@@ -37,7 +37,7 @@ export default async function Info() {
               </div>
             </div>
           ))}
-        </section> */}
+        </section>
       </div>
     </>
   );
