@@ -9,6 +9,7 @@ import Graphic from '../graphic/Graphic';
 export default function Work(props) {
   const { websiteData, motionData } = props;
   const [cardFilter, setCardFilter] = useState('website');
+  console.log('websiteData, motionData in work layer', websiteData, motionData);
 
   const handleClick = (param) => {
     setCardFilter(param);
@@ -45,7 +46,7 @@ export default function Work(props) {
         </section>
         <section className={classes.bottom_wrapper}>
           {cardFilter === 'website' && <Website websiteData={websiteData} />}
-          {cardFilter === 'motion' && <Motion motionData={motionData}/>}
+          {cardFilter === 'motion' && <Motion motionData={motionData} />}
           {cardFilter === 'graphic' && <Graphic />}
         </section>
       </div>

@@ -41,6 +41,8 @@ export default async function Home({ searchParams }) {
   const websiteData = await getWebsiteData();
   const motionData = await getMotionData();
 
+  console.log('websiteData, motionData in homepage layer', websiteData, motionData);
+
   return (
     <>
       <Header />
@@ -76,7 +78,7 @@ export default async function Home({ searchParams }) {
         </p>
       </div>
       {filter === 'info' && <Info />}
-      {filter === 'work' && <Work websiteData={websiteData} motionData={motionData}/>}
+      {filter === 'work' && <Work websiteData={websiteData} motionData={motionData} />}
     </>
   );
 }
