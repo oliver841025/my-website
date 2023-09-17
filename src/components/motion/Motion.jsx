@@ -7,7 +7,7 @@ export default function Motion(props) {
   return (
     <>
       {motionData.map((item) => (
-        <div className={classes.website} key={item.name}>
+        <div className={classes.motion} key={item.name}>
           <div className={classes.cover}>
             <h4 className={classes.title}>{item.name}</h4>
           </div>

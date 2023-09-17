@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 export default function Website(props) {
   const { websiteData } = props;
-  // console.log('data', websiteData);
+  console.log('data', websiteData);
   return (
     <>
       {websiteData.map((item) => (

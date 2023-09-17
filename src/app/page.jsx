@@ -6,6 +6,20 @@ import { client } from '../utils/configSanity';
 import classes from './style.module.scss';
 import Image from 'next/image';
 
+async function getGraphicData() {
+  const response = await client.fetch(
+    `*[_type == "graphic"]{
+    name,
+    description,
+    'imgUrl': array_of_posters[0].poster.asset->url,
+  }`,
+    {
+      next: { revalidate: 60 },
+    },
+  );
+  return response;
+}
+
 async function getWebsiteData() {
   const response = await client.fetch(
     `*[_type == "website"]{
@@ -40,8 +54,9 @@ export default async function Home({ searchParams }) {
   const filter = searchParams.filter;
   const websiteData = await getWebsiteData();
   const motionData = await getMotionData();
+  const graphicData = await getGraphicData();
 
-  console.log('websiteData, motionData in homepage layer', websiteData, motionData);
+  // console.log('websiteData, motionData in homepage layer', websiteData, motionData);
 
   return (
     <>
@@ -78,7 +93,7 @@ export default async function Home({ searchParams }) {
         </p>
       </div>
       {filter === 'info' && <Info />}
-      {filter === 'work' && <Work websiteData={websiteData} motionData={motionData} />}
+      {filter === 'work' && <Work websiteData={websiteData} motionData={motionData} graphicData={graphicData} />}
     </>
   );
 }
