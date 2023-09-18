@@ -6,6 +6,19 @@ import { client } from '../utils/configSanity';
 import classes from './style.module.scss';
 import Image from 'next/image';
 
+async function getHomepageData() {
+  const response = await client.fetch(
+    `*[_type == "homepage"]{
+    name,
+    'imgUrl': poster.asset->url,
+  }`,
+    {
+      next: { revalidate: 60 },
+    },
+  );
+  return response;
+}
+
 async function getGraphicData() {
   const response = await client.fetch(
     `*[_type == "graphic"]{
@@ -52,11 +65,12 @@ async function getMotionData() {
 
 export default async function Home({ searchParams }) {
   const filter = searchParams.filter;
+  const homepageData = await getHomepageData();
   const websiteData = await getWebsiteData();
   const motionData = await getMotionData();
   const graphicData = await getGraphicData();
 
-  // console.log('websiteData, motionData in homepage layer', websiteData, motionData);
+  console.log('homepageData', homepageData);
 
   return (
     <>
@@ -84,7 +98,7 @@ export default async function Home({ searchParams }) {
       </section>
 
       <div className={classes.wrapper}>
-        <Image src="/doggy.jpeg" width={350} height={350} alt="Picture of the author" />
+        <Image src={homepageData[0].imgUrl} width={600} height={350} alt="Picture of the author" />
         <div className={classes.author}>OLIVER HUANG</div>
       </div>
       <div className={classes.recommendation_wrapper}>
