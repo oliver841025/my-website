@@ -9,7 +9,7 @@ import Graphic from '../graphic/Graphic';
 export default function Work(props) {
   const { websiteData, motionData, graphicData } = props;
   const [cardFilter, setCardFilter] = useState('website');
-  console.log('websiteData, motionData in work layer', websiteData, motionData);
+  // console.log('websiteData, motionData in work layer', websiteData, motionData);
 
   const handleClick = (param) => {
     setCardFilter(param);

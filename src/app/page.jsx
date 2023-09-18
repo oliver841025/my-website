@@ -31,7 +31,7 @@ async function getWebsiteData() {
       next: { revalidate: 60 },
     },
   );
-  console.log('response', response);
+  // console.log('response', response);
   return response;
 }
 
@@ -56,7 +56,7 @@ export default async function Home({ searchParams }) {
   const motionData = await getMotionData();
   const graphicData = await getGraphicData();
 
-  console.log('websiteData, motionData in homepage layer', websiteData, motionData);
+  // console.log('websiteData, motionData in homepage layer', websiteData, motionData);
 
   return (
     <>
