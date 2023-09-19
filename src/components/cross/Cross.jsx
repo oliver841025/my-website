@@ -12,5 +12,5 @@ export default function Cross(props) {
     setFilter(null);
   };
 
-  return <Image src={crossImg} width={30} height={30} alt="cross-btn" onClick={handleCrossClick} />;
+  return <Image src={crossImg} width={30} height={30} alt="cross-btn" onClick={handleCrossClick} layout="responsive" />;
 }

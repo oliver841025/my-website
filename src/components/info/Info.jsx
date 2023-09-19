@@ -24,7 +24,7 @@ export default async function Info() {
         <section>
           <p className={classes.about}>{data.content}</p>
           <div className={classes.image_wrapper}>
-            <Image src={data.imgUrl} width={300} height={140} alt="avatar" />
+            <Image src={data.imgUrl} width={300} height={140} alt="avatar" layout="responsive"/>
           </div>
         </section>
         <section>

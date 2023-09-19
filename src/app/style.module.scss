@@ -3,13 +3,17 @@ $history-title-color: #8d8d8d;
 $delete-history-background-color: #8afb88;
 
 .wrapper {
-  margin: 0 20px 0 20px;
+  // margin: 0 20px 0 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   height: 78vh;
   padding-bottom: 25px;
+  max-width: 650px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
 
   img {
     margin-top: 60px;
