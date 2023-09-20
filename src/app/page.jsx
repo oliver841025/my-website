@@ -1,4 +1,4 @@
-import { gsap } from "gsap";
+import { gsap } from 'gsap';
 import Footer from '../components/footer/Footer';
 import Header from '../components/header/Header';
 import Info from '../components/info/Info';
@@ -99,13 +99,8 @@ export default async function Home({ searchParams }) {
       </section>
 
       <div className={classes.wrapper}>
-        <Image src={homepageData[0].imgUrl} width={600} height={350} maxWidth={600} layout="responsive" alt="Picture of the author" />
+        <Image src={homepageData[0].imgUrl} width={600} height={350} layout="responsive" alt="Picture of the author" />
         <div className={classes.author}>OLIVER HUANG</div>
-      </div>
-      <div className={classes.recommendation_wrapper}>
-        <p id="recommendation-text" className={classes.recommendation}>
-          contact me (☞ﾟヮﾟ)☞ Click to copy my email
-        </p>
       </div>
       {filter === 'info' && <Info />}
       {filter === 'work' && <Work websiteData={websiteData} motionData={motionData} graphicData={graphicData} />}
