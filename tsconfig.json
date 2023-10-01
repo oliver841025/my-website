@@ -24,8 +24,11 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx",
-    "src/app/page.jsx",
-    "src/components/cross/Cross.jsx"
-, "src/components/website/Website.jsx", "src/components/motion/Motion.jsx", "src/components/graphic/Graphic.jsx"  ],
+    "src/app/(main)/page.jsx",
+    "src/components/cross/Cross.jsx",
+    "src/components/website/Website.jsx",
+    "src/components/motion/Motion.jsx",
+    "src/components/graphic/Graphic.jsx"
+  ],
   "exclude": ["node_modules"]
 }

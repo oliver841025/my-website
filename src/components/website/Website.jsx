@@ -11,7 +11,7 @@ export default function Website(props) {
     <>
       {websiteData.map((item) => (
         <>
-          <Link href={`/works/website/${item.name}`}>
+          <Link href={`/website/${item.name}`}>
             <div className={classes.website} key={item.name}>
               <div className={classes.cover}>
                 <h4 className={classes.title}>{item.name}</h4>
