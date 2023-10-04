@@ -25,7 +25,7 @@ async function getGraphicData() {
     `*[_type == "graphic"]{
     name,
     description,
-    'imgUrl': array_of_posters[0].poster.asset->url,
+    'imgUrl': array_of_posters[0].asset->url,
   }`,
     {
       next: { revalidate: 60 },

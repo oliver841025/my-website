@@ -5,7 +5,8 @@ $shadow-color: rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
-  position: absolute;
+  position: fixed;
+  bottom: 0;
   width: 100%;
   // bottom: 0;
 }

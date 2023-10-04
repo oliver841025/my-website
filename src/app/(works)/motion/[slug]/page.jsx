@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export async function generateStaticParams() {
   const posts = await client.fetch(
-    `*[_type == "website"]{
+    `*[_type == "motion"]{
       name,
       description,
       link,
@@ -22,9 +22,9 @@ export async function generateStaticParams() {
   }));
 }
 
-async function getWebsiteData(slug) {
+async function getMotionData(slug) {
   const response = await client.fetch(
-    `*[_type == "website" && name == "${slug}"]{
+    `*[_type == "motion" && name == "${slug}"]{
     name,
     description,
     link,
@@ -38,13 +38,13 @@ async function getWebsiteData(slug) {
   return response;
 }
 
-export default async function WebsiteDetail({ params }) {
+export default async function MotionDetail({ params }) {
   const { slug } = params;
-  const websiteData = await getWebsiteData(slug);
+  const motionData = await getMotionData(slug);
 
   return (
     <>
-      {websiteData.map((item) => (
+      {motionData.map((item) => (
         <>
           <div key={item._id}>
             <Link href={item.link ? item.link : '#'} className={classes.a}>
