@@ -1,0 +1,15 @@
+.cross {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  bottom: 497px;
+  left: 189px;
+  transform: scale(0.08);
+}
+
+@media (max-width: 480px) {
+  .cross {
+    left: 155px;
+    bottom: 529px;
+  }
+}

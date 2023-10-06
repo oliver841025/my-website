@@ -1,6 +1,7 @@
 'use client';
 import Image from 'next/image';
 import crossImg from '../../../public/cross.svg';
+import classes from './cross.module.scss';
 import { useRouter } from 'next/navigation';
 
 export default function Cross(props) {
@@ -12,5 +13,15 @@ export default function Cross(props) {
     setFilter(null);
   };
 
-  return <Image src={crossImg} width={30} height={30} alt="cross-btn" onClick={handleCrossClick} layout="responsive" />;
+  return (
+    <Image
+      className={classes.cross}
+      src={crossImg}
+      width={30}
+      height={30}
+      alt="cross-btn"
+      onClick={handleCrossClick}
+      layout="responsive"
+    />
+  );
 }

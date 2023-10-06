@@ -7,7 +7,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         {children}
-        <BackHome />
+        <BackHome filter={'/?filter=work'}/>
         <Footer />
       </body>
     </html>

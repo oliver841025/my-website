@@ -7,6 +7,19 @@ import { client } from '../../utils/configSanity';
 import classes from './style.module.scss';
 import Image from 'next/image';
 
+async function getInfo() {
+  const response = await client.fetch(
+    `*[_type == "info"]{
+    name,
+    content,
+    'imgUrl': avatar[0].avatar.asset->url,
+    experience
+  }`,
+    { next: { revalidate: 60 } },
+  );
+  return response[0];
+}
+
 async function getHomepageData() {
   const response = await client.fetch(
     `*[_type == "homepage"]{
@@ -72,6 +85,7 @@ export default async function Home({ searchParams }) {
   const websiteData = await getWebsiteData();
   const motionData = await getMotionData();
   const graphicData = await getGraphicData();
+  const infoData = await getInfo();
 
   return (
     <>
@@ -102,7 +116,7 @@ export default async function Home({ searchParams }) {
         <Image src={homepageData[0].imgUrl} width={600} height={350} layout="responsive" alt="Picture of the author" />
         <div className={classes.author}>OLIVER HUANG</div>
       </div>
-      {filter === 'info' && <Info />}
+      {filter === 'info' && <Info infoData={infoData}/>}
       {filter === 'work' && <Work websiteData={websiteData} motionData={motionData} graphicData={graphicData} />}
     </>
   );
