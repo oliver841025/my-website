@@ -1,8 +1,8 @@
 'use client';
-import { useState } from 'react';
+import {  useState } from 'react';
 import Cross from '../cross/Cross';
 import classes from './header.module.scss';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 export default function Header() {
   const router = useRouter();
@@ -40,9 +40,7 @@ export default function Header() {
             INFO
           </div>
         </section>
-        <section className={classes.right_wrapper}>
-          {filter !== null && <Cross setFilter={setFilter}/>}
-        </section>
+        <section className={classes.right_wrapper}>{filter !== null && <Cross setFilter={setFilter} />}</section>
       </div>
     </>
   );

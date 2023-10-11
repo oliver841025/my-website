@@ -29,6 +29,7 @@ async function getMotionData(slug) {
     description,
     link,
     whatIHaveDone,
+    embedSrc,
     'imgUrl': array_of_posters[0].asset->url,
   }`,
     {
@@ -41,6 +42,7 @@ async function getMotionData(slug) {
 export default async function MotionDetail({ params }) {
   const { slug } = params;
   const motionData = await getMotionData(slug);
+  console.log('motionData', motionData);
 
   return (
     <>
@@ -51,8 +53,19 @@ export default async function MotionDetail({ params }) {
               <h1 className={classes.title}>{item.name}</h1>
             </Link>
             <h3 className={classes.desc}>{item.description}</h3>
+
             <div className={classes.img_block}>
-              <Link href={item.link ? item.link : '#'}>
+              <iframe
+                src={item.embedSrc}
+                frameBorder="0"
+                allow="autoplay; fullscreen; picture-in-picture"
+                title="Mythomania"
+                className={classes.video}
+              ></iframe>
+            </div>
+
+            <div className={classes.img_block}>
+              <Link href={item.link ? item.link : '#'} target="_blank">
                 <Image
                   src={item.imgUrl}
                   width={400}
