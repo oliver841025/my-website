@@ -1,8 +1,7 @@
 import { gsap } from 'gsap';
+import Card from '../../components/card/Card';
 import Footer from '../../components/footer/Footer';
 import Header from '../../components/header/Header';
-import Info from '../../components/info/Info';
-import Work from '../../components/work/Work';
 import { client } from '../../utils/configSanity';
 import classes from './style.module.scss';
 import Image from 'next/image';
@@ -80,7 +79,6 @@ async function getMotionData() {
 }
 
 export default async function Home({ searchParams }) {
-  const filter = searchParams.filter;
   const homepageData = await getHomepageData();
   const websiteData = await getWebsiteData();
   const motionData = await getMotionData();
@@ -116,8 +114,7 @@ export default async function Home({ searchParams }) {
         <Image src={homepageData[0].imgUrl} width={600} height={350} layout="responsive" alt="Picture of the author" />
         <div className={classes.author}>OLIVER HUANG</div>
       </div>
-      {filter === 'info' && <Info infoData={infoData}/>}
-      {filter === 'work' && <Work websiteData={websiteData} motionData={motionData} graphicData={graphicData} />}
+      <Card infoData={infoData} websiteData={websiteData} motionData={motionData} graphicData={graphicData}/>
     </>
   );
 }

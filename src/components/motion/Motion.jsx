@@ -7,10 +7,10 @@ export default function Motion(props) {
   const { motionData } = props;
   return (
     <>
-      {motionData.map((item) => (
+      {motionData.map((item, index) => (
         <>
-          <Link href={`/motion/${item.name}`}>
-            <div className={classes.motion} key={item.name}>
+          <Link href={`/motion/${item.name}`} key={index}>
+            <div className={classes.motion} key={index}>
               <div className={classes.cover}>
                 <h4 className={classes.title}>{item.name}</h4>
               </div>

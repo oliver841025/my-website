@@ -3,20 +3,14 @@ import {  useState } from 'react';
 import Cross from '../cross/Cross';
 import classes from './header.module.scss';
 import { useRouter, useSearchParams } from 'next/navigation';
+import useStore from '../../app/hooks/useStore';
 
 export default function Header() {
+  const {filter, setFilter, work, setWork, info, setInfo} = useStore();
   const router = useRouter();
-  const [filter, setFilter] = useState(null);
 
-  const handleClick = (param) => {
-    router.push(`/?filter=${param}`);
-    setFilter(param);
-
-    if (param === 'work') {
-      setFilter('work');
-    } else if (param === 'info') {
-      setFilter('info');
-    }
+  const handleClick = (newFilter) => {
+    setFilter(newFilter);
   };
 
   return (
@@ -40,7 +34,7 @@ export default function Header() {
             INFO
           </div>
         </section>
-        <section className={classes.right_wrapper}>{filter !== null && <Cross setFilter={setFilter} />}</section>
+        {/* <section className={classes.right_wrapper}>{filter !== null && <Cross setFilter={setFilter} />}</section> */}
       </div>
     </>
   );

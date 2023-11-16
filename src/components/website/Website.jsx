@@ -9,10 +9,10 @@ export default function Website(props) {
 
   return (
     <>
-      {websiteData.map((item) => (
+      {websiteData.map((item, index) => (
         <>
-          <Link href={`/website/${item.name}`}>
-            <div className={classes.website} key={item.name}>
+          <Link href={`/website/${item.name}`} key={index}>
+            <div className={classes.website} key={index}>
               <div className={classes.cover}>
                 <h4 className={classes.title}>{item.name}</h4>
               </div>
