@@ -112,7 +112,7 @@ export default async function Home({ searchParams }) {
 
       <div className={classes.wrapper}>
         <Image src={homepageData[0].imgUrl} width={600} height={350} layout="responsive" alt="Picture of the author" />
-        <div className={classes.author}>OLIVER HUANG</div>
+        <div className={classes.author}>HSUANSKY</div>
       </div>
       <Card infoData={infoData} websiteData={websiteData} motionData={motionData} graphicData={graphicData}/>
     </>

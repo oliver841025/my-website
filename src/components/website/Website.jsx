@@ -10,16 +10,14 @@ export default function Website(props) {
   return (
     <>
       {websiteData.map((item, index) => (
-        <>
-          <Link href={`/website/${item.name}`} key={index}>
-            <div className={classes.website} key={index}>
-              <div className={classes.cover}>
-                <h4 className={classes.title}>{item.name}</h4>
-              </div>
-              <Image src={item.imgUrl} width={400} height={230} alt={item.name} layout="responsive" />
+        <Link href={`/website/${item.name}`} key={index}>
+          <div className={classes.website}>
+            <div className={classes.cover}>
+              <h4 className={classes.title}>{item.name}</h4>
             </div>
-          </Link>
-        </>
+            <Image src={item.imgUrl} width={400} height={230} alt={item.name} />
+          </div>
+        </Link>
       ))}
     </>
   );

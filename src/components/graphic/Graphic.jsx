@@ -7,16 +7,14 @@ export default function Graphic(props) {
   return (
     <>
       {graphicData.map((item, index) => (
-        <>
-          <Link href={`/graphic/${item.name}`} key={index}>
-            <div className={classes.graphic} key={item.name}>
-              <div className={classes.cover}>
-                <h4 className={classes.title}>{item.name}</h4>
-              </div>
-              <Image src={item.imgUrl} width={400} height={550} alt={item.name} layout="responsive" />
+        <Link href={`/graphic/${item.name}`} key={index}>
+          <div className={classes.graphic}>
+            <div className={classes.cover}>
+              <h4 className={classes.title}>{item.name}</h4>
             </div>
-          </Link>
-        </>
+            <Image src={item.imgUrl} width={400} height={550} alt={item.name} />
+          </div>
+        </Link>
       ))}
     </>
   );

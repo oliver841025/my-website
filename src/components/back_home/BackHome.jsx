@@ -1,10 +1,9 @@
 import Link from 'next/link';
 import classes from './backHome.module.scss';
 
-export default function BackHome(props) {
-  const { filter } = props;
+export default function BackHome() {
   return (
-    <Link href={filter}>
+    <Link href="/">
       <div className={classes.wrapper}>Home</div>
     </Link>
   );

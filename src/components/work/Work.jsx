@@ -7,23 +7,11 @@ import Motion from '../motion/Motion';
 import Graphic from '../graphic/Graphic';
 import Cross from '../cross/Cross';
 import { usePathname, useSearchParams } from 'next/navigation';
+import useStore from '../../app/hooks/useStore';
 
 export default function Work(props) {
   const { websiteData, motionData, graphicData } = props;
   const [cardFilter, setCardFilter] = useState('website');
-  const [filter, setFilter] = useState(null);
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-  const [isCross, setIsCross] = useState(false);
-
-  useEffect(() => {
-    const targetSearchParams = searchParams.toString();
-    if (targetSearchParams === 'filter=work') {
-      setIsCross(true);
-    } else {
-      setIsCross(false);
-    }
-  }, [pathname, searchParams]);
 
   const handleClick = (param) => {
     setCardFilter(param);
@@ -32,7 +20,6 @@ export default function Work(props) {
   return (
     <>
       <div className={classes.wrapper}>
-        {isCross && <Cross setFilter={setFilter} />}
         <section className={classes.top_wrapper}>
           <div
             className={`${classes.filter} ${classes.website} ${cardFilter === 'website' ? classes.clicked : ''}`}

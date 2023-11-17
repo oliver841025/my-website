@@ -8,16 +8,14 @@ export default function Motion(props) {
   return (
     <>
       {motionData.map((item, index) => (
-        <>
-          <Link href={`/motion/${item.name}`} key={index}>
-            <div className={classes.motion} key={index}>
-              <div className={classes.cover}>
-                <h4 className={classes.title}>{item.name}</h4>
-              </div>
-              <Image src={item.imgUrl} width={400} height={230} alt={item.name} layout="responsive" />
+        <Link href={`/motion/${item.name}`} key={index}>
+          <div className={classes.motion}>
+            <div className={classes.cover}>
+              <h4 className={classes.title}>{item.name}</h4>
             </div>
-          </Link>
-        </>
+            <Image src={item.imgUrl} width={400} height={230} alt={item.name} />
+          </div>
+        </Link>
       ))}
     </>
   );

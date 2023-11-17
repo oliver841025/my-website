@@ -29,7 +29,7 @@ export default function Info(props) {
         <section>
           <p className={classes.about}>{infoData.content}</p>
           <div className={classes.image_wrapper}>
-            <Image src={infoData.imgUrl} width={300} height={140} alt="avatar" layout="responsive" />
+            <Image src={infoData.imgUrl} width={300} height={140} alt="avatar" />
           </div>
         </section>
         <section>
