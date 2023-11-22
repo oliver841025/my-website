@@ -5,7 +5,6 @@ import { useEffect, useState } from 'react';
 import Website from '../website/Website';
 import Motion from '../motion/Motion';
 import Graphic from '../graphic/Graphic';
-import Cross from '../cross/Cross';
 import { usePathname, useSearchParams } from 'next/navigation';
 import useStore from '../../app/hooks/useStore';
 

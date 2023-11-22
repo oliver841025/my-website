@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import classes from './info.module.scss';
 import Image from 'next/image';
 import { usePathname, useSearchParams } from 'next/navigation';
-import Cross from '../cross/Cross';
 
 export default function Info(props) {
   const { infoData } = props;
@@ -24,7 +23,6 @@ export default function Info(props) {
   return (
     <>
       <div className={classes.wrapper}>
-        {isCross && <Cross setFilter={setFilter} />}
         <h2 className={classes.author}>{infoData.name}</h2>
         <section>
           <p className={classes.about}>{infoData.content}</p>
