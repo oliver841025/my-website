@@ -1,14 +1,19 @@
 'use client';
-import {  useState } from 'react';
+import { useState } from 'react';
 import classes from './header.module.scss';
 import { useRouter, useSearchParams } from 'next/navigation';
 import useStore from '../../app/hooks/useStore';
 
 export default function Header() {
-  const {filter, setFilter, work, setWork, info, setInfo} = useStore();
+  const { filter, setFilter, work, setWork, info, setInfo } = useStore();
   const router = useRouter();
 
   const handleClick = (newFilter) => {
+    if ((filter === 'work' && newFilter === 'work') || (filter === 'info' && newFilter === 'info')) {
+      setFilter('default');
+      return;
+    }
+
     setFilter(newFilter);
   };
 
