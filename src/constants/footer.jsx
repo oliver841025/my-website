@@ -11,9 +11,7 @@ email (☞ﾟヮﾟ)☞ Click to copy my email (☞ﾟヮﾟ)☞ Click to copy m
 (☞ﾟヮﾟ)☞ Click to copy my email (☞ﾟヮﾟ)☞ Click to copy my email`;
 
 export const successfullyCopyString = `(☞ﾟヮﾟ)☞ Copy Successfully! (☞ﾟヮﾟ)☞ Copy Successfully! (☞ﾟヮﾟ)☞ Copy Successfully! (☞ﾟヮﾟ)☞
-Copy Successfully! (☞ﾟヮﾟ)☞ Copy Successfully! (☞ﾟヮﾟ)☞ Copy Successfully! (☞ﾟヮﾟ)☞ Click to
-copy my email (☞ﾟヮﾟ)☞ Copy Successfully! (☞ﾟヮﾟ)☞ Copy Successfully! (☞ﾟヮﾟ)☞ Click to copy my
-email (☞ﾟヮﾟ)☞ Copy Successfully! (☞ﾟヮﾟ)☞ Copy Successfully! (☞ﾟヮﾟ)☞ Copy Successfully!
+Copy Successfully! (☞ﾟヮﾟ)☞ Copy Successfully! (☞ﾟヮﾟ)☞ Copy Successfully! (☞ﾟヮﾟ)☞ Copy Successfully! (☞ﾟヮﾟ)☞ Copy Successfully! (☞ﾟヮﾟ)☞ Copy Successfully! (☞ﾟヮﾟ)☞ Copy Successfully! (☞ﾟヮﾟ)☞ Copy Successfully! (☞ﾟヮﾟ)☞ Copy Successfully! (☞ﾟヮﾟ)☞ Copy Successfully!
 (☞ﾟヮﾟ)☞ Copy Successfully! (☞ﾟヮﾟ)☞ Copy Successfully! (☞ﾟヮﾟ)☞ Copy Successfully! (☞ﾟヮﾟ)☞
 Copy Successfully! (☞ﾟヮﾟ)☞ Copy Successfully! (☞ﾟヮﾟ)☞ Copy Successfully! (☞ﾟヮﾟ)☞ Click to
 copy my email (☞ﾟヮﾟ)☞ Copy Successfully! (☞ﾟヮﾟ)☞ Copy Successfully! (☞ﾟヮﾟ)☞ Click to copy my
