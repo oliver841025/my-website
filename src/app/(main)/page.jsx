@@ -1,6 +1,4 @@
-import { gsap } from 'gsap';
 import Card from '../../components/card/Card';
-import Footer from '../../components/footer/Footer';
 import Header from '../../components/header/Header';
 import { client } from '../../utils/configSanity';
 import classes from './style.module.scss';
@@ -88,7 +86,7 @@ export default async function Home({ searchParams }) {
   return (
     <>
       <Header />
-      <section className={classes.history_wrapper}>
+      {/* <section className={classes.history_wrapper}>
         <div className={classes.history_title_wrapper}>
           <div className={classes.history_title}>History</div>
           <div className={classes.clear_button}>Clear history</div>
@@ -108,11 +106,11 @@ export default async function Home({ searchParams }) {
             <p>Something about glasses</p>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <div className={classes.wrapper}>
-        <Image src={homepageData[0].imgUrl} width={600} height={350} layout="responsive" alt="Picture of the author" />
-        <div className={classes.author}>HSUANSKY</div>
+        <Image src={homepageData[0].imgUrl} width={600} height={350} layout="responsive" alt="Picture of the author" className={classes.image_wrapper}/>
+        <div className={classes.author}>HSUAN + HUSKY = HSUANSKY</div>
       </div>
       <Card infoData={infoData} websiteData={websiteData} motionData={motionData} graphicData={graphicData}/>
     </>
