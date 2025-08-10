@@ -17,7 +17,11 @@
       {
         "name": "next"
       }
-    ]
+    ],
+    "baseUrl": "src",
+    "paths": {
+      "@/*": ["*"]
+    }
   },
   "include": [
     "next-env.d.ts",
@@ -29,6 +33,6 @@
     "src/components/website/Website.jsx",
     "src/components/motion/Motion.jsx",
     "src/components/graphic/Graphic.jsx"
-  ],
+, "src/app/articles/page.jsx", "src/app/works/[slug]/page.jsx"  ],
   "exclude": ["node_modules"]
 }
