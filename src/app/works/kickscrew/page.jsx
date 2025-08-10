@@ -20,8 +20,9 @@ const KicksCrew = () => {
             <ul>
               <li>好友推薦</li>
               <li>結帳與金流</li>
-              <li>後台</li>
+              <li>內部後台</li>
               <li>使用者行為追蹤</li>
+              <li>多語系優化</li>
             </ul>
           </div>
           <div className="flex flex-col gap-2 w-1/2">
