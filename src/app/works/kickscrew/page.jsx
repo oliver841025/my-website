@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 const KicksCrew = () => {
   return (
@@ -18,11 +19,10 @@ const KicksCrew = () => {
           <div className="flex flex-col gap-2 w-1/2">
             <h4 className="border-b text-gray-500 border-gray-200 w-full pb-1">負責開發的重點功能</h4>
             <ul>
-              <li>好友推薦</li>
               <li>結帳與金流</li>
               <li>內部後台</li>
-              <li>使用者行為追蹤</li>
               <li>多語系優化</li>
+              <li>SEO 優化</li>
             </ul>
           </div>
           <div className="flex flex-col gap-2 w-1/2">
@@ -43,6 +43,14 @@ const KicksCrew = () => {
         <Image
           src="/kickscrew_homepage_banner.png"
           alt="KicksCrew homepage banner"
+          width={1920}
+          height={600}
+          className="w-full h-auto"
+        />
+        <hr />
+        <Image
+          src="/kickscrew_homepage_slide.gif"
+          alt="KicksCrew homepage slide"
           width={1920}
           height={600}
           className="w-full h-auto"
@@ -118,6 +126,116 @@ const KicksCrew = () => {
             </div>
             <p>可以左右滑動來瀏覽，左到右依序是，單點登入、訂單概覽、採購管理、客服問題回報</p>
           </div>
+        </div>
+
+        <div className="flex flex-col gap-12">
+          <p>
+            但問題還有多語系，這個基本問題在市場擴大以及團隊擴建後浮出來。
+            <br />
+            <br />
+            我們的網站需要支援多國語系，最初是由開發團隊自行翻譯與管理，這樣的做法雖然能快速上線，但起初市場比較單一，只有中英市場，後期有歐洲各國與中東地區市場，需要將多國語系轉變為更好管理的系統，於是引入了{' '}
+            <a
+              href="https://poeditor.com/"
+              className="text-blue-600 underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              POEditor
+            </a>
+            ，
+            <span className="font-bold">
+              將翻譯的責任可以從開發團隊 100% 轉移到專門的翻譯團隊，讓開發團隊能夠更專注於產品的功能開發。
+            </span>
+            <br />
+            <br />
+            這樣的做法不僅提升了翻譯的質量，也讓我們能夠更快速地推出多語系版本，
+            <span className="font-bold">語系更新速度加快了超過 50% </span>
+            ，管理上也十分有邏輯與清晰，
+            <a
+              className="text-blue-600 underline"
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://medium.com/@chinghsuan1025/how-we-manage-i18n-at-scale-poeditor-github-workflow-6ec995c9b922"
+            >
+              我這邊有紀錄當時的考量以及後期的決策
+            </a>
+            ，分析了利弊以及如何實作。
+          </p>
+          <Image
+            src="/kickscrew_poeditor.png"
+            alt="KicksCrew poeditor"
+            width={1920}
+            height={600}
+            className="w-full h-auto"
+          />
+        </div>
+
+        <div className="flex flex-col gap-12">
+          <p>
+            雖然不是 SEO 專家，但尤其是電商平台，如何在 Google
+            搜尋結果中獲得更好的排名是非常重要的，有更好的排名代表能被使用者優先搜尋到。
+            <br />
+            <br />
+            為此，做過許多優化，包含撰寫
+            LDJson、無障礙設計、優先載入某些內容等，讓爬蟲跟瀏覽器能第一時間辨識的指標，同時對於 Light House
+            常見的三大項指標也有進行處理，
+            <a
+              className="text-blue-600 underline"
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://medium.com/@chinghsuan1025/simple-steps-to-boost-your-websites-seo-ranking-4ef897b888d4"
+            >
+              這邊也記錄了我對於優化 SEO 的一些觀察與思考。
+            </a>
+          </p>
+          <Image src="/kickscrew_seo.png" alt="KicksCrew SEO" width={1920} height={600} className="w-full h-auto" />
+        </div>
+
+        <div className="flex flex-col gap-12">
+          <p>
+            金流非常重要，這邊我們選擇使用
+            <a
+              className="text-blue-600 underline"
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://www.adyen.com/"
+            >
+              {' '}
+              Adyen{' '}
+            </a>
+            作為我們支付管理服務平台，在其上，除了一般信用卡支付，考慮到各地區支付習慣不同，我們串接了 Apple Pay、Google
+            Pay、Klarna 等涵蓋全球用戶習慣的支付方式。
+            <br />
+            <br />
+            其中 Apple Pay 最為繁瑣，除了需要申請官網的
+            Domain，還需要進行一系列的驗證與設定，測試上，也需要申請專門的測試 Apple
+            ID，以及特定地區測試卡片，總之這邊我也將流程詳細記錄下來，以便未來同事或我自己查找。
+          </p>
+          <div className="flex flex-col items-center gap-4">
+            <div className="flex items-center overflow-x-auto gap-4 border">
+              <Image src="/kickscrew_payment.png" alt="KicksCrew payment" width={300} height={300} />
+              <Image
+                src="/kickscrew_payment_apple_pay_flow.png"
+                alt="KicksCrew Apple Pay flow"
+                width={1920}
+                height={300}
+              />
+            </div>
+            <p>左邊為現有支付方式，右邊為 Apple Pay 流程圖</p>
+          </div>
+        </div>
+
+        <div>
+          <p>
+            此網站也是我工作的一部份，跟團隊成員投注了大量的時間與精力，身為開發者，深知這是一個不小的專案。其中也有許多我個人的學習與紀錄，嘗試在輸入後，轉化再輸出，對於知識的鞏固是很重要的一環。
+            <br />
+            <br />
+            這邊提的是概覽，以及強調我有參與的重點項目開發，此外還有許多小巧思以及細節，例如使用者行為追蹤、性能優化、架構考量等，寫下去會顯得太過技術，可以參考{' '}
+            <Link className="text-blue-600 underline" href="/articles">
+            文章列表
+            </Link>
+            ，這邊就不一一列舉了。
+          </p>
         </div>
       </section>
     </div>
