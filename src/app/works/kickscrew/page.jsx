@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const KicksCrew = () => {
   return (
-    <div className="mt-12 flex flex-col gap-20 text-sm sm:px-20">
+    <div className="mt-12 flex flex-col gap-20 text-sm sm:px-48 leading-relaxed">
       <section className="flex flex-col gap-8">
         <h1 className="text-2xl font-bold">KICKSCREW</h1>
         <div className="flex gap-12 w-[90%]">
@@ -35,6 +35,14 @@ const KicksCrew = () => {
             >
               KICKSCREW
             </a>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://www.instagram.com/kickscrewcom/"
+              className="text-blue-600 underline"
+            >
+              KICKSCREW Instagram
+            </a>
           </div>
         </div>
       </section>
@@ -55,6 +63,7 @@ const KicksCrew = () => {
           height={600}
           className="w-full h-auto"
         />
+
         <p>
           正如所有的電商平台，基本的功能包括商品瀏覽、搜尋、購物車、結帳等都有，更進一步整合了自動推薦、分享、商品 360
           度瀏覽，使用者可以輕鬆分享喜愛商品的同時，賺取回饋金，同時更全面看到商品細節。除了球鞋，時不時都會有與 NBA
@@ -66,7 +75,7 @@ const KicksCrew = () => {
           Shopify，從結帳金流到活動發布、產品上架，都是由內部團隊自行開發維護，這樣的做法讓我們能夠更快速地迭代與調整功能，並且在面對市場變化時，能夠更靈活地應對。
         </p>
         <div className="flex flex-col items-center gap-4">
-          <Image src="/kickscrew_product_images.gif" alt="KicksCrew product images" width={600} height={300} />
+          <Image src="/kickscrew_product_rotate_images.gif" alt="KicksCrew product images" width={600} height={300} />
           <p>360 度瀏覽產品</p>
         </div>
         <p>
@@ -232,7 +241,7 @@ const KicksCrew = () => {
             <br />
             這邊提的是概覽，以及強調我有參與的重點項目開發，此外還有許多小巧思以及細節，例如使用者行為追蹤、性能優化、架構考量等，寫下去會顯得太過技術，可以參考{' '}
             <Link className="text-blue-600 underline" href="/articles">
-            文章列表
+              文章列表
             </Link>
             ，這邊就不一一列舉了。
           </p>
