@@ -1,17 +1,20 @@
 'use client';
 import { articles } from '@/app/configs/articles';
 import PageTitle from '@/components/PageTitle';
+import { useTranslations } from 'next-intl';
 
 const ArticlesPage = () => {
+  const t = useTranslations('articles');
+  
   return (
     <>
       <PageTitle />
       <div>
         <section className=" p-6 mb-12 mt-4 bg-slate-100 text-slate-600">
-          FYI: 所有文章目前點擊都會被導引到 Medium，也是我最習慣的寫作、記錄平台。
+          {t('FYI')}
         </section>
         <ul className="space-y-2 px-2 lg:px-60">
-          <li className="text-slate-500 mb-12 pb-4 border-b">Published {articles.length}</li>
+          <li className="text-slate-500 mb-12 pb-4 border-b">{t('published')} {articles.length}</li>
           {articles.map((article) => (
             <li key={article.slug}>
               <a target="_blank" rel="noopener noreferrer" href={article.href}>

@@ -1,6 +1,10 @@
 {
   "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
@@ -20,19 +24,30 @@
     ],
     "baseUrl": "src",
     "paths": {
-      "@/*": ["*"]
-    }
+      "@/*": [
+        "*"
+      ]
+    },
+    "target": "ES2017"
   },
   "include": [
     "next-env.d.ts",
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx",
-    "src/app/(main)/page.jsx",
+    "src/app/[locale]/page.jsx",
     "src/components/cross/Cross.jsx",
     "src/components/website/Website.jsx",
     "src/components/motion/Motion.jsx",
-    "src/components/graphic/Graphic.jsx"
-, "src/app/articles/page.jsx", "src/app/works/[slug]/page.jsx", "src/app/works/oli/page.jsx"  ],
-  "exclude": ["node_modules"]
+    "src/components/graphic/Graphic.jsx",
+    "src/app/[locale]/articles/page.jsx",
+    "src/app/[locale]/works/[slug]/page.jsx",
+    "src/app/[locale]/works/oli/page.jsx",
+    "src/i18n/request.js",
+    "src/i18n/routing.js",
+    "src/middleware.js"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

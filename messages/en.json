@@ -1,0 +1,146 @@
+{
+    "slogan":"Hsuan, a web developer based in Taipei, Taiwan",
+  "header": {
+    "me": "Me",
+    "works": "Works",
+    "articles": "Articles"
+  },
+  "about": {
+    "brief_intro": "HSUAN is a frontend developer from Taipei, Taiwan, who believes that the combination of programming and design can achieve a lot. In the future, I want to become a maker, but I'm still not sure what to make.",
+    "first_paragraph": "I majored in <bold>3D Animation, Shih Chien University the Department of Communications</bold>. One semester, I happened to audit a programming class with my then-girlfriend and found it interesting. I continued for a whole semester and discovered that sometimes I could enter a state of flow while coding. I also noticed that most classmates weren't good at it, so I secretly checked the job market—after all, school is often a microcosm of the market. I felt it was a field worth pursuing, so after graduation, I became a software developer with an animation background (?).",
+    "second_paragraph": "As graduation approached, I thought about going to graduate school around the age of 30, hoping to combine design and engineering. But I always felt I lacked solid development skills, so I worked part-time while improving my coding skills and even attended computer science classes. I spent the next five years diving into software development, learning about modern browsers, databases, market logic, and e-commerce operations. This period greatly influenced my way of thinking. Besides experience, I learned the importance of breaking down problems—when facing big challenges in life, I now break them into smaller ones and solve them one by one. Of course, there are other reasons for choosing this intersectional field: the ceiling is high, and you can work regardless of language or location. If the market needs it and I can do it, why not?",
+    "third_paragraph": "After graduation, I spent a long time backpacking in India and Southeast Asia, chatting with many travelers and then parting ways. I had no money at the time, but I had the world, my mouth, my feet, and a Decathlon sleeping bag (?), enough to go anywhere. After many conversations, I realized that time is relative—we enjoy everything in it but possess nothing. Time is also a kind of energy; if you don't try to grasp it, all kinds of energy can flow in and fill you, even though the body is borrowed. I've never felt like someone who lives in a rush or blindly. I plan for the big picture but like to keep the details unknown and flexible. This makes me curious about many things, and I enjoy the process, especially slowly polishing and focusing on things I can immerse myself in.",
+    "fourth_paragraph": "I divide my daily life into three parts—logical thinking, creation, and physical training. In my spare time, I still love to draw—cards, illustrations, comics, and portraits for friends I meet while traveling, using what I know to bless them. I also enjoy playing the piano, whether it's figuring out chords or playing pop songs, I always enjoy it. My favorite is still manga, which is a compendium of all knowledge in this era and can cover all kinds of topics. Whenever I'm happy, sad, or just neutral, I read manga and feel happy. I also love writing; sharing knowledge is joyful—what I receive from the public, I give back to the public. Most of my articles now are about professional knowledge, but I used to write about anything that came to mind. After all, knowledge needs to be input and output to last. I also love working out; physical training strengthens the mind, just like Netero's daily ten thousand gratitude punches—focus and constant training eventually build a strong mind. On weekends, I work as a coach, leading students and friends in fitness.",
+    "fifth_paragraph": "<bold>Energy is fluid. While enjoying it, there will also be times of exchange. 'Equivalent exchange' is the core concept of Fullmetal Alchemist and also my principle. When you enjoy something, you are destined to lose something, or if you transcend the concept of gain and loss, you are always exchanging. Sometimes it's money, sometimes time, sometimes life, and sometimes things I can't even imagine yet, but in the future, I'll know what I exchanged.</bold>",
+    "sixth_paragraph": "The biggest difference between my 20s and 30s is thinking about what else I can do, not just what I have to do. I love the field of interaction, but before that, I need to learn the knowledge and skills I think are necessary. I may not always have money (but I know how to earn it), but I know how I want to live my life. The future still has a big direction, and I hope to become a maker, but the details can only be discovered on the road—just like traveling alone, you know the destination, but you never know who you'll meet, where you'll go together, or what you'll do. You enjoy but do not possess.",
+    "education_title": "Education",
+    "education_list": {
+      "0": "09.2014 - 06.2019 B.A., 3D Animation, Shih Chien University the Department of Communications"
+    },
+    "work_title": "Work Experience",
+    "work_list": {
+      "0": "08.2025 Part-time Personal Fitness Coach",
+      "1": "05.2023 - Present Frontend Engineer, KICKS CREW",
+      "2": "09.2021 - 04.2023 Frontend Engineer, CKEX"
+    },
+    "activity_title": "Extracurricular Activities",
+    "activity_list": {
+      "0": "2019 Graduation Exhibition 'Wasteland', Shih Chien University – Music Design",
+      "1": "2019 Graduation Exhibition 'Wasteland', Shih Chien University – Portrait Artist",
+      "2": "2017 TedxKCIS Curatorial Consultant",
+      "3": "2017 SUPER ADD Intern",
+      "4": "2017 Sailor Team VJ",
+      "5": "2017 Grass Festival Curatorial Team",
+      "6": "2017 Online Exhibition 'Why Not Speak Up' – Editor, Website Setup",
+      "7": "2015 Short Film 'Lice' Finalist, Toshiba Happiness Film Festival"
+    },
+    "skills_title": "Skills",
+    "skills_list": {
+      "0": "Web",
+      "1": "JavaScript",
+      "2": "Next.js",
+      "3": "3D Animation",
+      "4": "Graphic Design",
+      "5": "Fitness"
+    }
+  },
+  "articles": {
+    "FYI": "FYI: All articles currently redirect to Medium, which is my preferred platform for writing and recording.",
+    "published": "Published"
+  },
+  "works": {
+    "drawerProject": {
+      "imgAlt1": "Drawer Project 1",
+      "imgAlt2": "Drawer Project 2",
+      "imgAlt3": "Drawer Project 3",
+      "imgAlt4": "Drawer Project 4",
+      "imgAlt5": "Drawer Project 5",
+      "imgAlt6": "Drawer Project 6",
+      "imgAltReal": "Drawer Real Photo",
+      "desc": "Portrait sketching event. Hover over the first image to see the real person. The other images do not have real person photos, as they were drawn live while chatting with random people on site."
+    },
+    "oli": {
+      "introTitle": "Introduction",
+      "intro": "The giant spends his days tending the gardens around his gray castle, as those are among the few colors in his world. He never imagined life could change, until one day he met other giants.",
+      "techTitle": "Tech",
+      "tech1": "3D Animation",
+      "video1Alt": "OLI Video 1",
+      "video2Alt": "OLI Video 2",
+      "story": "At the time, I was very fond of O. Henry's short story 'The Gift of the Magi.'\n\nThe story is about a poor young couple, Jim and Della, who each sell their most treasured possession to buy a special Christmas gift for the other. Jim sells his gold watch to buy Della a set of combs she has always wanted; Della sells her long hair to buy Jim a platinum watch chain. Although their gifts become useless because they lost what they were meant to go with, the story embodies mutual care and understanding.\n\nBut if you stretch the story, what if one side doesn't feel cared for? After all, it's supposed to be a two-way relationship.\n\nOften, we think of owners caring for pets, parents for children, or people who enjoy caring for plants as a hobby. On the surface, it seems one-sided, but in reality, 'those things' also care for you. On a spiritual level, too much concern and calculation can blind you to this reciprocal relationship, and can lead to emotional exhaustion for one side.",
+      "scene": "The scene and characters were carefully considered: low-saturation tones, plants that grow (or overgrow) through irrigation, peeking windows, overturned mugs, and spilled water—all hint at the shift from balance to imbalance in relationships.\n\nThe emptiness in the giant's heart is also a garden. As the outer garden flourishes, so does the one inside; conversely, barren land and vanishing plants, walking alone into an empty castle, mean the inner garden withers, leaving only a hollow void.\n\nThe giant has no facial features, not only to let viewers project themselves onto it, but also to avoid over-interpreting its emotions.",
+      "poster": "The design of the poster and motion poster also echo each other.\n\nThe three floors represent the three stages of a relationship: observation, care, and imbalance, from bottom to top. The flat poster shows two circles pulling against each other, symbolizing the duality of relationships—inseparable yet flexible. The two or three interlocking circles also represent the inseparability of these three stages.",
+      "oliName": "The name of this work, 'OLI', stands for 'Observe, Love, Imbalance', and was also my childhood nickname.\nI was a somewhat rebellious child, preferring to understand the world and my relationships in my own way. I often wondered if having the concept of mutual care would make relationships healthier.\n\nLooking at the work now, it feels too stream-of-consciousness, fragmented, lacking a coherent story, and focused too much on visuals at the expense of storytelling."
+    },
+    "kickscrew": {
+      "title": "KICKSCREW",
+      "introTitle": "Introduction",
+      "intro": {
+        "0": "Has become one of the most trusted and smooth digital sneaker trading platforms, expanding to apparel and accessories, offering over 400,000 unique styles online and supporting global shipping.",
+        "1": "I will introduce several key features and the ones I was responsible for."
+      },
+      "featureTitle": "Key Features Developed",
+      "featureList": {
+        "0": "Checkout & Payment",
+        "1": "Internal Admin Backend",
+        "2": "i18n Optimization",
+        "3": "SEO Optimization"
+      },
+      "linkTitle": "Links",
+      "links": {
+        "0": { "label": "KICKSCREW", "url": "https://www.kickscrew.com" },
+        "1": { "label": "KICKSCREW Instagram", "url": "https://www.instagram.com/kickscrewcom/" }
+      },
+      "section1": {
+        "0": "Like all e-commerce platforms, basic features such as product browsing, search, cart, and checkout are all available. Further, it integrates auto-recommendation, sharing, and 360-degree product viewing. Users can easily share their favorite products and earn cashback, while also seeing more product details.",
+        "1": "Besides sneakers, there are regular collaborations with NBA stars, such as Kyrie Irving, Damian Liliard, and more. Hot products like POP MART are also sold based on market analysis.",
+        "2": "Unlike other e-commerce platforms, to have more granular control, we moved away from Shopify. From checkout/payment to event publishing and product listing, everything is developed and maintained by the internal team. This allows us to iterate and adjust features faster and respond more flexibly to market changes."
+      },
+      "section2": {
+        "0": "You can see all product info, reviews, favorites, etc. After A/B testing, we chose the most suitable way for users to read product details, helping them make better purchase decisions."
+      },
+      "section3": {
+        "0": "All order statuses, issue reports, real-time price adjustments, buyer/seller offers, shipping methods (dropship, dropoff, etc.), member management, and all admin operations are developed for internal use by staff and departments.",
+        "1": "The procurement team can see seller offers, compare prices, and set purchase order and strategy. The customer service team can instantly report order issues and handle buyer questions.",
+        "2": "Login uses third-party OAuth, integrating Google login for quick access. Custom features like quick search and common filter combinations are added based on department feedback. Deployment uses GCP. As a frontend engineer, I also documented the GCP deployment process for future team members to onboard quickly.",
+        "3": "These backend features allow us to manage the platform more efficiently, with single sign-on. The admin usage rate is 100%, every department uses it daily. Integrating all features into the backend greatly reduces the complexity and repeated logins of using multiple systems, improving work efficiency."
+      },
+      "section4": {
+        "0": "But there was still the i18n issue, which surfaced as the market and team expanded.",
+        "1": "Our website needed to support multiple languages. Initially, the dev team handled translation and management, which allowed for quick launches but was limited to Chinese and English. Later, with European and Middle Eastern markets, we needed a better system, so we introduced POEditor. This shifted translation responsibility from devs to a dedicated translation team, letting devs focus on product features.",
+        "2": "This not only improved translation quality but also allowed us to launch i18n versions faster—language update speed increased by over 50%. Management became more logical and clear. I documented the considerations and decisions, analyzing pros/cons and implementation."
+      },
+      "section5": {
+        "0": "I'm not an SEO expert, but for e-commerce, ranking higher on Google is crucial. Better ranking means users can find you first.",
+        "1": "To this end, I did a lot of optimization, including writing LDJson, accessibility design, prioritized content loading, so crawlers and browsers can identify key info immediately. I also handled the three main Lighthouse metrics. Here I recorded some of my SEO optimization thoughts and observations."
+      },
+      "section6": {
+        "0": "Payment is very important. We chose Adyen as our payment management platform. Besides regular credit cards, considering different regional payment habits, we integrated Apple Pay, Google Pay, Klarna, etc. to cover global users.",
+        "1": "Apple Pay is the most complex: you need to apply for a domain, do a series of verifications and settings, and for testing, apply for a test Apple ID and specific region test cards. I documented the process for future reference."
+      },
+      "section7": {
+        "0": "This website is also part of my work, and the team invested a lot of time and effort. As a developer, I know this is a big project. There are also many personal learnings and notes, trying to transform input into output, which is important for knowledge consolidation.",
+        "1": "This is an overview and highlights the key features I participated in. There are also many small ideas and details, like user behavior tracking, performance optimization, architecture considerations, etc. If I wrote them all, it would be too technical. Please refer to the article list for more."
+      },
+      "imgAlt": {
+        "banner": "KicksCrew homepage banner",
+        "slide": "KicksCrew homepage slide",
+        "product360": "KicksCrew 360-degree product image",
+        "productInfo": "KicksCrew product info page",
+        "productPrice": "KicksCrew product price page",
+        "productRating": "KicksCrew product rating page",
+        "suggestPop": "KicksCrew suggestion pop",
+        "adminLogin": "KicksCrew admin login page",
+        "adminOrders": "KicksCrew admin orders overview",
+        "adminProcure": "KicksCrew admin procure management",
+        "adminCx": "KicksCrew admin customer issue",
+        "poeditor": "KicksCrew POEditor management page",
+        "seo": "KicksCrew SEO optimization page",
+        "payment": "KicksCrew payment page",
+        "applePay": "KicksCrew Apple Pay flow chart"
+      },
+      "swipeTip": "Swipe left or right to browse",
+      "swipeTipAdmin": "Swipe left or right to browse. From left to right: SSO, order overview, procurement management, customer issue report",
+      "swipeTipPayment": "Left: current payment methods; Right: Apple Pay flow chart"
+    }
+  }
+}

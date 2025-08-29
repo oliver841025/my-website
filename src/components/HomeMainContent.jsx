@@ -1,14 +1,17 @@
+'use client';
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import WorksContent from './WorksContent';
 
 const HomeMainContent = () => {
+  const t = useTranslations();
   return (
     <div>
       {/* 第一區塊：滿版高，置中 HSUANSKY 和箭頭 */}
       <section className="h-screen flex flex-col items-center justify-center relative w-full">
         <div className="flex flex-col items-center gap-4 -mt-52">
           <Image src="/me.gif" alt="me" width={300} height={300} className="ml-2" />
-          <p className="tracking-wider italic ">Hsuan, a web developer based in Taipei, Taiwan</p>
+          <p className="tracking-wider italic ">{t('slogan')}</p>
         </div>
         <span className="animate-bounce absolute bottom-20">
           <svg
