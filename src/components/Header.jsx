@@ -24,19 +24,19 @@ export default function Header() {
         <nav className="flex space-x-4">
           <Link
             href="/about"
-            className="btn btn-ghost hover:outline-none hover:text-blue-800 focus:outline-none shadow-none border-none"
+            className="btn btn-ghost hover:bg-transparent hover:text-blue-800 focus:outline-none shadow-none border-none"
           >
             {t('me')}
           </Link>
           <Link
             href="/works"
-            className="btn btn-ghost hover:outline-none hover:text-blue-800 focus:outline-none shadow-none border-none"
+            className="btn btn-ghost hover:bg-transparent hover:text-blue-800 focus:outline-none shadow-none border-none"
           >
             {t('works')}
           </Link>
           <Link
             href="/articles"
-            className="btn btn-ghost hover:outline-none hover:text-blue-800 focus:outline-none shadow-none border-none"
+            className="btn btn-ghost hover:bg-transparent hover:text-blue-800 focus:outline-none shadow-none border-none"
           >
             {t('articles')}
           </Link>
