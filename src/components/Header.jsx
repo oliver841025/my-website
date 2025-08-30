@@ -13,12 +13,12 @@ export default function Header() {
       style={{ minHeight: 64 }}
     >
       <div className="hover:text-blue-800">
-        <a
+        <Link
           href="/"
           className="btn btn-ghost text-xl hover:outline-none focus:outline-none shadow-none border-none font-mono"
         >
           HSUANSKY
-        </a>
+        </Link>
       </div>
       <div className="flex items-center gap-8">
         <nav className="flex space-x-4">
