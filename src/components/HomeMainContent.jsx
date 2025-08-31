@@ -8,12 +8,12 @@ const HomeMainContent = () => {
   return (
     <div>
       {/* 第一區塊：滿版高，置中 HSUANSKY 和箭頭 */}
-      <section className="h-screen flex flex-col items-center justify-center relative w-full">
+      <section className="h-screen flex flex-col items-center justify-center w-full relative">
         <div className="flex flex-col items-center gap-4 -mt-52">
           <Image src="/me.gif" alt="me" width={300} height={300} className="ml-2" />
           <p className="tracking-wider italic ">{t('slogan')}</p>
         </div>
-        <span className="animate-bounce absolute bottom-20">
+       <span className="absolute bottom-20 left-0 w-full flex justify-center pb-safe">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
