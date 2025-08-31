@@ -7,6 +7,7 @@ const AboutPage = () => {
   const t = useTranslations('about');
 
   const [isHovered, setIsHovered] = useState(false);
+  console.log(isHovered);
 
   // 取出物件型陣列
   const educationList = Object.values(t.raw('education_list'));
@@ -28,6 +29,8 @@ const AboutPage = () => {
         className="py-4 pl-4 cursor-pointer fixed top-1/2 right-0 z-50"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
+        onTouchStart={() => setIsHovered(true)}
+        onTouchEnd={() => setIsHovered(false)}
         onClick={() => setIsHovered(!isHovered)}
       >
         <Image src="/dog_walk_cycle.gif" alt="Dog Walking Cycle" width={50} height={50} />
