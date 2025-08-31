@@ -24,16 +24,14 @@ const AboutPage = () => {
         </div>
       )}
 
-      <Image
-        className="border cursor-pointer bg-slate-200 fixed top-1/2 right-0 z-50"
+      <div
+        className="py-4 pl-4 cursor-pointer fixed top-1/2 right-0 z-50"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         onClick={() => setIsHovered(!isHovered)}
-        src="/dog_walk_cycle.gif"
-        alt="Dog Walking Cycle"
-        width={50}
-        height={50}
-      />
+      >
+        <Image src="/dog_walk_cycle.gif" alt="Dog Walking Cycle" width={50} height={50} />
+      </div>
 
       <div className="mt-4 flex flex-col gap-20 font-medium p-4 leading-relaxed">
         <div className="flex flex-col gap-6">
