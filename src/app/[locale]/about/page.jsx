@@ -1,8 +1,13 @@
+'use client';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
+import { useState } from 'react';
 
 const AboutPage = () => {
   const t = useTranslations('about');
+
+  const [isHovered, setIsHovered] = useState(false);
+
   // 取出物件型陣列
   const educationList = Object.values(t.raw('education_list'));
   const workList = Object.values(t.raw('work_list'));
@@ -11,6 +16,24 @@ const AboutPage = () => {
 
   return (
     <>
+      {isHovered && (
+        <div className="flex gap-4 fixed top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 z-50">
+          <Image src="/me_photo_1.png" alt="Me_1" width={200} height={200} className="object-cover" />
+          <Image src="/me_photo_2.png" alt="Me_2" width={200} height={200} className="object-cover" />
+          <Image src="/me_photo_3.png" alt="Me_3" width={200} height={200} className="object-cover" />
+        </div>
+      )}
+
+      <Image
+        className="border cursor-pointer bg-slate-200 fixed top-1/2 right-0 z-50"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        src="/dog_walk_cycle.gif"
+        alt="Dog Walking Cycle"
+        width={50}
+        height={50}
+      />
+
       <div className="mt-4 flex flex-col gap-20 font-medium p-4 leading-relaxed">
         <div className="flex flex-col gap-6">
           <h2>{t('brief_intro')}</h2>
