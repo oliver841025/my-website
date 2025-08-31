@@ -13,14 +13,14 @@ const HomeMainContent = () => {
           <Image src="/me.gif" alt="me" width={300} height={300} className="ml-2" />
           <p className="tracking-wider italic ">{t('slogan')}</p>
         </div>
-       <span className="absolute bottom-20 left-0 w-full flex justify-center" style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}>
+       <span className="absolute bottom-20 left-0 w-full flex justify-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="w-10 h-10 "
+            className="w-10 h-10 animate-bounce"
           >
             <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
           </svg>
