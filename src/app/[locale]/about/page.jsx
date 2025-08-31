@@ -17,20 +17,20 @@ const AboutPage = () => {
 
   return (
     <>
-      {isHovered && (
-        <div className="flex flex-col md:flex-row gap-4 fixed top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 z-50">
-          <Image src="/me_photo_1.png" alt="Me_1" width={200} height={200} className="object-cover" />
-          <Image src="/me_photo_2.png" alt="Me_2" width={200} height={200} className="object-cover" />
-          <Image src="/me_photo_3.png" alt="Me_3" width={200} height={200} className="object-cover" />
-        </div>
-      )}
+      <div
+        className={`flex flex-col md:flex-row gap-4 fixed top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 z-50 ${
+          isHovered ? 'opacity-100' : 'opacity-0'
+        } transition-opacity duration-300`}
+      >
+        <Image src="/me_photo_1.png" alt="Me_1" width={200} height={200} className="object-cover" />
+        <Image src="/me_photo_2.png" alt="Me_2" width={200} height={200} className="object-cover" />
+        <Image src="/me_photo_3.png" alt="Me_3" width={200} height={200} className="object-cover" />
+      </div>
 
       <div
         className="py-4 pl-4 cursor-pointer fixed top-1/2 right-0 z-50"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        onTouchStart={() => setIsHovered(true)}
-        onTouchEnd={() => setIsHovered(false)}
         onClick={() => setIsHovered(!isHovered)}
       >
         <Image src="/dog_walk_cycle.gif" alt="Dog Walking Cycle" width={50} height={50} />
