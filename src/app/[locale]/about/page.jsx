@@ -28,12 +28,12 @@ const AboutPage = () => {
       </div>
 
       <div
-        className="py-4 pl-4 cursor-pointer fixed top-1/2 right-0 z-50"
+        className="py-4 pl-4 cursor-pointer fixed top-1/2 right-0"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         onClick={() => setIsHovered(!isHovered)}
       >
-        <Image src="/dog_walk_cycle.gif" alt="Dog Walking Cycle" width={50} height={50} />
+        <Image src="/rainbow_cat_running.gif" alt="Rainbow Cat Running" width={100} height={100} className="-scale-x-100"/>
       </div>
 
       <div className="mt-4 flex flex-col gap-20 font-medium p-4 leading-relaxed">

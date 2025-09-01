@@ -11,7 +11,7 @@ const WorksContent = () => {
       <div className="grid grid-cols-3 gap-8 px-8 mx-auto max-md:grid-cols-1 max-md:gap-4 max-md:px-2">
         {works.map((item) => (
           <Link key={item.slug} href={`/works/${item.slug}`}>
-            <div className="aspect-square bg-gray-100 flex items-center justify-center cursor-pointer hover:bg-gray-100 overflow-hidden group relative w-full">
+            <div className="aspect-square  flex items-center justify-center cursor-pointer overflow-hidden group relative w-full">
               <Image
                 src={item.src}
                 alt={item.alt}

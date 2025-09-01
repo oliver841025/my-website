@@ -35,6 +35,30 @@ const works = [
     class: 'object-cover w-full h-full',
     tags: ['Illustration'],
   },
+  {
+    slug: 'fan',
+    name: 'fan',
+    src: '/fan/fan.avif',
+    alt: 'fan',
+    intro: {
+      en: 'Fan - poster',
+      'zh-TW': 'FAN 動畫海報',
+    },
+    class: '',
+    tags: ['Graphic'],
+  },
+  {
+    slug: 'mythomania',
+    name: 'mythomania',
+    src: '/mythomania/mythomania.avif',
+    alt: 'mythomania',
+    intro: {
+      en: 'Mythomania - poster',
+      'zh-TW': 'Mythomania 動畫海報',
+    },
+    class: '',
+    tags: ['Graphic'],
+  },
 ];
 
 export default works;
