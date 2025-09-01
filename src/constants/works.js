@@ -59,6 +59,18 @@ const works = [
     class: '',
     tags: ['Graphic'],
   },
+  {
+    slug:'littleHouse',
+    name: 'littleHouse',
+    src: '/little_house/little_house_6.png',
+    alt: 'littleHouse',
+    intro: {
+      en: 'Snail-Shell Dreams',
+      'zh-TW': '蝸居的夢想',
+    },
+    class: 'object-cover w-full h-full',
+    tags: ['Illustration'],
+  }
 ];
 
 export default works;
