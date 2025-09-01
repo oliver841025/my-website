@@ -14,13 +14,13 @@ const works = [
   {
     slug: 'oli',
     name: 'oli',
-    src: '/oli/oli_frame_4.avif',
-    alt: 'Oli frame 4',
+    src: '/oli/oli_count_down.gif',
+    alt: 'Oli count down',
     intro: {
       en: 'OLI - Giant 3D Animation',
       'zh-TW': '巨人動畫 OLI',
     },
-    class: '',
+    class: 'object-cover w-full h-full',
     tags: ['3D Animation', 'Film Direction', 'Graphics'],
   },
   {

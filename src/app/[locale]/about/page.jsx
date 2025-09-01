@@ -7,7 +7,6 @@ const AboutPage = () => {
   const t = useTranslations('about');
 
   const [isHovered, setIsHovered] = useState(false);
-  console.log(isHovered);
 
   // 取出物件型陣列
   const educationList = Object.values(t.raw('education_list'));
@@ -33,6 +32,7 @@ const AboutPage = () => {
         onMouseLeave={() => setIsHovered(false)}
         onClick={() => setIsHovered(!isHovered)}
       >
+        <p className='-mb-6 ml-5 text-xs font-extrabold text-blue-800'>\ Pat me /</p>
         <Image src="/rainbow_cat_running.gif" alt="Rainbow Cat Running" width={100} height={100} className="-scale-x-100"/>
       </div>
 
