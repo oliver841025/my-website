@@ -6,7 +6,8 @@
     "articles": "Articles"
   },
   "more_info_cat": {
-    "i_can_speak": "\\i can speak/"
+    "i_can_speak": "\\i can speak/",
+    "guide_info": "If you see me or my brothers, pat us, and we will tell you some little secrets"
   },
   "about": {
     "brief_intro": "HSUAN is a frontend developer from Taipei, Taiwan, who believes that the combination of programming and design can achieve a lot. In the future, I want to become a maker, but I'm still not sure what to make.",
@@ -60,7 +61,7 @@
       "imgAlt5": "Drawer Project 5",
       "imgAlt6": "Drawer Project 6",
       "imgAltReal": "Drawer Real Photo",
-      "desc": "Portrait sketching event. Hover over the first image to see the real person. The other images do not have real person photos, as they were drawn live while chatting with random people on site."
+      "moreInfo": "Portrait sketching event. Hover over the first image to see the real person. The other images do not have real person photos, as they were drawn live while chatting with random people on site."
     },
     "littleHouse": {
       "imgAlt1": "Little House  1",

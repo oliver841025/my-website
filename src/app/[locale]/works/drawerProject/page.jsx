@@ -2,6 +2,7 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
+import MoreInfo from '@/components/MoreInfo';
 
 const DrawerProject = () => {
   const t = useTranslations('works.drawerProject');
@@ -14,7 +15,8 @@ const DrawerProject = () => {
 
   return (
     <>
-      <div className="flex w-full items-center border overflow-x-auto mt-4">
+      <div className="flex w-full items-center overflow-x-auto mt-4">
+        <MoreInfo text={t('moreInfo')} />
         <Image
           src="/drawer_project/drawer_1.png"
           alt={t('imgAlt1')}
@@ -44,14 +46,11 @@ const DrawerProject = () => {
             />
           </div>
         )}
-        <Image src="/drawer_project/drawer_2.png" alt={t('imgAlt2')} width={650} height={600} />
-        <Image src="/drawer_project/drawer_3.png" alt={t('imgAlt3')} width={650} height={600} />
-        <Image src="/drawer_project/drawer_4.png" alt={t('imgAlt4')} width={650} height={600} />
-        <Image src="/drawer_project/drawer_5.png" alt={t('imgAlt5')} width={650} height={600} />
-        <Image src="/drawer_project/drawer_6.png" alt={t('imgAlt6')} width={650} height={600} />
-      </div>
-      <div className="text-xs font-medium mt-2">
-        <span>{t('desc')}</span>
+        <Image src="/drawer_project/drawer_2.png" alt={t('imgAlt2')} width={600} height={600} />
+        <Image src="/drawer_project/drawer_3.png" alt={t('imgAlt3')} width={600} height={600} />
+        <Image src="/drawer_project/drawer_4.png" alt={t('imgAlt4')} width={600} height={600} />
+        <Image src="/drawer_project/drawer_5.png" alt={t('imgAlt5')} width={600} height={600} />
+        <Image src="/drawer_project/drawer_6.png" alt={t('imgAlt6')} width={600} height={600} />
       </div>
     </>
   );

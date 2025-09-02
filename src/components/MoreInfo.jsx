@@ -7,7 +7,7 @@ const MoreInfo = ({ text }) => {
   const [infoClicked, setInfoClicked] = useState(false);
   return (
     <>
-      <div className="absolute bottom-16 right-8 sm:right-20 flex gap-2 z-10">
+      <div className="absolute bottom-16 right-8 sm:right-20 flex gap-2 z-20">
         <p
           className={`text-xs font-semibold leading-relaxed tracking-wide max-w-xs sm:max-w-sm text-left break-words transition-opacity duration-300 ${
             infoClicked ? 'opacity-100' : 'opacity-0'
