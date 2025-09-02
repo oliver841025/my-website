@@ -5,6 +5,9 @@
     "works": "作品",
     "articles": "文章"
   },
+  "more_info_cat": {
+    "i_can_speak": "\\我會說話/"
+  },
   "about": {
     "brief_intro": "HSUAN 是一個來自台灣, 台北的前端開發者，覺得程式跟設計的結合可以做到很多事，未來想成為一名 maker，但要 make 什麼，還不是很確定。",
     "first_paragraph": "大學唸的是<bold>實踐大學媒體傳達設計學系, 3D 動畫組</bold>，某個學期偶然幫當時的女朋友去旁聽程式設計課，覺得這東西有意思，後來持續修了一整個學期，發現會在某些時候寫入一種心流狀態，同時也發現大多同學其實不擅長這件事，也偷偷的看了就業市場，畢竟學校有時候就是市場的縮影，覺得是可投入的領域，所以畢業後也成了動畫組畢業的軟體開發者（？）",
@@ -58,6 +61,17 @@
       "imgAlt6": "Drawer Project 6",
       "imgAltReal": "Drawer Real Photo",
       "desc": "似顏繪活動，第一張滑動上去看得到本人，但其他張沒有本人照片，無法顯示，因為都是現場隨機跟路人邊畫邊聊天"
+    },
+    "littleHouse": {
+      "imgAlt1": "Little House  1",
+      "imgAlt2": "Little House  2",
+      "imgAlt3": "Little House  3",
+      "imgAlt4": "Little House  4",
+      "imgAlt5": "Little House  5",
+      "imgAlt6": "Little House  6",
+      "imgAlt7": "Little House  7",
+      "imgAlt8": "Little House  8",
+      "moreInfo": "這些是蝸居的人，但他們搬到了更好的地方，有山、有風、有小動物、有草原跟精靈。如果住宅空間受限的話，那就以蝸居姿，搬到喜歡的環境吧！"
     },
     "oli": {
       "introTitle": "簡介",

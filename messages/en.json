@@ -5,6 +5,9 @@
     "works": "Works",
     "articles": "Articles"
   },
+  "more_info_cat": {
+    "i_can_speak": "\\i can speak/"
+  },
   "about": {
     "brief_intro": "HSUAN is a frontend developer from Taipei, Taiwan, who believes that the combination of programming and design can achieve a lot. In the future, I want to become a maker, but I'm still not sure what to make.",
     "first_paragraph": "I majored in <bold>3D Animation, Shih Chien University the Department of Communications</bold>. One semester, I happened to audit a programming class with my then-girlfriend and found it interesting. I continued for a whole semester and discovered that sometimes I could enter a state of flow while coding. I also noticed that most classmates weren't good at it, so I secretly checked the job market—after all, school is often a microcosm of the market. I felt it was a field worth pursuing, so after graduation, I became a software developer with an animation background (?).",
@@ -58,6 +61,17 @@
       "imgAlt6": "Drawer Project 6",
       "imgAltReal": "Drawer Real Photo",
       "desc": "Portrait sketching event. Hover over the first image to see the real person. The other images do not have real person photos, as they were drawn live while chatting with random people on site."
+    },
+    "littleHouse": {
+      "imgAlt1": "Little House  1",
+      "imgAlt2": "Little House  2",
+      "imgAlt3": "Little House  3",
+      "imgAlt4": "Little House  4",
+      "imgAlt5": "Little House  5",
+      "imgAlt6": "Little House  6",
+      "imgAlt7": "Little House  7",
+      "imgAlt8": "Little House  8",
+      "moreInfo": "These are people from cramped dwellings, but they have moved to a better place — with mountains, wind, small animals, grasslands, and elves. If living space is limited, then move in a humble, cramped way to the environment you love!"
     },
     "oli": {
       "introTitle": "Introduction",
