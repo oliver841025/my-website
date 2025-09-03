@@ -45,19 +45,16 @@ const Oli = () => {
 
         {/* OLI 故事段落自動換行渲染 */}
         <div className="whitespace-pre-line">{t('story')}</div>
+        <Image src="/oli/oli_frame_1.avif" alt="OLI frame 1" width={1200} height={350} className="flex-shrink-0" />
+        <Image src="/oli/oli_frame_2.avif" alt="OLI frame 2" width={1200} height={350} className="flex-shrink-0" />
         <div className="whitespace-pre-line">{t('scene')}</div>
+        <Image src="/oli/oli_frame_3.avif" alt="OLI frame 3" width={1200} height={350} className="flex-shrink-0" />
+        <Image src="/oli/oli_frame_4.avif" alt="OLI frame 4" width={1200} height={350} className="flex-shrink-0" />
         <div className="whitespace-pre-line">{t('poster')}</div>
         <div className="whitespace-pre-line">{t('oliName')}</div>
 
-        {/* <div className="overflow-hidden" ref={emblaRef}> */}
-        <div className="flex flex-col gap-4">
-          <Image src="/oli/oli_frame_1.avif" alt="OLI frame 1" width={1200} height={350} className="flex-shrink-0" />
-          <Image src="/oli/oli_frame_2.avif" alt="OLI frame 2" width={1200} height={350} className="flex-shrink-0" />
-          <Image src="/oli/oli_frame_3.avif" alt="OLI frame 3" width={1200} height={350} className="flex-shrink-0" />
-          <Image src="/oli/oli_frame_4.avif" alt="OLI frame 4" width={1200} height={350} className="flex-shrink-0" />
-        </div>
-        {/* </div> */}
-        <div className="flex gap-8 justify-center">
+
+        <div className="flex gap-8 justify-center flex-col sm:flex-row items-center">
           <Image src="/oli/oli_motion_poster.gif" alt="OLI motion poster" width={250} height={450} />
           <Image src="/oli/oli_poster.avif" alt="OLI poster" width={350} height={450} />
         </div>
