@@ -152,10 +152,7 @@
         "seo": "KicksCrew SEO optimization page",
         "payment": "KicksCrew payment page",
         "applePay": "KicksCrew Apple Pay flow chart"
-      },
-      "swipeTip": "Swipe left or right to browse",
-      "swipeTipAdmin": "Swipe left or right to browse. From left to right: SSO, order overview, procurement management, customer issue report",
-      "swipeTipPayment": "Left: current payment methods; Right: Apple Pay flow chart"
+      }
     }
   }
 }

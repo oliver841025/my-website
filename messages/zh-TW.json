@@ -152,10 +152,7 @@
         "seo": "KicksCrew SEO 優化頁",
         "payment": "KicksCrew 支付頁",
         "applePay": "KicksCrew Apple Pay 流程圖"
-      },
-      "swipeTip": "可以左右滑動來瀏覽",
-      "swipeTipAdmin": "可以左右滑動來瀏覽，左到右依序是：單點登入、訂單總覽、採購管理、客服問題回報",
-      "swipeTipPayment": "左邊為現有支付方式，右邊為 Apple Pay 流程圖"
+      }
     }
   }
 }

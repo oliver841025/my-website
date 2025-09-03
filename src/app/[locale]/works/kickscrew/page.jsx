@@ -55,7 +55,7 @@ const KicksCrew = () => {
         </div>
       </section>
 
-      <section className="flex flex-col gap-8">
+      <section className="flex flex-col gap-8 items-center">
         <Image
           src="/kickscrew_homepage_banner.png"
           alt={imgAlt.banner}
@@ -71,87 +71,90 @@ const KicksCrew = () => {
           height={600}
           className="w-full h-auto"
         />
+
         {section1.map((text, i) => (
-          <p key={i} className="whitespace-pre-line">
+          <p key={'s1' + i} className="whitespace-pre-line">
             {text}
           </p>
         ))}
-        <div className="flex flex-col items-center gap-4">
-          <Image src="/kickscrew_product_rotate_images.gif" alt={imgAlt.product360} width={600} height={300} />
-          <p>{t('swipeTip')}</p>
-        </div>
+
+        <Image
+          src="/kickscrew_product_rotate_images.gif"
+          alt={imgAlt.product360}
+          width={600}
+          height={300}
+          className="w-full h-auto"
+        />
+
         {section2.map((text, i) => (
-          <p key={i} className="whitespace-pre-line">
-            {text}
-          </p>
-        ))}
-        <div className="flex flex-col items-center gap-4">
-          <div className="flex items-center overflow-x-auto gap-4 border">
-            <Image src="/kickscrew_product_info.png" alt={imgAlt.productInfo} width={400} height={200} />
-            <Image src="/kickscrew_product_price.png" alt={imgAlt.productPrice} width={400} height={200} />
-            <Image src="/kickscrew_product_rating.png" alt={imgAlt.productRating} width={400} height={200} />
-            <Image src="/kickscrew_suggest_pop.png" alt={imgAlt.suggestPop} width={400} height={200} />
-          </div>
-          <p>{t('swipeTip')}</p>
-        </div>
-        {section3.map((text, i) => (
-          <p key={i} className="whitespace-pre-line">
-            {text}
-          </p>
-        ))}
-        <div className="flex flex-col items-center gap-4">
-          <div className="flex items-center overflow-x-auto gap-4 border">
-            <Image src="/kickscrew_admin_login.png" alt={imgAlt.adminLogin} width={800} height={400} />
-            <Image src="/kickscrew_admin_orders_overview.png" alt={imgAlt.adminOrders} width={800} height={400} />
-            <Image src="/kickscrew_admin_procure.png" alt={imgAlt.adminProcure} width={800} height={400} />
-            <Image src="/kickscrew_admin_cx_issue.png" alt={imgAlt.adminCx} width={800} height={400} />
-          </div>
-          <p>{t('swipeTipAdmin')}</p>
-        </div>
-        {section4.map((text, i) => (
-          <p key={i} className="whitespace-pre-line">
+          <p key={'s2' + i} className="whitespace-pre-line">
             {text}
           </p>
         ))}
         <Image
-          src="/kickscrew_poeditor.png"
-          alt={imgAlt.poeditor}
-          width={1920}
-          height={600}
+          src="/kickscrew_product_detail.png"
+          alt={imgAlt.productInfo}
+          width={600}
+          height={300}
           className="w-full h-auto"
         />
+
+        {section3.map((text, i) => (
+          <p key={'s3' + i} className="whitespace-pre-line">
+            {text}
+          </p>
+        ))}
+
+        <Image
+          src="/kickscrew_admin_orders_overview.png"
+          alt={imgAlt.adminOrders}
+          width={600}
+          height={300}
+          className="w-full h-auto"
+        />
+        <Image
+          src="/kickscrew_admin_procure.png"
+          alt={imgAlt.adminProcure}
+          width={600}
+          height={300}
+          className="w-full h-auto"
+        />
+        <Image
+          src="/kickscrew_admin_cx_issue.png"
+          alt={imgAlt.adminCx}
+          width={600}
+          height={300}
+          className="w-full h-auto"
+        />
+
+        {section4.map((text, i) => (
+          <p key={'s4' + i} className="whitespace-pre-line">
+            {text}
+          </p>
+        ))}
+
+        <Image src="/kickscrew_poeditor.png" alt={imgAlt.poeditor} width={600} height={300} className="w-full h-auto" />
+
         {section5.map((text, i) => (
-          <p key={i} className="whitespace-pre-line">
+          <p key={'s5' + i} className="whitespace-pre-line">
             {text}
           </p>
         ))}
-        <Image src="/kickscrew_seo.png" alt={imgAlt.seo} width={1920} height={600} className="w-full h-auto" />
+
+        <Image src="/kickscrew_seo.png" alt={imgAlt.seo} width={600} height={300} className="w-full h-auto" />
+
         {section6.map((text, i) => (
-          <p key={i} className="whitespace-pre-line">
+          <p key={'s6' + i} className="whitespace-pre-line">
             {text}
           </p>
         ))}
-        <div className="flex flex-col items-center gap-4">
-          <div className="flex items-center overflow-x-auto gap-4 border">
-            <Image src="/kickscrew_payment.png" alt={imgAlt.payment} width={300} height={300} />
-            <Image src="/kickscrew_payment_apple_pay_flow.png" alt={imgAlt.applePay} width={1920} height={300} />
-          </div>
-          <p>{t('swipeTipPayment')}</p>
-        </div>
+
+        <Image src="/kickscrew_payment.png" alt={imgAlt.payment} width={600} height={300} className="" />
         {section7.map((text, i) => (
-          <p key={i} className="whitespace-pre-line">
+          <p key={'s7' + i} className="whitespace-pre-line">
             {text}
           </p>
         ))}
-        <div>
-          <p>
-            {t('section7.1').replace('文章列表', '')}
-            <Link className="text-blue-600 underline" href="/articles">
-              {t('section7.1').includes('文章列表') ? '文章列表' : 'Articles'}
-            </Link>
-            {t('section7.1').replace('文章列表', '')}
-          </p>
-        </div>
       </section>
     </div>
   );
