@@ -55,101 +55,104 @@ const KicksCrew = () => {
         </div>
       </section>
 
-      <section className="flex flex-col gap-8 items-center">
-        <Image
-          src="/kickscrew_homepage_banner.png"
-          alt={imgAlt.banner}
-          width={1920}
-          height={600}
-          className="w-full h-auto"
-        />
+      <section className="flex flex-col gap-8 ">
+        <div className="w-full flex justify-center">
+          <Image
+            src="/kickscrew_homepage_banner.png"
+            alt={imgAlt.banner}
+            width={1920}
+            height={600}
+            className="h-auto"
+          />
+        </div>
         <hr />
-        <Image
-          src="/kickscrew_homepage_slide.gif"
-          alt={imgAlt.slide}
-          width={1920}
-          height={600}
-          className="w-full h-auto"
-        />
-
+        <div className="w-full flex justify-center">
+          <Image src="/kickscrew_homepage_slide.gif" alt={imgAlt.slide} width={1920} height={600} className="h-auto" />
+        </div>
         {section1.map((text, i) => (
           <p key={'s1' + i} className="whitespace-pre-line">
             {text}
           </p>
         ))}
-
-        <Image
-          src="/kickscrew_product_rotate_images.gif"
-          alt={imgAlt.product360}
-          width={600}
-          height={300}
-          className="w-full h-auto"
-        />
-
+        <div className="w-full flex justify-center">
+          <Image
+            src="/kickscrew_product_rotate_images.gif"
+            alt={imgAlt.product360}
+            width={600}
+            height={300}
+            className="h-auto"
+          />
+        </div>
         {section2.map((text, i) => (
           <p key={'s2' + i} className="whitespace-pre-line">
             {text}
           </p>
         ))}
-        <Image
-          src="/kickscrew_product_detail.png"
-          alt={imgAlt.productInfo}
-          width={600}
-          height={300}
-          className="w-full h-auto"
-        />
-
+        <div className="w-full flex justify-center">
+          <Image
+            src="/kickscrew_product_detail.png"
+            alt={imgAlt.productInfo}
+            width={600}
+            height={300}
+            className="w-full h-auto"
+          />
+        </div>
         {section3.map((text, i) => (
           <p key={'s3' + i} className="whitespace-pre-line">
             {text}
           </p>
         ))}
-
-        <Image
-          src="/kickscrew_admin_orders_overview.png"
-          alt={imgAlt.adminOrders}
-          width={600}
-          height={300}
-          className="w-full h-auto"
-        />
-        <Image
-          src="/kickscrew_admin_procure.png"
-          alt={imgAlt.adminProcure}
-          width={600}
-          height={300}
-          className="w-full h-auto"
-        />
-        <Image
-          src="/kickscrew_admin_cx_issue.png"
-          alt={imgAlt.adminCx}
-          width={600}
-          height={300}
-          className="w-full h-auto"
-        />
-
+        <div className="w-full flex justify-center">
+          <Image
+            src="/kickscrew_admin_orders_overview.png"
+            alt={imgAlt.adminOrders}
+            width={600}
+            height={300}
+            className="w-full h-auto"
+          />
+        </div>
+        <div className="w-full flex justify-center">
+          <Image
+            src="/kickscrew_admin_procure.png"
+            alt={imgAlt.adminProcure}
+            width={600}
+            height={300}
+            className="w-full h-auto"
+          />
+        </div>
+        <div className="w-full flex justify-center">
+          <Image
+            src="/kickscrew_admin_cx_issue.png"
+            alt={imgAlt.adminCx}
+            width={600}
+            height={300}
+            className="w-full h-auto"
+          />
+        </div>
         {section4.map((text, i) => (
           <p key={'s4' + i} className="whitespace-pre-line">
             {text}
           </p>
         ))}
-
-        <Image src="/kickscrew_poeditor.png" alt={imgAlt.poeditor} width={600} height={300} className="w-full h-auto" />
-
+        <div className="w-full flex justify-center">
+          <Image src="/kickscrew_poeditor.png" alt={imgAlt.poeditor} width={600} height={300} className="w-full h-auto" />
+        </div>
         {section5.map((text, i) => (
           <p key={'s5' + i} className="whitespace-pre-line">
             {text}
           </p>
         ))}
-
-        <Image src="/kickscrew_seo.png" alt={imgAlt.seo} width={600} height={300} className="w-full h-auto" />
-
+        <div className="w-full flex justify-center">
+          <Image src="/kickscrew_seo.png" alt={imgAlt.seo} width={600} height={300} className="w-full h-auto" />
+        </div>
         {section6.map((text, i) => (
           <p key={'s6' + i} className="whitespace-pre-line">
             {text}
           </p>
         ))}
-
-        <Image src="/kickscrew_payment.png" alt={imgAlt.payment} width={600} height={300} className="" />
+        <div className="w-full flex justify-center">
+          <Image src="/kickscrew_payment.png" alt={imgAlt.payment} width={600} height={300} className="h-auto" />
+        </div>
         {section7.map((text, i) => (
           <p key={'s7' + i} className="whitespace-pre-line">
             {text}
