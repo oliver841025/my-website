@@ -3,19 +3,35 @@ import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import WorksContent from './WorksContent';
 import MoreInfo from './MoreInfo';
+import { useState } from 'react';
 
 const HomeMainContent = () => {
   const t = useTranslations();
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <div>
       <MoreInfo text={t('more_info_cat.guide_info')} />
       {/* 第一區塊：滿版高，置中 HSUANSKY 和箭頭 */}
       <section className="h-screen flex flex-col items-center justify-center w-full relative">
         <div className="flex flex-col items-center gap-4 -mt-52">
-          <Image src="/me.gif" alt="me" width={300} height={300} className="ml-2" />
-          <p className="tracking-wider italic font-medium">{t('slogan')}</p>
+          <Image
+            src="/me.gif"
+            alt="me"
+            width={300}
+            height={300}
+            className="ml-2 cursor-pointer"
+            onClick={() => {
+              setIsHovered(!isHovered);
+            }}
+            onMouseLeave={() => setIsHovered(false)}
+            onMouseEnter={() => setIsHovered(true)}
+          />
+          <p className={`tracking-wider italic font-medium ${isHovered ? 'text-black' : 'text-gray-200'}`}>
+            {isHovered ? t('slogan') : t('slogan_hint')}
+          </p>
         </div>
-       <span className="absolute bottom-36 left-0 w-full flex justify-center">
+        <span className="absolute bottom-36 left-0 w-full flex justify-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
