@@ -8,8 +8,7 @@ const works = [
       en: 'KICKSCREW global sneaker e-commerce platform',
       'zh-TW': 'KICKSCREW 全球潮鞋電商平台',
     },
-    class: 'absolute top-1 left-8',
-    mobileClass: 'object-cover w-full h-full',
+    class: '',
     tags: ['E-commerce', 'Fashion', 'Website'],
   },
   {
@@ -21,21 +20,19 @@ const works = [
       en: 'OLI - Giant 3D Animation',
       'zh-TW': '巨人動畫 OLI',
     },
-    class: 'absolute top-32 right-28',
-    mobileClass: 'object-cover w-full h-full',
+    class: 'object-cover w-full h-full',
     tags: ['3D Animation', 'Film Direction', 'Graphics'],
   },
   {
     slug: 'drawerProject',
     name: 'drawerProject',
-    src: '/drawer_project/drawer_project_cover.png',
+    src: '/drawer_project/drawer_1.svg',
     alt: 'drawerProject',
     intro: {
       en: 'Live portrait sketching event',
-      'zh-TW': '似顏繪小畫家',
+      'zh-TW': '似顏繪活動',
     },
-    class: 'absolute top-16 right-[40%]',
-    mobileClass: 'object-cover w-full h-full',
+    class: 'object-cover w-full h-full',
     tags: ['Illustration'],
   },
   {
@@ -47,8 +44,7 @@ const works = [
       en: 'Fan - poster',
       'zh-TW': 'FAN 動畫海報',
     },
-    class: 'absolute top-72 left-20',
-    mobileClass: 'object-cover w-full h-full',
+    class: '',
     tags: ['Graphic'],
   },
   {
@@ -60,8 +56,7 @@ const works = [
       en: 'Mythomania - poster',
       'zh-TW': 'Mythomania 動畫海報',
     },
-    class: 'absolute top-80 left-80',
-    mobileClass: 'object-cover w-full h-full',
+    class: '',
     tags: ['Graphic'],
   },
   {
@@ -73,8 +68,7 @@ const works = [
       en: 'Snail-Shell Dreams',
       'zh-TW': '蝸居的夢想',
     },
-    class: 'absolute top-96 right-60 scale-150',
-    mobileClass: 'object-cover w-full h-full',
+    class: 'object-cover w-full h-full',
     tags: ['Illustration'],
   }
 ];
