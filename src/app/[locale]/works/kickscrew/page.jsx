@@ -7,13 +7,6 @@ const KicksCrew = () => {
   const intro = Object.values(t.raw('intro'));
   const featureList = Object.values(t.raw('featureList'));
   const links = Object.values(t.raw('links'));
-  const section1 = Object.values(t.raw('section1'));
-  const section2 = Object.values(t.raw('section2'));
-  const section3 = Object.values(t.raw('section3'));
-  const section4 = Object.values(t.raw('section4'));
-  const section5 = Object.values(t.raw('section5'));
-  const section6 = Object.values(t.raw('section6'));
-  const section7 = Object.values(t.raw('section7'));
   const imgAlt = t.raw('imgAlt');
 
   return (
@@ -69,11 +62,7 @@ const KicksCrew = () => {
         <div className="w-full flex justify-center">
           <Image src="/kickscrew_homepage_slide.gif" alt={imgAlt.slide} width={1920} height={600} className="h-auto" />
         </div>
-        {section1.map((text, i) => (
-          <p key={'s1' + i} className="whitespace-pre-line">
-            {text}
-          </p>
-        ))}
+        <p className="whitespace-pre-line">{t('general_intro')}</p>
         <div className="w-full flex justify-center">
           <Image
             src="/kickscrew_product_rotate_images.gif"
@@ -83,11 +72,7 @@ const KicksCrew = () => {
             className="h-auto"
           />
         </div>
-        {section2.map((text, i) => (
-          <p key={'s2' + i} className="whitespace-pre-line">
-            {text}
-          </p>
-        ))}
+        <p className="whitespace-pre-line">{t('product_info')}</p>
         <div className="w-full flex justify-center">
           <Image
             src="/kickscrew_product_detail.png"
@@ -97,11 +82,9 @@ const KicksCrew = () => {
             className="w-full h-auto"
           />
         </div>
-        {section3.map((text, i) => (
-          <p key={'s3' + i} className="whitespace-pre-line">
-            {text}
-          </p>
-        ))}
+        <p className="whitespace-pre-line">{t.rich('admin_intro', {
+          deploy:(chunks) => <Link target="_blank" rel="noopener noreferrer" href="https://medium.com/@chinghsuan1025/frontend-perspective-building-serverless-automated-deployment-with-gcp-015ede4edafa" className='text-blue-600 underline cursor-pointer font-semibold'>{chunks}</Link>
+        })}</p>
         <div className="w-full flex justify-center">
           <Image
             src="/kickscrew_admin_orders_overview.png"
@@ -129,35 +112,45 @@ const KicksCrew = () => {
             className="w-full h-auto"
           />
         </div>
-        {section4.map((text, i) => (
-          <p key={'s4' + i} className="whitespace-pre-line">
-            {text}
-          </p>
-        ))}
+        <p className="whitespace-pre-line">{t.rich('locale_case',{
+          poeditor: (chunks) => (
+            <Link href="https://medium.com/@chinghsuan1025/how-we-manage-i18n-at-scale-poeditor-github-workflow-6ec995c9b922" className="text-blue-600 font-bold underline cursor-pointer">
+              {chunks}
+            </Link>
+          ),
+        })}</p>
         <div className="w-full flex justify-center">
-          <Image src="/kickscrew_poeditor.png" alt={imgAlt.poeditor} width={600} height={300} className="w-full h-auto" />
+          <Image
+            src="/kickscrew_poeditor.png"
+            alt={imgAlt.poeditor}
+            width={600}
+            height={300}
+            className="w-full h-auto"
+          />
         </div>
-        {section5.map((text, i) => (
-          <p key={'s5' + i} className="whitespace-pre-line">
-            {text}
-          </p>
-        ))}
+        <p className="whitespace-pre-line">{t.rich('seo_case', {
+          seo: (chunks) => (
+            <Link href="https://medium.com/@chinghsuan1025/simple-steps-to-boost-your-websites-seo-ranking-4ef897b888d4" className="text-blue-600 font-bold underline cursor-pointer">
+              {chunks}
+            </Link>
+          ),
+        })}</p>
         <div className="w-full flex justify-center">
           <Image src="/kickscrew_seo.png" alt={imgAlt.seo} width={600} height={300} className="w-full h-auto" />
         </div>
-        {section6.map((text, i) => (
-          <p key={'s6' + i} className="whitespace-pre-line">
-            {text}
-          </p>
-        ))}
+        <p className="whitespace-pre-line">{t('payment_case')}</p>
         <div className="w-full flex justify-center">
           <Image src="/kickscrew_payment.png" alt={imgAlt.payment} width={600} height={300} className="h-auto" />
         </div>
-        {section7.map((text, i) => (
-          <p key={'s7' + i} className="whitespace-pre-line">
-            {text}
-          </p>
-        ))}
+        <p className='whitespace-pre-line'>
+          {t.rich('personal_experience', {
+            articles: (chunks) => (
+              <Link href="/articles" className="text-blue-600 font-bold underline cursor-pointer">
+                {chunks}
+              </Link>
+            ),
+          })}
+        </p>
       </section>
     </div>
   );
