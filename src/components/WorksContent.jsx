@@ -6,19 +6,13 @@ import { useTranslations, useLocale } from 'next-intl';
 const WorksContent = () => {
   const t = useTranslations('works');
   const locale = useLocale();
-
+  
   return (
     <>
-      <div className="relative max-md:flex max-md:flex-col max-md:gap-12">
+      <div className="relative">
         {works.map((item) => (
           <Link key={item.slug} href={`/works/${item.slug}`}>
-            <Image
-              src={item.src}
-              alt={item.alt}
-              width={200}
-              height={200}
-              className={item.class}
-            />
+            <Image src={item.src} alt={item.alt} width={200} height={200} className={item.class} />
           </Link>
         ))}
       </div>
