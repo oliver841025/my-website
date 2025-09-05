@@ -15,7 +15,7 @@ const DrawerProject = () => {
 
   return (
     <>
-      <div className="flex w-full items-center overflow-x-auto mt-4">
+      <div className="flex w-full items-center overflow-x-auto mt-4 no-scrollbar">
         <MoreInfo text={t('moreInfo')} />
         <Image
           src="/drawer_project/drawer_1.png"
