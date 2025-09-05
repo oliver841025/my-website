@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 
 const MoreInfo = ({ text }) => {
-    const t = useTranslations('more_info_cat');
+  const t = useTranslations('more_info_cat');
   const [infoClicked, setInfoClicked] = useState(false);
   return (
     <>
@@ -17,17 +17,21 @@ const MoreInfo = ({ text }) => {
         </p>
       </div>
 
-      <div className="absolute bottom-8 right-2 flex gap-2 z-10">
+      <div
+        className="absolute bottom-8 right-2 flex gap-2 z-10 cursor-pointer"
+        onClick={() => setInfoClicked(!infoClicked)}
+        onMouseEnter={() => setInfoClicked(true)}
+        onMouseLeave={() => setInfoClicked(false)}
+      >
         <div>
-          <p className={`-ml-1 text-xs font-semibold tracking-wide ${infoClicked ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300`}>{t('i_can_speak')}</p>
-          <Image
-            src="/cat_jump.gif"
-            alt="cat jump"
-            width={80}
-            height={80}
-            className="cursor-pointer"
-            onClick={() => setInfoClicked(!infoClicked)}
-          />
+          <p
+            className={`-ml-1 text-xs font-semibold tracking-wide ${
+              infoClicked ? 'opacity-0' : 'opacity-100'
+            } transition-opacity duration-300`}
+          >
+            {t('i_can_speak')}
+          </p>
+          <Image src="/cat_jump.gif" alt="cat jump" width={80} height={80} />
         </div>
       </div>
     </>
