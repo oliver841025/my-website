@@ -17,8 +17,8 @@ const works = [
     src: '/oli/oli_count_down.gif',
     alt: 'Oli count down',
     intro: {
-      en: 'OLI - Giant 3D Animation',
-      'zh-TW': '巨人動畫 OLI',
+      en: 'OLI - 3D Animation',
+      'zh-TW': 'OLI 動畫短片',
     },
     class: 'object-cover w-full h-full',
     tags: ['3D Animation', 'Film Direction', 'Graphics'],
@@ -29,8 +29,8 @@ const works = [
     src: '/drawer_project/drawer_1.svg',
     alt: 'drawerProject',
     intro: {
-      en: 'Live portrait sketching event',
-      'zh-TW': '似顏繪活動',
+      en: 'Live portrait sketching',
+      'zh-TW': '似顏繪小畫家',
     },
     class: 'object-cover w-full h-full',
     tags: ['Illustration'],

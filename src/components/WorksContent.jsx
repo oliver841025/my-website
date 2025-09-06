@@ -12,14 +12,7 @@ const WorksContent = () => {
         {works.map((item) => (
           <Link key={item.slug} href={`/works/${item.slug}`}>
             <div className="aspect-square  flex items-center justify-center cursor-pointer overflow-hidden group relative w-full">
-              <Image
-                src={item.src}
-                alt={item.alt}
-                width={300}
-                height={300}
-                className={item.class || undefined}
-                style={item.slug === 'kickscrew' ? { objectFit: 'contain' } : {}}
-              />
+              <Image src={item.src} alt={item.alt} width={300} height={300} className={item.class} />
               {/* 遮罩區塊 */}
               <div className="absolute bottom-0 left-0 w-full h-full bg-black/40 flex items-center justify-center translate-y-full group-hover:translate-y-0 transition-transform duration-300">
                 <span className="text-white text-sm italic">{item.intro[locale] || item.intro['en']}</span>
