@@ -1,10 +1,13 @@
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { useState } from 'react';
+import { useMediaQuery } from 'react-responsive';
 
 const MoreInfo = ({ text }) => {
   const t = useTranslations('more_info_cat');
   const [infoClicked, setInfoClicked] = useState(false);
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+
   return (
     <>
       <div className="absolute bottom-16 right-8 sm:right-20 flex gap-2 z-20">
@@ -20,8 +23,10 @@ const MoreInfo = ({ text }) => {
       <div
         className="absolute bottom-8 right-2 flex gap-2 z-10 cursor-pointer"
         onClick={() => setInfoClicked(!infoClicked)}
-        onMouseEnter={() => setInfoClicked(true)}
-        onMouseLeave={() => setInfoClicked(false)}
+        {...(!isMobile && {
+          onMouseEnter: () => setInfoClicked(true),
+          onMouseLeave: () => setInfoClicked(false),
+        })}
       >
         <div>
           <p

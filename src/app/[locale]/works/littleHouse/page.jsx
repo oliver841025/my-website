@@ -22,6 +22,7 @@ const LittleHouse = () => {
             <Image src="/little_house/little_house_6.png" alt={t('imgAlt6')} width={600} height={600} />
             <Image src="/little_house/little_house_7.png" alt={t('imgAlt7')} width={600} height={600} />
             <Image src="/little_house/little_house_8.png" alt={t('imgAlt8')} width={600} height={600} />
+            <Image src="/little_house/little_house_9.png" alt={t('imgAlt9')} width={600} height={600} />
           </div>
         </div>
       </div>

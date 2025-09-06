@@ -62,7 +62,7 @@ const works = [
   {
     slug:'littleHouse',
     name: 'littleHouse',
-    src: '/little_house/little_house_6.png',
+    src: '/little_house/little_house_2.png',
     alt: 'littleHouse',
     intro: {
       en: 'Snail-Shell Dreams',
