@@ -20,7 +20,7 @@ const WorksContent = () => {
             </div>
             <div className="mt-1">
               {item.tags && item.tags.length > 0 && (
-                <span className="text-md text-slate-500">
+                <span className="text-sm text-slate-500">
                   {item.tags.map((tag, idx) => `#${tag}${idx !== item.tags.length - 1 ? ', ' : ''}`)}
                 </span>
               )}
