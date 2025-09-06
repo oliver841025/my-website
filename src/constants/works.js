@@ -44,7 +44,7 @@ const works = [
       en: 'Fan - poster',
       'zh-TW': 'FAN 動畫海報',
     },
-    class: '',
+    class: 'w-full h-full object-contain',
     tags: ['Graphic'],
   },
   {
@@ -56,7 +56,7 @@ const works = [
       en: 'Mythomania - poster',
       'zh-TW': 'Mythomania 動畫海報',
     },
-    class: '',
+    class: 'w-full h-full object-contain',
     tags: ['Graphic'],
   },
   {
