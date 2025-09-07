@@ -1,23 +1,28 @@
 'use client';
 import { articles } from '@/app/configs/articles';
+import MoreInfo from '@/components/MoreInfo';
 import PageTitle from '@/components/PageTitle';
 import { useTranslations } from 'next-intl';
+import Link from 'next/link';
 
 const ArticlesPage = () => {
   const t = useTranslations('articles');
-  
+
   return (
     <>
       <PageTitle />
+      <MoreInfo text={t('FYI')} />
       <div>
-        <section className=" p-6 mb-12 mt-4 bg-slate-100 text-slate-600">
-          {t('FYI')}
-        </section>
+        <Link href="https://medium.com/me/stories?tab=posts-published" target="_blank" rel="noopener noreferrer" className='underline cursor-pointer text-blue-500 font-bold'>
+          <section className="tracking-wide p-6 mb-12 mt-4 bg-slate-100 ">{t('FYI')}</section>
+        </Link>
         <ul className="space-y-2 px-2 lg:px-60">
-          <li className="text-slate-500 mb-12 pb-4 border-b">{t('published')} {articles.length}</li>
+          <li className="text-slate-500 mb-12 pb-4 border-b">
+            {t('published')} {articles.length}
+          </li>
           {articles.map((article) => (
             <li key={article.slug}>
-              <a target="_blank" rel="noopener noreferrer" href={article.href}>
+              <Link href={`/articles/${article.slug}`}>
                 <div className="pb-10 pt-4 border-b hover:text-blue-500">
                   <h2 className="font-bold">{article.title}</h2>
                   <p className="text-slate-500">{article.excerpt}</p>
@@ -35,7 +40,7 @@ const ArticlesPage = () => {
                     </div>
                   ))}
                 </div>
-              </a>
+              </Link>
             </li>
           ))}
         </ul>

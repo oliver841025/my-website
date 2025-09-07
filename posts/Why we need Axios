@@ -1,0 +1,251 @@
+Why we need Axios?
+==================
+
+![very simple and powerful](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*anRXM5f2aCSJAwdhS6-neA.png)
+
+by [Hsuan Huang](https://medium.com/@chinghsuan1025?source=post_page---byline--91c292e775cc---------------------------------------)
+
+
+
+
+
+Because it’s lightweight, simple to understand, and easy to use.
+
+Since switching to frontend frameworks, there’s no need to rely on jQuery ajax anymore. Axios wraps asynchronous requests into Promise objects, allowing us to directly use Promise APIs like `then()` and `catch()`, which is very convenient. It also provides interceptors, enabling us to handle request timeouts, centralize response error management, and more with its handy APIs.
+
+What I mainly want to do here is document how I effectively use Axios to manage APIs. I recommend continuing only if you’ve used Axios before. For context, I’m using it together with React + Redux + Thunk.
+
+**Starting from not using Axios.**
+
+```
+export const getTopTradersAsync = () => async dispatch => {
+ const requestOptions = {
+ method: 'GET',
+ redirect: 'follow'
+ };
+ try{
+ const response = await fetch(process.env.REACT_APP_TOP_TRADERS_URL, requestOptions)
+ const result = await response.json()
+ dispatch(getTopTraders(result))
+ }catch(error){
+ handleError(error, dispatch)
+ }
+}
+```
+
+Basically, the fetch API part and the dispatch action part are all mixed together, making it not very easy to extend and maintain.
+
+Next, let’s rewrite it using Axios:
+
+```
+export const getTopTradersAsync = () => async dispatch => {
+  try{
+    const config = {
+      url: process.env.REACT_APP_TOP_TRADERS_URL,
+      method: 'GET'
+    }
+    const response = await axios(config)
+    const result = await response.data
+    dispatch(getTopTraders(result))
+  }catch(error){
+    handleError(error, dispatch)
+  }
+}
+```
+
+But this still mixes the fetch API part with the dispatch part. Next, we’re going to separate the API logic into its own file.
+
+**Managing all APIs efficiently with api.js**
+First, create a file under `src` called `api.js`. As the name suggests, it will contain all the APIs. Inside it, use `axios.create` to create an instance, where you can define the related request configuration properties.
+
+```
+import axios from 'axios';
+// topTraders related APIs
+// REACT_APP_BASE_TOP_TRADERS_URL` is the main domain of your API, so later when making requests you only need to provide the relative path.
+const topTradersRequest = axios.create({
+  baseURL: process.env.REACT_APP_BASE_TOP_TRADERS_URL,
+  headers: {
+    Authorization: `bearer ${ACCESS_TOKEN}`,
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+  }
+});
+```
+
+There are quite a few properties you can configure in the request config. For example, I usually set `baseURL`. The [official documentation](https://github.com/axios/axios#request-config) lists all the available options—just pick the ones you need and include them. I’ll keep it simple here without going into detail.
+
+**You can also add interceptors.**
+
+The main purpose of interceptors is to let us handle something before a request is sent or after a response is received. By using `topTradersRequest.interceptors.request.use`, you can set them up. The most common use case is centralizing error code handling here:
+
+```
+// request interceptors
+topTradersRequest.interceptors.request.use(
+  function(config){
+    // do something before request is sent
+    return config
+  },
+  function(error){
+    // do something with request error
+    return Promise.reject(error)
+  }
+)
+// This is the request interceptor, which takes two functions as parameters.
+// - The first function intercepts the config before the request is sent, allowing final processing before sending.
+// - The second function handles additional errors that occur while sending the request.
+// response interceptors
+topTradersRequest.interceptors.response.use(
+  function(response){
+    // do something with response data
+    return response
+  },
+  function(error){
+    // do something with response error
+    if(error.response){
+      switch (error.response.status){
+        case 401:
+          console.log("Please log in first");
+          // go to login page
+          break
+        case 403:
+          console.log("You don’t have permission or access has been denied, please contact the site administrator");
+          // go to 403 page
+          break
+        case 404:
+          console.log("The page you are looking for does not exist");
+          // go to 404 page
+          break
+        case 408:
+          console.log("Network is unstable, please reconnect or try another network");
+          // go to 408 page
+          break
+        case 500:
+          console.log("An internal server error occurred");
+          // go to 500 page
+          break
+        default:
+          console.log(error.message);
+      }
+    } 
+    if (!window.navigator.onLine){
+      alert("Network issue detected, please reconnect and refresh the page");
+      return;
+    }
+    return Promise.reject(error);
+  }
+)
+```
+
+This is the response interceptor, which I personally find the most useful. It allows us to handle error codes in a centralized way, and it also takes two functions as parameters.
+
+*   The first function can handle the response after it’s received.
+*   The second function handles errors that occur in the response.
+
+Here, you can categorize and display error messages, then redirect to the corresponding error page, or even dispatch something like `dispatch(setFalse(true))`, depending on your needs.
+
+**How to use**
+
+```
+export const getTopTradersApi = () => topTradersRequest.get(`list-open-t3/`);
+// ... And so on, you can directly use topTradersRequest.post()... and similar methods, which is very convenient.
+// thunk
+export const getTopTradersAsync = () => async (dispatch) => {
+  try {
+    // fetch api
+    const response = await getTopTradersApi();
+    const response = response.data;
+    dispatch(setOrder(response));
+  } catch (error) {
+    console.log(error);
+  }
+};
+```
+
+Since I’m using React + Redux + Thunk, when we go back to the original file where the API was fetched, you can see that the fetch API part has already been separated into another file. All you need to do is call `getTopTradersApi()` to get the API, and then dispatch an action to update the state so it can be used on the page.
+
+**Here I’ll include the complete file:**
+
+**api.js:**
+
+```
+/* eslint-disable no-shadow */
+/* eslint-disable consistent-return */
+/* eslint-disable */
+import axios from 'axios';
+// topTraders related APIs
+// REACT_APP_BASE_TOP_TRADERS_URL is your API's main domain, so later you only need to provide the relative path when making requests
+const topTradersRequest = axios.create({
+  baseURL: process.env.REACT_APP_BASE_TOP_TRADERS_URL,
+  headers: {
+    Authorization: `bearer ${ACCESS_TOKEN}`,
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+  }
+});
+// request interceptors
+topTradersRequest.interceptors.request.use(
+  function(config){
+    // do something before request is sent
+    return config
+  },
+  function(error){
+    // do something with request error
+    return Promise.reject(error)
+  }
+)
+// response interceptors
+topTradersRequest.interceptors.response.use(
+  function(response){
+    // do something with response data
+    return response
+  },
+  function(error){
+    // do something with response error
+    if(error.response){
+      switch (error.response.status){
+        case 401:
+          console.log("Please log in first");
+          // go to login page
+          break
+        case 403:
+          console.log("You don’t have permission or access has been denied, please contact the site administrator");
+          // go to 403 page
+          break
+        case 404:
+          console.log("The page you are looking for does not exist");
+          // go to 404 page
+          break
+        case 408:
+          console.log('Network is unstable, please reconnect or try another network');
+          // go to 408 page
+          break
+        case 500:
+          console.log("An internal server error occurred");
+          // go to 500 page
+          break
+        default:
+          console.log(error.message);
+      }
+    } 
+    if (!window.navigator.onLine){
+      alert("Network issue detected, please reconnect and refresh the page");
+      return;
+    }
+    return Promise.reject(error);
+  }
+)
+export const getTopTradersApi = () => topTradersRequest.get(`list-open-t3/`);
+```
+
+By separating the API into its own file, it should now be easier to maintain and manage. In the future, if you want to modify anything related to the API, you just need to update this file, without mixing actions and fetch API logic together. It also ensures centralized error handling.
+
+Note: `env` is a separately created environment configuration file that contains all the URLs.
+
+---
+
+Reference:
+
+*   [Axios](https://github.com/axios/axios#request-config)
+*   [Managing APIs with Axios instance](https://ithelp.ithome.com.tw/articles/10230336)
+
+Thank you! Any feedback, corrections, or discussion is welcome! And feel free to give me a clap 👏!

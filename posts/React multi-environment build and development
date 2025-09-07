@@ -1,0 +1,101 @@
+React multi-environment build and development
+=============================================
+
+![captionless image](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*-oS3827VSufUAYufFhzFsQ.jpeg)
+
+by [Hsuan Huang](https://medium.com/@chinghsuan1025?source=post_page---byline--74317c22653d---------------------------------------)
+
+
+
+
+
+In development, when dealing with multiple environment APIs (development, staging, production, etc.), the order of `.env` file resolution and how to write scripts.
+
+In real project development, the frontend often needs to handle multiple environment APIs. This is something you rarely encounter when doing a side project, since you usually only have a single local development environment.
+
+In actual projects, however, you may have environments such as **development**, **staging/testing**, and **production**. Along with these environments, their corresponding **baseURLs** must change depending on the environment.
+
+**How do we make these changes?**
+
+Generally, we use scaffolding tools like Create React App to set up a project. The advantage is convenience — it takes care of many things you don’t see (e.g., webpack). The downside is that when you want to change these configurations, it becomes more troublesome. So, without ejecting, how should we configure multi-environment development?
+
+Let’s first take a look at the [Create React App official documentation](https://create-react-app.dev/docs/adding-custom-environment-variables/#what-other-env-files-can-be-used) on multi-environment builds — it’s actually explained quite clearly.
+
+*   `.env` : Default.
+*   `.env.local` : Local overrides. **This file is loaded for all environments except test.**
+*   `.env.development`, `.env.test`, `.env.production` : Environment-specific settings.
+*   `.env.development.local`, `.env.test.local`, `.env.production.local` : Local overrides of environment-specific settings.
+
+Here we’ll just paste part of the official documentation directly, so no translation is really needed.
+
+We usually use three commands: `**npm start**`, `**npm run build**`, and `**npm test**` for previewing, building, and testing.
+
+When running different commands, different environment configuration files will be picked up. The order of precedence is as follows — the ones on the left have higher priority than those on the right.
+
+*   `npm start` : `.env.development.local`, `.env.local`, `.env.development`, `.env`
+*   `npm run build` : `.env.production.local`, `.env.local`, `.env.production`, `.env`
+*   `npm test` : `.env.test.local`, `.env.test`, `.env`(note .env.local is missing)
+
+Let’s take an example
+
+![captionless image](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*lF3bmJ5Fnnpr1BlN4ukk_w.png)
+
+In our package.json, you can see there’s more than one environment. For example, `start:prod` is meant to preview the production environment. **However, when running the** `**start**` **command, it defaults to loading variables from the** `**.env.development**` **file.**
+
+Obviously, that’s not what I want. I want it to load variables from `.env.production`, so I need the help of the **dotenv** package.
+
+This is also the solution given in the official documentation — you can use dotenv to manage environment variables (dotenv loads variables from a `.env` file into `process.env`).
+
+P.s. : According to Create React App’s official documentation, running the `start` command defaults to loading variables from `.env.development`, while running the `build` command defaults to loading variables from `.env.production`.
+
+Next, let’s do it.
+
+*   **First, create the related** `**.env**` **files in the root directory.**
+
+![captionless image](https://miro.medium.com/v2/resize:fit:1024/format:webp/1*1Hkc_paTqjatcPTrATvRpg.png)
+
+*   **Write the variables inside the files.**
+
+Variable names must start with `REACT_APP`, use uppercase letters, and separate words with underscores. After changing `.env` variable names, the project must be restarted for the changes to take effect.
+
+![captionless image](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*e12oq-uxtvabhESTl_ZFtw.png)![captionless image](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*uc8xmVRUdF-fkCNIc8dTkw.png)
+
+The above are the variables for the development and production environments, respectively.
+
+*   **Install the** `**dotenv-cli**` **plugin.**
+
+`_yarn add dotenv-cli or npm i dotenv-cli_`
+
+*   **Write the script**
+
+Open `package.json`; almost all configuration-related content can be found here.
+
+![captionless image](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*lF3bmJ5Fnnpr1BlN4ukk_w.png)
+
+You can see that `"start:prod": "dotenv -e .env.production node scripts/start.js"` is configured to load environment variables from `.env.production` when running `npm run start:prod`, which achieves our goal.
+
+At this point, the setup is basically complete. You can add or remove `.env` files and variables according to your project needs, and write scripts that match each environment.
+
+**_Essentially, it all comes down to creating different_** `**_.env_**` **_files for each environment and writing corresponding scripts to load them._**
+
+Below are some additional notes.
+
+**How to access the variables**
+
+You can access the variables via `process.env`.
+
+![captionless image](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*aHarj2SHtATaNyf1xWPDUQ.png)
+
+`process` represents a process, which can be understood as the fact that a CPU executes only one process at a time. We can use the `process` object to access all environment information, including JS script threads, HTTP threads, and more.
+
+In other words, in a Node environment, we can use `process` to get current global information. For example:
+
+*   `process.initgroups`: user information
+*   `process.execPath`: absolute path of the Node executable
+*   `process.env`: the object containing user environment variables
+
+Reference:
+
+*   [React 使用 .env 文件配置多环境](https://juejin.cn/post/7049923442711199774)
+*   [環境搭建好幫手process && env 環境變數](https://ithelp.ithome.com.tw/articles/10248363?fbclid=IwAR1K7IusYJnmNwNiU3RtHv6mBWlwNiPPhOnB-skAeijL1I-uUDanxG5vLlw)
+*   [Create React App](https://create-react-app.dev/docs/adding-custom-environment-variables/)

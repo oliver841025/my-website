@@ -1,0 +1,82 @@
+Simple Steps to Boost Your Website’s SEO Ranking
+================================================
+
+![SEO, simply put, is what affects your ranking in search engines. Yep, that’s the simplest way to say it.](https://miro.medium.com/v2/resize:fit:1218/format:webp/1*8ZLYiuCCWTVHh-KMWnwKTQ.webp)
+
+by [Hsuan Huang](https://medium.com/@chinghsuan1025?source=post_page---byline--4ef897b888d4---------------------------------------)
+
+
+
+
+
+My personal understanding of the `noindex, follow` meta tag for crawlers.
+
+This article is a short personal reflection on basic SEO concepts. It covers the writer’s understanding of meta tags such as `index`, `noindex`, and `follow`, and how they affect search engine behavior. It's intended for beginners or those just starting to explore SEO, while SEO experts may find it too elementary and can skip it.
+
+A while ago at work, a colleague had a ticket about improving SEO. Although the scope and difficulty weren’t big, it piqued my curiosity. The main content was roughly :
+
+```
+On all /en-XX/ pages (eg., /en-AU/, /en-US/, /en-HK/, etc.), add: <meta name="robots" content="noindex, follow">
+``````
+```
+On all /ar-XX/ pages (e.g., /ar-SA/, /ar-AE/, etc.), add: <meta name="robots" content="noindex, follow">
+```
+
+To be honest, although I’m not the one handling it, I imagine it mainly involves determining which meta tags to add based on locales. The key point is understanding that these tags are specifically for search engine crawlers. Especially for e-commerce sites, SEO is a top priority.
+
+---
+
+I took a look, and I have three questions :
+
+1.  What exactly are `index` and `noindex`?
+2.  What does `follow` mean?
+3.  Why do we want to allow `en` pages to be indexed, but not the `en-XX` pages by search engines?
+
+By the way: `en` stands for the language (English pages), and `-XX` could be something like `en-AU`, which represents the Australia region—so it’s an English page paired with the Australian dollar currency.
+
+The first two questions are easy to understand :
+
+1.  **noindex:** Tells crawlers not to include this page in the search engine index (meaning it won’t appear in Google search results).
+2.  **follow:** Even if this page is not indexed, it allows crawlers to continue crawling the links on this page and pass SEO value (link equity) to other pages.
+
+---
+
+The main question is the third one: indexing? link equity? I was curious too and did some research on why having meta tags on both language-only (`en`) and language-region (`en-US`) pages affects crawlers and, consequently, SEO rankings. Below is how I understand it:
+
+*   **Duplicate Content Penalty**
+
+Search engines may suspect you’re publishing duplicate content, which can lower the authority (ranking power) of both pages and negatively impact their rankings.
+
+*   **Link Equity Split**
+
+External links, clicks, and user interactions may be spread across multiple similar pages, preventing any single version from accumulating enough authority to rank well.
+
+*   **Search results become messy/confusing**
+
+Google may be unsure which version to display, causing your main /en/ page to not consistently appear in search results.
+
+That’s why we…
+
+*   Prevent the regional versions (e.g., en-US) from being indexed by using the meta tag `noindex`.
+*   Allow crawlers to still follow the links and pass link equity to the canonical page (my understanding: although the regional versions aren’t indexed, search engines will still crawl the links on these pages).
+*   Consolidate SEO authority to the main URL (e.g., /products/).
+
+Simply put: Although regional versions like the en-US pages are not indexed by Google, they still help redirect traffic and pass link equity to the main pages we want to rank.
+
+![Spider-Man memes really crack me up lol](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*0m3JIP7a8syMTGizj1Ydkw.jpeg)
+
+Plain and simple summary :
+**Not indexed** = don’t include this webpage in search results, but it can still be crawled and visited.
+
+*   Users won’t find this page when searching on Google.
+*   Search engines won’t create an index for it.
+*   It won’t compete with other pages in rankings.
+*   This is used when you don’t want specific pages to appear in search results but still want to keep their functionality or link to other important pages.
+
+The points above can really affect SEO rankings — this is actually the first time I learned this. If you’re also dealing with multilingual sites combined with regional versions, it’s worth considering how link equity influences crawlers and SEO!
+
+---
+
+References
+
+*   [Google docs — Block Search indexing with no-index](https://developers.google.com/search/docs/crawling-indexing/block-indexing#debugging-noindex-issues)

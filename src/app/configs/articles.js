@@ -56,7 +56,7 @@ export const articles = [
   },
   {
     title: 'Why we need Axios?',
-    slug: 'Why we need Axios?',
+    slug: 'Why we need Axios',
     excerpt: 'Since switching to frontend frameworks, there’s no need to rely on jQuery ajax anymore.',
     tags: ['Axios', 'Data fetching', 'API', 'Interceptors'],
     length: '5 min read',
