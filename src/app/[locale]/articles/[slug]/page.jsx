@@ -9,9 +9,9 @@ const ArticlePage = ({ params }) => {
   const fileContent = fs.readFileSync(filePath, 'utf8');
 
   return (
-    <div className="prose mx-auto">
-      <ReactMarkdown>{fileContent}</ReactMarkdown>
-    </div>
+    <div className="prose prose-img:mx-auto mx-auto p-4 md:p-0">
+  <ReactMarkdown>{fileContent}</ReactMarkdown>
+</div>
   );
 };
 
