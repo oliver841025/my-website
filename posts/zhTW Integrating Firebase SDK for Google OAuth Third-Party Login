@@ -1,0 +1,127 @@
+串接 Firebase SDK 做 Google OAuth 第三方登入
+====================================
+
+![Make your app the best it can be XD](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*0FGeCmLgMwiykeOMujxydA.png)
+
+by [Hsuan Huang](https://medium.com/@chinghsuan1025?source=post_page---byline--3b8f39752423---------------------------------------)
+
+
+
+
+本文移植自 [串接 Firebase SDK 做 Google OAuth 第三方登入](https://your-good-neighbors-online.coderbridge.io/2022/04/17/firebase-Google-OAuth/)
+
+常常在登入別人網站時，可以選擇你要用 Google 帳號還是 Facebook 或是 Github 帳號做登入，不需再註冊其他的帳密，蠻方便的，也是我們今天要做的事。
+
+第三方登入現在還蠻常見的，又以 OAuth 為主，大幅提升新用戶登入的意願，因為沒有繁瑣的帳戶密碼申請流程，同時對用戶、平台、提供登入的第三方平台是三贏的局面
+
+1.  用戶登入網站流程簡單，體驗好
+2.  平台也能快速獲取提升新用戶數
+3.  提供登入的第三方平台也能擴大自己的用戶數，增加對自已網站的依賴
+
+雖然我覺得第三點的後半段是兩面刃，對於客戶跟企業的視角來看，又是截然不同的，尤其現在逐漸進入 web 3.0 的時代，不過跟本篇無關，這邊不贅述，有興趣的可以看下方參考資料，我覺得寫得很好。
+
+[白話文談談 Web 3.0 — 我們使用 Web 但 Web 還不屬於我們 (一)](https://medium.com/%E7%A8%8B%E5%BC%8F%E7%8C%BF%E5%90%83%E9%A6%99%E8%95%89/%E7%99%BD%E8%A9%B1%E6%96%87%E8%AB%87%E8%AB%87-web-3-0-%E6%88%91%E5%80%91%E4%BD%BF%E7%94%A8-web-%E4%BD%86-web-%E9%82%84%E4%B8%8D%E5%B1%AC%E6%96%BC%E6%88%91%E5%80%91-%E4%B8%80-5a860a69a724)
+
+最近因為工作需求，需要串接第三方登入，目前是只串接 Google OAuth，未來可能會再串其他的，但這邊就先以 Google 舉例。
+
+這篇比較初階，篇幅也會比較短，主要是紀錄從無到有串接成功的過程，那就開始吧！
+
+### Firebase 新增專案與應用程式
+
+![captionless image](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*YYH4igPTRjja9T93hj5q-g.gif)
+
+首先需要在 Firebase 中新增專案，這邊公司同事已經新開好專案，接下來只要新增應用程式
+
+1.  右上角可以看到「 新增應用程式 」
+2.  點擊輸入應用程式名稱後，不需打勾，一路確認到完，然後回到本頁
+
+### Add Sign-in method
+
+![captionless image](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*eA9PzKO605GVZ2sE2M6jWA.gif)
+
+這邊我們選擇 Google 作為登入，也蠻簡單的
+
+1.  Authentication 中選擇 Sign-in method
+2.  點擊右上角新增，再選擇 Google，一路確認
+3.  往下看，記得新增授權網域，只要先新增 `localhost://3000` 作為測試用即可，未來可再視網域新增
+
+Copy SDK
+--------
+
+```
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  authDomain: "xxxxxxxxxxxx.firebaseapp.com",
+  projectId: "xxxxxxxxxxxx",
+  storageBucket: "xxxxxxxxxxxx.com",
+  messagingSenderId: "xxxxxxxxxxxx",
+  appId: "xxxxxxxxxxxx"
+};
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+```
+
+接著可以複製這段，這段因為保密問題，都以 `xxxxxxxxxxxxxx` 代替真實碼，而此段可以在「 專案總覽旁的齒輪中有個專案設定 」裡面可以看得到。
+
+add firebase-config to your project
+-----------------------------------
+
+![captionless image](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*mHuIYT-BW7eaygLW_yTiAQ.png)
+
+接著在 src 底下創建一個檔案，firebase-config.js ，拿來放剛剛複製的 SDK，直接貼上，可以看到其中有 config 相關設定檔跟啟動 App, auth 相關
+
+Import Google auth in Login page
+--------------------------------
+
+接著在登入頁面中引用，這邊我在 HomePage.js 中引入。
+
+可以看到我引入了 `signInWithPopup`, `GoogleAuthProvider`, `auth`，`signInWithPopup` 是彈出式 Google login，可自行選擇。
+
+當我想要執行 `signInWithPopup(auth, provider)` 時發現要傳入兩個參數，第一個 `auth` 剛剛在 firebase.config 已輸出，另一個 `provider`，可以看到我在上面一點的地方 new 了一個 `GoogleAuthProvider()`，而這是 Google 提供的。
+參考文件 1 : [Authenticate Using Google with JavaScript](https://firebase.google.com/docs/auth/web/google-signin?authuser=0#web-version-9)
+參考文件 2 : [Firebase - App success made simple](https://www.npmjs.com/package/firebase)
+
+又可以看到 new 完 provider 後，有限制 parameters，也就是說限制怎樣的信箱結尾才能登入，`hd (short for "hosted domain")`，沒這要求可以忽略，接下來就是很簡單的登入成功轉址。
+
+[參考文件](https://groups.google.com/g/firebase-talk/c/Xxm_rS4TWos)
+
+```
+import React, { useState } from 'react';
+import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
+import { auth } from '../../firebase-config';
+function Homepage = () => {
+    const navigate = useNavigate();
+      // 目前使用 google 做第三方登入
+      const signInWithGoogle = async () => {
+        const provider = new GoogleAuthProvider();
+        // 限制只有帶 ckex.tech 才會出現在選項
+        provider.setCustomParameters({
+          hd: 'ckex.tech',
+        });
+        try {
+          const response = await signInWithPopup(auth, provider);
+          const token = response.user.accessToken;
+          localStorage.setItem('access_token', token);
+          // 登入成功就轉址
+          if (token)navigate('/orders-data');
+        } catch (error) {
+          console.log(error);
+        }
+      };
+    return (
+      <div>
+          <button className="login-btn" onClick={signInWithGoogle}>Click me to login</button>
+      </div>
+    )
+}
+```
+
+基本上到這邊，你的網站就應該可以成功串接 Google 登入了，未來有串接其他第三方登入應該也是類似的方式。
+
+本篇也是同時幫我自己做個紀錄，未來回頭看比較快。

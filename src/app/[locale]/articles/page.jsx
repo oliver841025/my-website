@@ -1,26 +1,34 @@
 'use client';
 import { articles } from '@/app/configs/articles';
+import { zh_tw_articles } from '@/app/configs/articles';
 import MoreInfo from '@/components/MoreInfo';
 import PageTitle from '@/components/PageTitle';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import Link from 'next/link';
 
 const ArticlesPage = () => {
+  const locale = useLocale();
   const t = useTranslations('articles');
+  const articleList = locale === 'zh-TW' ? zh_tw_articles : articles;
 
   return (
     <>
       <PageTitle />
       <MoreInfo text={t('FYI')} />
       <div>
-        <Link href="https://medium.com/me/stories?tab=posts-published" target="_blank" rel="noopener noreferrer" className='underline cursor-pointer text-blue-500 font-bold'>
+        <Link
+          href="https://medium.com/me/stories?tab=posts-published"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline cursor-pointer text-blue-500 font-bold"
+        >
           <section className="tracking-wide p-6 mb-12 mt-4 bg-slate-100 ">{t('FYI')}</section>
         </Link>
         <ul className="space-y-2 px-2 lg:px-60">
           <li className="text-slate-500 mb-12 pb-4 border-b">
-            {t('published')} {articles.length}
+            {t('published')} {articleList.length}
           </li>
-          {articles.map((article) => (
+          {articleList.map((article) => (
             <li key={article.slug}>
               <Link href={`/articles/${article.slug}`}>
                 <div className="pb-10 pt-4 border-b hover:text-blue-500">

@@ -1,0 +1,68 @@
+多語系開發實務：POEditor × GitHub 整合工作流程
+================================
+
+![右上黃黃的 +](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*vUbNk_yzgXFmA6WpRFYb3g.png)
+
+by [Hsuan Huang](https://medium.com/@chinghsuan1025?source=post_page---byline--261e8f73b68f---------------------------------------)
+
+
+
+這份文件會說明在 [POEditor](https://poeditor.com/projects/view?id=623177) 翻譯管理平台該如何操作去新增、修改、儲存翻譯。以及確認儲存後，本地該如何同步這些翻譯以及中間發生什麼事。
+
+**Why?**
+
+過往都是在 `locales/en/common.json` 做更新（這邊舉 en 為例，通常幾種語言就在 `locales` 中有幾個檔案），但無法把翻譯工作
+
+外包出去，只能不斷進 codebase 做修改，且檔案眾多，改一句翻譯，有幾個檔案就要逐一去檢查。
+
+*   有多國語系需求（10+ 語言）
+*   翻譯由產品/翻譯人員維護，不直接改程式碼
+*   團隊需多人協作，或外包翻譯
+
+**準備**
+
+收到邀請信後，點擊開啟即可啟動，回到 [POEditor](https://poeditor.com/projects/view?id=623177)，其餘與 GitHub 串接 integration、先上傳最新翻譯 json 包，都已完成，未來應該不再需要做這些事。
+
+**POEditor✨**
+
+進來可以看到目前是 4 種語言，只翻了阿拉伯跟英文，需要加語言請按右上角的加號
+
+**STEP 1：新增 Term**
+
+點擊到 `Term`，這邊有所有語系的 `term` 跟 `context`，如果新增了，**就會在各語系看到新增的** `**term**`
+
+![應該不難理解](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*9U3iqeBK5MQamcR4CmfOVg.png)
+
+按右上角加號新增，就會跳出視窗填入 `term` / `context`， `context` 就相當於物件結構，看圖片可以很快理解，務必連引號都要一樣
+
+![引號務必一樣](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*xjk1OwDzsdHTUIY3qy1Q2w.png)
+
+**STEP 2：寫上翻譯**
+
+現在點進各語系查看，就可以開始寫上該語系的翻譯，圖為已經寫好的
+
+![中間那行就是寫好的翻譯](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*kVE7dIgYQrNiBrMasrOX3Q.png)
+
+然後舉例來說像是法語這邊，就可以委託其他部門協助做翻譯，他們只需要把翻譯文字填入空格，如此也不用再只能進 codebase 新增
+
+![法語等待其他同事做翻譯，我是真的不懂](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*QU3Z5VdBxkJeFMjMiP8G9g.png)
+
+**STEP 3：Export**
+
+準備儲存，可由 Integrations 或 Export 點擊進行，記得再來都要選擇 GitHub，因為已經跟 GitHub 的 `POEditor` branch 做 integration，當然如果你要另輸出 `.json` 另外用也可以
+
+![紅匡處擇一](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*eXACPMILTeCt7OPIVUwDdA.png)
+
+來到這一步，就大膽的把 web 專案下的所有語言包都打勾起來，準備推到我們 `POEditor` branch 了，按下 Go 就可以了
+
+![綠綠的那個 Go，用力放心按下去](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*N6Pdya3h6o_kExuWUPlEsQ.png)
+
+到這裡， `POEditor` 就差不多了，再來看看 branch 我們是怎麼安排的
+
+**POEditor Branch✨**
+
+能看到紅匡處就是 `POEditor` branch，也盡量都單向由 `POEditor` 向這邊做更新([POEditor.com](http://poeditor.com/))，保持單純只做語言包的更新，然後任何有需要的分支就跟它做 merge 就可以
+
+![通常上版前會跟 dev 做一次 merge](https://miro.medium.com/v2/resize:fit:1366/format:webp/1*-Cj6odBnGIQKo1NGQ3kXMQ.png)
+
+最後，可以檢查你的 locales folder 裡面的所有 file，其實都有被更新，也就是照著你剛剛在 `POEditor` 做的更新，因為**我們在** `**POEditor**` **做的更新相當於在遠端的** `**POEditor**` **branch 做更新，然後再拉到本地端而已**，這樣應該比較好理解。

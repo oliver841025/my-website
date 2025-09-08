@@ -1,0 +1,251 @@
+為什麼我們需要使用 Axios
+===============
+
+![官網簡潔有力](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*lut_P2IRWkfpWOMJA3vTKQ.png)
+
+by [Hsuan Huang](https://medium.com/@chinghsuan1025?source=post_page---byline--d8e24fd34065---------------------------------------)
+
+
+
+
+此文章移植自 [為什麼我們需要使用 Axios](https://your-good-neighbors-online.coderbridge.io/2022/04/10/how-to-fetch-api-efficiently/)
+
+因為他輕量，簡單好理解、好上手。
+
+自從使用前端框架做開發後，就不用以前的 jQuery ajax 了，Axios 幫我們把非同步請求包裝成 Promise 物件，可以直接使用 Promise API 像是 `then(), catch()`都非常方便，其中還有 interceptors(攔截器)，讓我們可以做很多請求超時、統一管理 response 錯誤 … 等許多方便的 API。
+
+接下來其實主要想紀錄自己如何有效地利用 Axios 去管理 API，建議有使用過 Axios 的人再繼續往下看，另外我是搭配 React + Redux + Thunk 做使用。
+
+### 從不用 Axios 開始
+
+```
+export const getTopTradersAsync = () => async dispatch => {
+ const requestOptions = {
+ method: 'GET',
+ redirect: 'follow'
+ };
+ try{
+ const response = await fetch(process.env.REACT_APP_TOP_TRADERS_URL, requestOptions)
+ const result = await response.json()
+ dispatch(getTopTraders(result))
+ }catch(error){
+ handleError(error, dispatch)
+ }
+}
+```
+
+基本上，fetch API 的部分跟 dispatch action 的部分都全部混在一起了，不是很容易擴充跟維護。
+
+接著我們改寫成 Axios 的樣子：
+
+```
+export const getTopTradersAsync = () => async dispatch => {
+  try{
+    const config = {
+      url: process.env.REACT_APP_TOP_TRADERS_URL,
+      method: 'GET'
+    }
+    const response = await axios(config)
+    const result = await response.data
+    dispatch(getTopTraders(result))
+  }catch(error){
+    handleError(error, dispatch)
+  }
+}
+```
+
+不過這樣還是把 fetch API 跟 dispatch 的部分混在一起，接著我們要把 API 的部分獨立出來變一個檔案。
+
+### 利用 api.js 有效管理所有 API
+
+首先先開一個檔案在 src 底下，叫做 `api.js`，顧名思義就是放所有的 API，接著在裡面 `axios.create` 去創造一個實體，裡面可以放入 Request 的相關設定屬性
+
+```
+import axios from 'axios';
+// topTraders 相關的 api
+// REACT_APP_BASE_TOP_TRADERS_URL 是你 API 的主要 Domain，之後發請求時只要填相對路徑就可以了
+const topTradersRequest = axios.create({
+  baseURL: process.env.REACT_APP_BASE_TOP_TRADERS_URL,
+  headers: {
+    Authorization: `bearer ${ACCESS_TOKEN}`,
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+  }
+});
+```
+
+這邊的 Request config 有不少屬性可以設定，像我就會設定 `` `baseURL` ``，[官網](https://github.com/axios/axios#request-config)都有列出所有選擇，自己挑選需要的放入就可以，這邊比較簡單，不贅述。
+
+### 可以加上攔截器 interceptors
+
+攔截器最主要是讓我們能在發出 request 前或接到 response 後做一些處理，使用 `topTradersRequest.interceptors.request.use` 就可使用，最常見的就是將錯誤代碼在這邊做統一處理：
+
+```
+// request interceptors
+topTradersRequest.interceptors.request.use(
+  function(config){
+    // do something before request is sent
+    return config
+  },
+  function(error){
+    // do something with request error
+    return Promise.reject(error)
+  }
+)
+這是 request 的攔截器，裡面會放入兩個函式做為參數。
+  - 第一個函式在 request 發出前能攔截到這此的 config，可以做送出前的最後處理
+  - 第二個函式是在 send resuest 中發生錯誤的一些額外處理
+// response interceptors
+topTradersRequest.interceptors.response.use(
+  function(response){
+    // do something with response data
+    return response
+  },
+  function(error){
+    // do something with response error
+    if(error.response){
+      switch (error.response.status){
+        case 401:
+          console.log("請先登入");
+          // go to login page
+          break
+        case 403:
+          console.log("你沒有權限或已被禁止訪問，請聯絡網站管理員");
+          // go to 403 page
+          break
+        case 404:
+          console.log("你要找的頁面不存在");
+          // go to 404 page
+          break
+        case 408:
+          console.log('網路狀況不佳，請重新連網或換個網路連結');
+          // go to 408 page
+          break
+        case 500:
+          console.log("程式發生問題");
+          // go to 500 page
+          break
+        default:
+          console.log(error.message);
+      }
+    } 
+    if (!window.navigator.onLine){
+      alert("網路出了點問題，請重新連線後重整網頁");
+      return;
+    }
+    return Promise.reject(error);
+  }
+)
+```
+
+這是 response 的攔截器，也是我個人覺得最好用的地方，可以將錯誤代碼在這邊做統一處理，裡面一樣會放入兩個函式做為參數。
+
+*   第一個函式在收到 response 後可以做一些處理
+*   第二個函式是在 response 發生錯誤時可以做的處理
+
+這邊就可以把錯誤訊息做一個分類顯示，然後導到相對應的錯誤顯示分頁，或是在這邊可以 `dispatch(setFalse(true))`之類的處理，看個人。
+
+### 調用
+
+```
+export const getTopTradersApi = () => topTradersRequest.get(`list-open-t3/`);
+// ...
+```
+依此類推，`...` 可以直接接著帶 `topTradersRequest.post()...` 之類的，十分方便。
+```javascript
+// thunk
+export const getTopTradersAsync = () => async (dispatch) => {
+  try {
+    // fetch api
+    const response = await getTopTradersApi();
+    const response = response.data;
+    dispatch(setOrder(response));
+  } catch (error) {
+    console.log(error);
+  }
+};
+```
+
+這邊因為我是用 React + Redux + Thunk 去寫的，所以回到原本要 fetch API 的檔案，可以看到 fetch API 的部分已經被獨立成另一個檔案，只要使用 `getTopTradersApi()` 拿到 API 後，再接著 dispatch action 就可以在頁面上拿到 fetch 過 API 的 state 了。
+
+**這邊我會附上完整的檔案：**
+
+api.js :
+
+```
+/* eslint-disable no-shadow */
+/* eslint-disable consistent-return */
+/* eslint-disable */
+import axios from 'axios';
+// topTraders 相關的 api
+// REACT_APP_BASE_TOP_TRADERS_URL 是你 API 的主要 Domain，之後發請求時只要填相對路徑就可以了
+const topTradersRequest = axios.create({
+  baseURL: process.env.REACT_APP_BASE_TOP_TRADERS_URL,
+  headers: {
+    Authorization: `bearer ${ACCESS_TOKEN}`,
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+  }
+});
+// request interceptors
+topTradersRequest.interceptors.request.use(
+  function(config){
+    // do something before request is sent
+    return config
+  },
+  function(error){
+    // do something with request error
+    return Promise.reject(error)
+  }
+)
+// response interceptors
+topTradersRequest.interceptors.response.use(
+  function(response){
+    // do something with response data
+    return response
+  },
+  function(error){
+    // do something with response error
+    if(error.response){
+      switch (error.response.status){
+        case 401:
+          console.log("請先登入");
+          // go to login page
+          break
+        case 403:
+          console.log("你沒有權限或已被禁止訪問，請聯絡網站管理員");
+          // go to 403 page
+          break
+        case 404:
+          console.log("你要找的頁面不存在");
+          // go to 404 page
+          break
+        case 408:
+          console.log('網路狀況不佳，請重新連網或換個網路連結');
+          // go to 408 page
+          break
+        case 500:
+          console.log("程式發生問題");
+          // go to 500 page
+          break
+        default:
+          console.log(error.message);
+      }
+    } 
+    if (!window.navigator.onLine){
+      alert("網路出了點問題，請重新連線後重整網頁");
+      return;
+    }
+    return Promise.reject(error);
+  }
+)
+export const getTopTradersApi = () => topTradersRequest.get(`list-open-t3/`);
+```
+
+這樣將 API 獨立出一個檔案，就應該會變得比較好維護跟管理，之後想要修改跟 API 相關的事，只要來這個檔案就好，不會再把 action 跟 fetch API 的部分都參雜在一起了，也做好統一的錯誤管理。
+
+*   注：`env` 是另外創立的環境設定檔，裡面會放所有的 url
+*   參考 1 [Axios 官網](https://github.com/axios/axios#request-config)
+*   參考 2 [用 Axios Instance 管理 API](https://ithelp.ithome.com.tw/articles/10230336)
+
+謝謝，有任何寫得不好或值得討論的地方都歡迎指教！也可以幫我拍拍手！

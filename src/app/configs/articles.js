@@ -1,3 +1,70 @@
+export const zh_tw_articles = [
+  {
+    title: '專案整合 Lighthouse CI：幫你每次的 PR 做品管',
+    slug: 'zhTW Project integration with Lighthouse CI: Quality control for every PR',
+    excerpt: '用 LighthouseCI GitHub Action 自動檢查網站品質、SEO 與改善方向',
+    tags: ['Lighthouse CI', 'GitHub Actions', 'SEO', 'CI/CD', 'PR Quality Control'],
+    length: '7 min read',
+    createdAt: 'Aug 14, 2025',
+    href: 'https://medium.com/@chinghsuan1025/%E5%B0%88%E6%A1%88%E6%95%B4%E5%90%88-lighthouse-ci-%E5%B9%AB%E4%BD%A0%E6%AF%8F%E6%AC%A1%E7%9A%84-pr-%E5%81%9A%E5%93%81%E7%AE%A1-d6af52147edf',
+  },
+  {
+    title: '前端視角 — 使用 GCP 打造 Serverless 自動化部署',
+    slug: 'zhTW Frontend Perspective — Building Serverless Automated Deployment with GCP',
+    excerpt: '紀錄自己以前端視角第一次使用 GCP 部署的動機、流程、反思',
+    tags: ['GCP', 'Serverless', 'Deployment', 'CI/CD'],
+    length: '7 min read',
+    createdAt: 'Jul 4, 2025',
+    href: 'https://medium.com/@chinghsuan1025/%E5%89%8D%E7%AB%AF%E8%A6%96%E8%A7%92-%E4%BD%BF%E7%94%A8-gcp-%E6%89%93%E9%80%A0-serverless-%E8%87%AA%E5%8B%95%E5%8C%96%E9%83%A8%E7%BD%B2-9348e7ba70cb',
+  },
+  {
+    title: '優化你網站的排名 — SEO 小小事',
+    slug: 'zhTW Simple Steps to Boost Your Website’s SEO Ranking',
+    excerpt: '關於個人理解 noindex , follow, 給爬蟲的 meta tag',
+    tags: ['SEO', 'Ranking', 'Meta Tags', 'Crawlers'],
+    length: '4 min read',
+    createdAt: 'Jul 2, 2025',
+    href: 'https://medium.com/@chinghsuan1025/%E5%84%AA%E5%8C%96%E4%BD%A0%E7%B6%B2%E7%AB%99%E7%9A%84%E6%8E%92%E5%90%8D-seo-%E5%B0%8F%E5%B0%8F%E4%BA%8B-69c4313eaf1c',
+  },
+  {
+    title: '多語系開發實務：POEditor × GitHub 整合工作流程',
+    slug: 'zhTW How We Manage i18n at Scale: POEditor × GitHub Workflow',
+    excerpt:
+      '這份文件會說明在 POEditor 翻譯管理平台該如何操作去新增、修改、儲存翻譯。以及確認儲存後，本地該如何同步這些翻譯以及中間發生什麼事',
+    tags: ['i18n', 'POEditor', 'Translation'],
+    length: '4 min read',
+    createdAt: 'Jun 17, 2025',
+    href: 'https://medium.com/@chinghsuan1025/%E5%A4%9A%E8%AA%9E%E7%B3%BB%E9%96%8B%E7%99%BC%E5%AF%A6%E5%8B%99-poeditor-github-%E6%95%B4%E5%90%88%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B-261e8f73b68f',
+  },
+  {
+    title: 'React 多環境建置開發',
+    slug: 'zhTW React multi-environment build and development',
+    excerpt: '開發中，面對多個環境接口，開發、測試、正式等，env 檔案的判斷順序與如何寫 scripts',
+    tags: ['dotenv', 'Multi-environment', 'Webpack', '.env', 'build'],
+    length: '4 min read',
+    createdAt: 'Jan 15, 2023',
+    href: 'https://medium.com/@chinghsuan1025/react-%E5%A4%9A%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE%E9%96%8B%E7%99%BC-fb9d30915b49',
+  },
+  {
+    title: '串接 Firebase SDK 做 Google OAuth 第三方登入',
+    slug: 'zhTW Integrating Firebase SDK for Google OAuth Third-Party Login',
+    excerpt: '使用 Firebase SDK 實作 Google OAuth 第三方登入，包括設定 Firebase 的流程，以及如何將其整合進 React',
+    tags: ['Firebase', 'Google OAuth', 'Third-Party Login', 'React'],
+    length: '4 min read',
+    createdAt: 'Jan 15, 2023',
+    href: 'https://medium.com/@chinghsuan1025/%E4%B8%B2%E6%8E%A5-firebase-sdk-%E5%81%9A-google-oauth-%E7%AC%AC%E4%B8%89%E6%96%B9%E7%99%BB%E5%85%A5-3b8f39752423',
+  },
+  {
+    title: '為什麼我們需要使用 Axios?',
+    slug: 'zhTW Why we need Axios',
+    excerpt: '自從轉向前端框架後，就不再需要依賴 jQuery ajax 了...',
+    tags: ['Axios', 'Data fetching', 'API', 'Interceptors'],
+    length: '5 min read',
+    createdAt: 'Jan 15, 2023',
+    href: 'https://medium.com/@chinghsuan1025/%E7%82%BA%E4%BB%80%E9%BA%BC%E6%88%91%E5%80%91%E9%9C%80%E8%A6%81%E4%BD%BF%E7%94%A8-axios-d8e24fd34065',
+  }
+];
+
 export const articles = [
   {
     title: 'Project integration with Lighthouse CI: Quality control for every PR',

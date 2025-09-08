@@ -1,0 +1,102 @@
+React 多環境建置開發
+=============
+
+![captionless image](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*FEG8LjyF31KJKzIP83PQNA.png)
+
+by [Hsuan Huang](https://medium.com/@chinghsuan1025?source=post_page---byline--fb9d30915b49---------------------------------------)
+
+
+
+
+開發中，面對多個環境接口，開發、測試、正式等，env 檔案的判斷順序與如何寫 scripts
+
+在實際項目開發中，前端常常會需要面對多個環境接口，這也是一個人做 side-project 比較不會遇到的，因為可能只有一個本地開發環境：開發環境。
+
+實際項目開發的話，就可能會出現：開發環境、測試環境、正式環境…等，跟著的是他們的 baseURL 一定會需要隨著不同環境做改變。
+
+### 那我們如何進行這些改變？
+
+一般來說我們會使用 create-react-app 這樣的腳手架來建置專案，好處是很方便，幫你把很多你看不到的事都處理掉了（ex: webpack），壞處就是當你想更動這些設定時比較麻煩，在不 eject 的情況下我們該如何去配置多環境開發？
+
+先來看看 [Create React App 官網](https://create-react-app.dev/docs/adding-custom-environment-variables/#what-other-env-files-can-be-used) 關於多環境建置的文件說明，其實都寫得蠻清楚的。
+
+*   `.env` : Default.
+*   `.env.local` : Local overrides. **This file is loaded for all environments except test.**
+*   `.env.development`, `.env.test`, `.env.production` : Environment-specific settings.
+*   `.env.development.local`, `.env.test.local`, `.env.production.local` : Local overrides of environment-specific settings.
+
+這邊就直接貼上官網說明的一部份，應該不需要做翻譯。
+
+我們通常會使用三種指令： `npm start`, `npm run build`, `npm test` 去預覽、打包跟測試。
+
+下不同指令，會依序抓不同建置文件，以下是排序，左邊比右邊的具有更高的優先級別。
+
+*   `npm start` : `.env.development.local`, `.env.local`, `.env.development`, `.env`
+*   `npm run build` : `.env.production.local`, `.env.local`, `.env.production`, `.env`
+*   `npm test` : `.env.test.local`, `.env.test`, `.env`(note .env.local is missing)
+
+舉實際工作狀況為例
+
+上面是我們的 `package.json` 的一部份設定內容，可以看到有不只一種環境，以其中 `start:prod` 來說，是想要預覽正式環境， 但在執行 start 命令時預設是加載 .env.development 文件中的變量
+
+**_在執行 start 命令時預設是加載 .env.development 文件中的變量_**
+
+這顯然不是我想要的，我想要的是加載 .env.production 中的變量，因此必須借助 [dotenv](https://www.npmjs.com/package/dotenv) 這個套件的幫助。
+
+其實這也是官方文檔給出的答案 — — 可以使用 dotenv 來做環境變量的管理（dotenv 可將環境變量從 .env 文件加載到 process.env中。）
+
+補充：Create-React-App 官方文檔中說明，運行 start 指令預設是加載 .env.development 文件中的變量，運行 build 指令預設是加載 .env.production 文件中的變量。
+
+接著我們就來實際執行一次吧
+
+1. 首先在根目錄創建 .env 相關文件
+----------------------
+
+![captionless image](https://miro.medium.com/v2/resize:fit:1024/format:webp/1*h56NBmOxaCPybA3rU45o4g.png)
+
+2. 寫好文件中的變量
+------------
+
+變量名必須以 REACT_APP 開頭，單詞大寫，以 `_` 下劃線分割，.env 變量名更改之後，項目必須重啟才會生效。
+
+![captionless image](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*-pX7OIQXYfsyZW-wJJnKVA.png)![captionless image](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*aM_AxW88WQ3sHITdr1Zw_Q.png)
+
+上面分別是開發跟正式環境的變量。
+
+3. 安裝 dotenv-cli 插件
+--------------------
+
+`_yarn add dotenv-cli 或 npm i dotenv-cli_`
+
+4. 撰寫 scripts 指令
+-----------------
+
+進入 `package.json` 中，所有跟設定有關的內容，幾乎都在這邊可以找到
+
+![captionless image](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*FEG8LjyF31KJKzIP83PQNA.png)
+
+可以看到像是 `"start:prod": "dotenv -e .env.production node scripts/start.js"` 就是設定在執行 `npm run start:prod` 時會去抓取 `.env.production` 中的環境變量，也就達成我們的目的。
+
+到這邊基本上就完成了，可以根據自己專案需求去增減文件跟文件變量，也可以根據文件撰寫符合需求的 scripts 腳本內容。
+
+**_一切其實就是根據不同環境撰寫不同 .env，然後根據不同 .env 撰寫不同 scripts 指令_**
+
+下面提一些額外的東西。
+
+### 獲取變量方式
+
+會以 `process.env` 去獲取變量
+
+![captionless image](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*GSi3z14dB47hUSE7L3E_8w.png)
+
+process 就是進程，可以理解為一個CPU在一個時間點只會執行一個進程。而我們可以利用process 對象取得包括 JS 腳本線程,Http 線程…所有環境資訊，簡單來說大概是這樣。
+
+也就是說 我們可以在 node 環境中使用 process 去獲得當前的全局訊息，裡面會有像 process.initgroups:用戶資訊、process.execPath :
+
+文件的絕對路徑 、甚至像是 process.env:用戶環境的對象等。
+
+參考文章：
+
+*   [React使用.env文件配置多環境](https://juejin.cn/post/7049923442711199774)
+*   [環境搭建好幫手process && env 環境變數](https://ithelp.ithome.com.tw/articles/10248363?fbclid=IwAR1K7IusYJnmNwNiU3RtHv6mBWlwNiPPhOnB-skAeijL1I-uUDanxG5vLlw)
+*   [Create React App 官網](https://create-react-app.dev/docs/adding-custom-environment-variables/)

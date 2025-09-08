@@ -1,0 +1,75 @@
+優化你網站的排名 — SEO 小小事
+==================
+
+![SEO 簡單說就是會影響你在搜尋引擎中的排名，對啦，非常簡單說](https://miro.medium.com/v2/resize:fit:1218/format:webp/1*8ZLYiuCCWTVHh-KMWnwKTQ.webp)
+
+by [Hsuan Huang](https://medium.com/@chinghsuan1025?source=post_page---byline--69c4313eaf1c---------------------------------------)
+
+
+
+
+關於個人理解 noindex , follow, 給爬蟲的 meta tag
+
+本篇文篇幅不長，主要是記錄自己在 SEO 上面的小小理解，關於 `meta tag, follow, index, noindex` 等的解釋跟影響，熟悉 SEO 所有事的專家朋友們就可以略過此篇了。
+
+前陣子工作上同事有一張關於改善 SEO 的票，，雖然規模與難度不大，但讓我有點好奇，裡面內容大致是：
+
+```
+On all /en-XX/ pages (eg., /en-AU/, /en-US/, /en-HK/, etc.), add: <meta name="robots" content="noindex, follow">
+``````
+```
+On all /ar-XX/ pages (e.g., /ar-SA/, /ar-AE/, etc.), add: <meta name="robots" content="noindex, follow">
+```
+
+說實話，雖然不是我做，但想像大概就是根據 locales 判斷加上哪一種 meta tag，前提是你知道他這樣寫是專門給搜尋引擎的爬蟲看的，尤其因為是電商，更注重在 SEO 上面。
+
+雖然看看，但我就有 3 個疑問：
+
+1.  index / no index 是什麼
+2.  follow 又是什麼
+3.  為何 en 要，但是 en-XX 頁面不要給搜尋引擎收錄
+
+題外話：en 是語系，英文頁面，-XX 可能會是 en-AU，代表的是澳洲地區，切換成可能是英文頁面搭配澳幣。
+
+前 2 個問題好理解：
+
+1.  noindex: 告訴爬蟲**不要將這個頁面收錄進搜尋引擎索引中**（也就是不要出現在 Google 搜尋結果中）
+2.  follow：即使不收錄這頁，也**允許爬蟲繼續爬行這頁裡的超連結**，把權重傳遞給其他頁面
+
+主要是第三個問題，收錄？權重？我也好奇去查了一下 為何 語系 / 語系-地區，兩邊都有放 meta tag(e.g. en, en-US)，會影響爬蟲，進而影響 SEO 排名，以下是我整理我自己可以理解的方式：
+
+*   **內容重複判定（Duplicate Content Penalty）**
+
+搜尋引擎會懷疑你在重複發佈內容，這可能會降低兩頁的權重，影響排名。
+
+*   **權重分散（Link Equity Split）**
+
+外部連結、點擊與互動可能分散在多個類似頁面上，使得沒有一個版本累積足夠權重來排名靠前。
+
+*   **搜尋結果混亂**
+
+Google 可能不確定該顯示哪一個版本，導致你想主打的 /en/ 頁面無法在搜尋結果中穩定出現。
+
+所以我們才會
+
+*   禁止地區版本被收錄 (e.g. en-US)，meta-tag 顯示 noindex
+*   讓連結與流量仍被爬蟲追蹤（follow）並傳遞到 canonical 頁面（我的理解：雖然地區版不被收錄，但搜尋引擎仍會沿著這些頁面上的連結繼續爬行）
+*   集中 SEO 權重到主要 URL（如 /products/）
+
+以上簡單說就是：雖然地區版像是 en-US 頁面不讓 Google 收錄，但依然會幫忙導流 + 傳權重給我真正想被排名的主頁面
+
+![蜘蛛人這個真的好好笑](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*0m3JIP7a8syMTGizj1Ydkw.jpeg)
+
+白話簡單總結：**不被收錄 = 不要把這個網頁加進搜尋結果中，但還是可以被爬被瀏覽**
+
+*   使用者在 Google 搜尋時找不到這個頁面
+*   搜尋引擎不會為它建立索引（index）
+*   它不會與其他頁面競爭排名
+*   不希望特定頁面出現在搜尋結果中，但同時又希望保留他的功能或其他重要頁面
+
+主要是以上幾點會影響 seo 排名，還真的第一次知道，如果你也有多語系搭配地區的考慮的話，不妨參考一下權重如何影響爬蟲與 SEO 吧！
+
+參考資料
+
+*   [Google docs — Block Search indexing with no-index](https://developers.google.com/search/docs/crawling-indexing/block-indexing#debugging-noindex-issues)
+*   [透過 Noindex Nofollow 限制爬蟲，強化 SEO 失分漏洞！](https://ranking.works/knowledge/noindex-nofollow/)

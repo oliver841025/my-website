@@ -1,0 +1,104 @@
+前端視角 — 使用 GCP 打造 Serverless 自動化部署
+=================================
+
+![\ oh ya /](https://miro.medium.com/v2/resize:fit:1200/format:webp/1*jPzpzI7vS4xmnz5gi5tOCw.jpeg)
+
+by [Hsuan Huang](https://medium.com/@chinghsuan1025?source=post_page---byline--9348e7ba70cb---------------------------------------)
+
+
+
+
+前陣子因為工作上需求，需要部署後台專案，公司目前也是使用 GCP 服務居多，當時也還沒有 SRE 或 DevOps，所以在詢問了後端同事、PM 與閱讀官方文件、評估時程後，就自己不務正業了起來。
+
+此篇摘要：紀錄自己以前端視角第一次使用 GCP 部署的動機、流程、反思，可能很多內容略顯生澀，畢竟這水也是非常深😂，絕大部分我會著重在流程紀錄，也主要是 Cloud Run 部分，不會介紹 GCP 其他服務，畢竟我也還不了解，目前也沒有直接需求。
+
+**適合對象：**需要部署專案的前端工程師
+
+先備知識：對 CI/CD、GCP 、Docker 有一點點點概念，畢竟這篇對大神們來說應該是幫不上忙🫠
+
+**動機：**
+
+隨著後台專案的成長，不可能每次都手動部署，除了會出錯外，程序的繁瑣、參與人員變多、需要不只一個開發環境等原因，就會開始需要將一切都寫成腳本去跑，省時省力且不太會出錯，出錯了也有 log 好查找哪一步驟出錯。
+
+**不負責任心得理解：**
+
+Cloud run 就是在 container 上的服務，只需要針對 image 寫 dockerfile，不需要分配幾 G 幾 M 的 CPU，不像 Compute engine 是啟一個 VM(Virtual Machine)。
+
+所以想當然，這種公司內部後台專案，只給內部人員使用，流量不會短時間內超多、網站掛掉，也不必去擔心分散流量或是水平擴展機器等狀況，所以選擇 Cloud run。
+
+好，廢話說完了，接著進入流程，先給大家一個可愛的 🍣
+
+**流程：**
+
+*   首先，進入 GCP，我們選擇左側`Cloud Run`服務
+
+![captionless image](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*ymT0P9zDftb9Pv-ItRodjQ.png)
+
+選擇`CREATE SERVICE`
+
+![captionless image](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*IKkQssnEwAtuC7z5h365nQ.png)
+
+接著是一些與 GitHub 的連結設定
+
+*   接著右側會有彈窗，選擇你要部署的 repo
+
+![captionless image](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*ljdeBO5zH-CuXGuMf7uT8w.png)
+
+*   選擇你要的 branch， `Build Type` 這邊我們選擇 `Dockerfile` ，主要是因為有些 env 參數在現在或未來不想經由 GCP ，簡單說 GCP 就只會看你的 Dockerfile 而不會去看你的整份 code 來 build
+
+![captionless image](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*5_YGU5DLecm1SsnSEWmlrw.png)
+
+*   按下 SAVE 後，繼續設定 `Region` 、 `Authentication` 、 `CPU allocation` 、 `Service autoscaling` 、 `Ingress control`
+
+`Region` 部分我沒有截圖到，但就是選擇比較近的就好，我選香港或台灣，其餘設定如圖
+
+值得注意的是 `CPU allocation` ，兩個選項的差別在於說，第一個會在有 request 的時候才啟動，那這時候喚醒的時間就會比較久，第二個就是永遠都至少分配一個 CPU (Minimum number of instances) ，使用者不需等待那麼久才能瀏覽網站
+
+![captionless image](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*cFcTrJlwuHmD0Sd_KhOUig.png)
+
+*   完成這些就可以按下 `CREATE` ，稍等一下就可以在下面列表看到你的 service，點擊進入可以看到最上面有個 URL，這就是已經 deploy 的 url，但這時候應該會得到一個紅叉叉，部署失敗，因為我們還沒有寫 `Dockerfile`
+
+![captionless image](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*agfxFNnwhMRuNmPdpKiqgQ.png)
+
+*   還記得我們剛剛選了 `Dockerfile` 嗎，現在要回頭撰寫 `Dockerfile` 在你的檔案中，建議直接命名 `Dockerfile` 就好
+
+主要簡單應該就下面這些指令，大意是前面安裝映像檔跟套件 -> 設置 entry point -> 選擇 docker 要拷貝過去的文件 -> 跑什麼指令
+
+`SHORT_SHA` 可以先忽略，主要是我想在部署的網站中顯示版本號碼而去新增的變數
+
+接著要來寫一個很重要的腳本 `cloudbuild.yaml` ，這邊我們就寫在 GCP 上面，他有選項給你選擇說腳本要從 repo 裡面還是 inline 去拿，這邊我選擇 inline，因為更之後我需要從 `Secret Manager` 去抓我的 api key，因為想要不同專案抓取不同 `Secret Manager` file，但 `Secret Manager` 部分我們下面再說。
+
+*   點擊 `EDIT CONTINUOUS DEPLOYMENT` ，準備 `EDIT TRIGGER`
+
+![captionless image](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*y0rSkBkgfz9EI-gj1tjmZQ.png)
+
+*   下滑到 `Configuration` ，點選 `OPEN EDITOR` ，會打開右邊的 yaml file，可以看到他已經有預設 template
+
+![captionless image](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*K2aRPsfy_ciaFNq5OcfolA.png)
+
+按下 `Save` 後，trigger 就會自動 trigger(繞口令 ?)，之後如果有更新 `Secret Manager` 或怎麼樣發現沒有 trigger，可以自己點進來手動按下 `RUN` 去 trigger。
+
+![captionless image](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*U_sJjuOgMeKPIeYevxdiTg.png)
+
+這邊這是我的 `cloudbuild.yaml` 實際內容， `xxxx-xxxx`與 `${your xxx}`部分為較機密部分，不公開。
+
+能看到 step 1 的 `--secret=xxxx` ，就是在 build 階段，從 `Secret Manager` （先前提過的），提取敏感資訊，比如 `key` ，將這種敏感資訊存放在 `Secret Manager` 可以集中管理及更新，也可針對權限開放使用。
+
+*   接著最後來寫一下 `Secret Manager` ，搜尋 `Secret Manager` 後點擊，然後最上面 `Create Secret` ，就可以看到下面畫面，取個名稱，這名稱就會是上面 `--secret=xxxxx` 的 `xxxx`部分
+*   `Secret Value` 就將你本地 `.env` 的 `key` 都通通丟上來吧 🫨，然後按下 `CREATE SECRET`
+
+![captionless image](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*JD7xTKDm3sRSbH6vgpy4vQ.png)
+
+可以回頭去 run 一下 trigger，因為更新了 `Secret Manager` ，trigger 不會自動 run。
+
+基本上做到這邊，應該基本就完成了，接下來只要有發 PR，merge 成功，就會觸發 trigger，自動更新啦。
+
+應該有很多不完備的知識，但就是先以前端第一次在 GCP 做 cloud run build 的角度分享兼做筆記，給以後的自己回憶，加上最近聽了不少公司的 DevOps 分享不管是 K8s 或是 pod、VM、container、image 等一堆名詞，頭都暈了，但也算慢慢理解，覺得蠻有趣的。
+
+每次看到 JD 上加分項都有 CI/CD 或是 GCP、K8s 等，就一直很好奇，最近算是有小小理解 🫠
+
+有寫錯或是想討論都可以留言指教，雖然我不一定能回答出來！
+
+*   參考資料 1：[Dockerfile 官網教學](https://docs.docker.com/reference/dockerfile/)
+*   參考資料 2：[GCP 官方文檔，很多很詳細，寫得很好！](https://cloud.google.com/build/docs/configuring-builds/substitute-variable-values#using_default_substitutions)
+*   參考資料 3：[講解 Cloud Build 目的](https://mile.cloud/zh/resources/blog/Building-an-automated-serverless-deployment-pipeline-with-Cloud-Build_590)

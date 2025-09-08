@@ -1,0 +1,132 @@
+**專案整合 Lighthouse CI：幫你每次的 PR 做品管**
+===================================
+
+![好，不是這個燈塔（Snoopy 好苦 i）](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*0bkMdgZz5M7JhobM3-UBrA.png)
+
+by [Hsuan Huang](https://medium.com/@chinghsuan1025?source=post_page---byline--d6af52147edf---------------------------------------)
+
+
+
+
+用 LighthouseCI GitHub Action 自動檢查網站品質、SEO 與改善方向
+
+![相信各開發者對這個都不陌生](https://miro.medium.com/v2/resize:fit:1036/format:webp/1*ierDQZJHeTp_FVCystFNJA.png)
+
+在現代前端開發中，網站的效能、SEO 和可存取性越來越重要，對於使用 [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview) 來做檢測已經算是很普遍的方法，官網也都有詳細教學，手把手教你觀測。
+
+因此，接下來不會著重在說其中各項指標的意義與改善方法，會把重點放在 [Lighthouse CI](https://github.com/GoogleChrome/lighthouse-ci/blob/main/docs/getting-started.md)，也就是我如何在 Next.js 專案中，利用 Lighthouse CI 和 GitHub Actions，讓每一次 Pull Request 都自動產生 Lighthouse 報告，以及我個人的小心得。
+
+還不清楚 CI 的朋友們[可以看這裡](https://github.com/GoogleChrome/lighthouse-ci/blob/main/docs/introduction-to-ci.md) 👈🏻👈🏻
+
+![這張圖很好的講述了 Lighthouse CI 流程](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*t4NBVCoNXl2laW3g6noRdg.png)
+
+**🚀 為何想做？**
+
+為了什麼做永遠很重要，因為時間跟精力會被交換出去，要知道自己會換到的東西的價值。主要是因為我們是電商平台，就如之前提過的，SEO 對我們非常重要，而一直手動在跑分，加上最近很多新功能的開發，我希望能有更方便的方式去觀測，或是說我懶（？）
+
+加上可以細緻地做到檢測「每一次 commit 造成的指標分數變化」，很吸引我。
+
+![完成後，可以看到這樣的報告](https://miro.medium.com/v2/resize:fit:2000/format:webp/1*EpD0rzjxgUnPrMjRCZyfbA.png)
+
+**📡 都聽到 GitHub Actions，那大概就是先來寫 workflows / yaml 了**
+
+```
+name: Light House CI
+on: [push]
+jobs:
+  lighthouseci:
+    runs-on: ubuntu-latest
+    environment: lhci
+    env:
+      NEXTAUTH_URL: http://localhost:3000
+      NEXTAUTH_SECRET: ${{ secrets.NEXTAUTH_SECRET }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 22
+      - name: Install pnpm
+        run: npm install -g pnpm
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Build the project
+        run: pnpm build
+      - name: Start Next.js server
+        run: pnpm start &
+      - name: Wait for server to be ready
+        run: |
+          for i in {1..30}; do
+            curl -sSf http://localhost:3000 && break
+            sleep 1
+          done
+      - name: Check server response
+        run: curl -I http://localhost:3000
+      - name: Run Lighthouse CI
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+        run: npx @lhci/cli@0.13.x autorun --collect.url=http://localhost:3000 || echo "Lighthouse CI failed😮‍💨, but this is not a blocking error."
+```
+
+大概是說會在每次 PR，GitHub 會在雲端虛擬機（runner）自動 build、安裝 checkout 跟 node v3 版本（選 v3 是個人覺得相對穩定）、安裝依賴、跑測試、各種檢查，啟 runner 後，跑在他的 port:3000。
+
+注意的是看到 `${{ secrets.LHCI_GITHUB_APP_TOKEN }}` 這種 secrets 開頭的，都是寫在 GitHub 你的 repo 中的 secret value，通常是重要的資訊，我們不會推上專案的。
+
+![在 repo 的 Settings / Environments 創建你的 environment](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*SShh1LMwcuzNRdU_Q-gklQ.png)![把重要的 secret 放在 secrets 裡面](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*XRdPGsDHmP10OLQHzkBAbw.png)
+
+這邊的 `LHCI_GITHUB_APP_TOKEN` 是跟 [Lighthouse](https://github.com/apps/lighthouse-ci) 去申請的。
+
+![跟你的 repo 做連結](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*pmd3bvNCbdmIfGb04kkYFA.png)
+
+**📡 接著來寫** `**.lighthouserc.json**`
+
+```
+{
+  "ci": {
+    "collect": {
+      "url": ["http://localhost:3000/"]
+    },
+    "assert": {
+      "preset": "lighthouse:no-pwa",
+      "assertions": {
+        "categories:performance": [          "warn",
+          { "aggregationMethod": "optimistic", "minScore": 0.9 }
+        ],
+        "categories:accessibility": [          "error",
+          { "aggregationMethod": "optimistic", "minScore": 0.9 }
+        ]
+      }
+    },
+    "upload": {
+      "target": "temporary-public-storage",
+      "artifactName": "lhci-report"
+    }
+  }
+}
+```
+
+就是你要設立什麼標準，拿什麼當指標，想要設定到多細等等。這邊我就是寫基本的 `performance` / `accessibility` 分數 90 分，以下就會報 warning，但不阻擋 merge，還有更多設定可以到 [官網提供的 configuration.md](https://github.com/GoogleChrome/lighthouse-ci/blob/main/docs/configuration.md) 去看看。
+
+![PR 往下滑點開來](https://miro.medium.com/v2/resize:fit:2000/format:webp/1*zU8gxbyDvzW9uO-_nJ220g.png)
+
+完成後，其實可以在每次 PR 的下面 CI/CD check 部分看到一個小小燈塔圖標，點擊 view details 就可以看到報告以及詳細的改善方向。
+
+![如同手動丟 Lighthouse 的報告](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*O2rKAmd7pGjR550zWhB2KQ.png)
+
+🫠 **中間摔得坑坑疤疤…**
+
+其實寫起來篇幅並不長，但寫了也有 1–2 週，塗塗改改的，最大的問題就是，大部分參考文章都是以前 CSR 時候的，現在 SSR 的相對少，以前 SPA / CSR 的 workflow 相對簡單，build 完會產生靜態檔案，只要直接啟一個靜態檔案伺服器，Lighthouse 就能測試。
+
+但 SSR，必須啟動 Node.js server，等待 server ready 後，再讓 Lighthouse 測試，也因此會需要 auth，Lighthouse 也真的必須對這個 server 發 request，才能測到真實的 SSR 頁面內容。
+
+以上也是不斷嘗試、測試、跟 GPT 討論，才得出的資訊，不然我一開始也是真的不知道 Lighthouse 的 SSR 的 yaml 該如何寫，卡關了好幾次，看著一直失敗的 log 檔，都有想打穿螢幕的衝動（？）
+
+**🚀 其實我覺得…**
+
+雖然分數剛開始不樂觀，尤其隨著開發節奏、人員變多、等很多不可控的緣由，在專案規模變大後，如果初期沒特別把控，分數都會降低。
+
+接下來可以試著在意每一次 PR 的分數相對變化，而不是絕對分數，去知道說可能是哪一段程式碼拖累了分數等，心裡有底。
+
+🔖 參考資料
+
+*   [Lighthouse 官網](https://developer.chrome.com/docs/lighthouse/overview)
+*   [Day03 X Performance Analyzers feat. Lighthouse-CI](https://ithelp.ithome.com.tw/articles/10266656)
