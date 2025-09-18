@@ -20,23 +20,23 @@ export default function Header() {
         </a>
       </div>
       {/* 桌機版選單 */}
-      <div className="items-center gap-8 hidden md:flex">
-        <nav className="flex space-x-4">
+      <div className="items-center gap-2 hidden md:flex">
+        <nav className="flex space-x-1 text-sm">
           <Link
             href="/about"
-            className="btn btn-ghost hover:bg-transparent hover:text-blue-800 focus:outline-none shadow-none border-none"
+            className="btn btn-ghost hover:bg-transparent hover:text-blue-800 focus:outline-none shadow-none border-none px-2"
           >
             {t('me')}
           </Link>
           <Link
             href="/works"
-            className="btn btn-ghost hover:bg-transparent hover:text-blue-800 focus:outline-none shadow-none border-none"
+            className="btn btn-ghost hover:bg-transparent hover:text-blue-800 focus:outline-none shadow-none border-none px-2"
           >
             {t('works')}
           </Link>
           <Link
             href="/articles"
-            className="btn btn-ghost hover:bg-transparent hover:text-blue-800 focus:outline-none shadow-none border-none"
+            className="btn btn-ghost hover:bg-transparent hover:text-blue-800 focus:outline-none shadow-none border-none px-2"
           >
             {t('articles')}
           </Link>

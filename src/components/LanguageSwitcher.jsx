@@ -12,7 +12,7 @@ export default function LanguageSwitcher() {
   };
 
   return (
-    <div className="flex items-center justify-center gap-1 select-none w-24 cursor-pointer text-sm" onClick={handleToggle}>
+    <div className="flex items-center justify-center gap-1 select-none w-24 cursor-pointer text-sm md:text-xs" onClick={handleToggle}>
       <button
         type="button"
         className={`font-semibold transition-colors duration-300 min-w-[28px] text-center focus:outline-none ${
