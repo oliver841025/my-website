@@ -3,6 +3,7 @@ import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import WorksContent from './WorksContent';
 import MoreInfo from './MoreInfo';
+import ArticlesList from './ArticlesList';
 
 const HomeMainContent = () => {
   const t = useTranslations();
@@ -15,7 +16,7 @@ const HomeMainContent = () => {
           <Image src="/me.gif" alt="me" width={300} height={300} className="ml-2" />
           <p className="tracking-wider italic font-medium">{t('slogan')}</p>
         </div>
-       <span className="absolute bottom-36 left-0 w-full flex justify-center">
+        <span className="absolute bottom-36 left-0 w-full flex justify-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -29,8 +30,15 @@ const HomeMainContent = () => {
         </span>
       </section>
       {/* 第二區塊：WorksContent */}
-      <section>
-        <WorksContent />
+      <section className='flex flex-col gap-32'>
+        <div className='flex justify-center items-center flex-col gap-16'>
+          <h2 className='text-3xl font-semibold border-b-4 border-black pb-2'>{t('title.recent_works')}</h2>
+          <WorksContent />
+        </div>
+        <div className='flex justify-center items-center flex-col gap-16'>
+          <h2 className='text-3xl font-semibold border-b-4 border-black pb-2'>{t('title.recent_articles')}</h2>
+          <ArticlesList number={3} isDisplayArticlesLength={false}/>
+        </div>
       </section>
     </div>
   );

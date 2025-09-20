@@ -5,6 +5,10 @@
     "works": "Works",
     "articles": "Articles"
   },
+  "title": {
+    "recent_works": "Recent Works",
+    "recent_articles": "Recent Articles"
+  },
   "more_info_cat": {
     "i_can_speak": "\\i can speak/",
     "guide_info": "If you see me or my brothers, pat us, and we will tell you some little secrets"

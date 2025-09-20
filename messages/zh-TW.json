@@ -5,6 +5,10 @@
     "works": "作品",
     "articles": "文章"
   },
+  "title": {
+    "recent_works": "近期作品",
+    "recent_articles": "近期文章"
+  },
   "more_info_cat": {
     "i_can_speak": "\\我會說話/",
     "guide_info": "如果你看見我或我的兄弟，拍拍我們，我們就會跟你說一些小秘密"
