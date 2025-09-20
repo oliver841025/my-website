@@ -14,7 +14,6 @@ const ArticlesPage = () => {
   return (
     <>
       <PageTitle />
-      <MoreInfo text={t('FYI')} />
       <div>
         <Link
           href="https://medium.com/me/stories?tab=posts-published"
