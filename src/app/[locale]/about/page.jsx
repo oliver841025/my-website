@@ -13,6 +13,7 @@ const AboutPage = () => {
   const workList = Object.values(t.raw('work_list'));
   const activityList = Object.values(t.raw('activity_list'));
   const skillsList = Object.values(t.raw('skills_list'));
+  const contactList = Object.values(t.raw('contact_list'));
 
   return (
     <>
@@ -32,8 +33,14 @@ const AboutPage = () => {
         onMouseLeave={() => setIsHovered(false)}
         onClick={() => setIsHovered(!isHovered)}
       >
-        <p className='-mb-6 ml-5 text-xs font-extrabold text-blue-800'>\ Pat me /</p>
-        <Image src="/rainbow_cat_running.gif" alt="Rainbow Cat Running" width={100} height={100} className="-scale-x-100"/>
+        <p className="-mb-6 ml-5 text-xs font-extrabold text-blue-800">\ Pat me /</p>
+        <Image
+          src="/rainbow_cat_running.gif"
+          alt="Rainbow Cat Running"
+          width={100}
+          height={100}
+          className="-scale-x-100"
+        />
       </div>
 
       <div className="mt-4 flex flex-col gap-20 font-medium p-4 leading-relaxed">
@@ -88,16 +95,29 @@ const AboutPage = () => {
             </section>
           </div>
           {/* 技能 */}
-          <section className="col-span-2">
-            <h4>{t('skills_title')}</h4>
-            <div className="text-xs mt-6 flex flex-wrap gap-2">
-              {skillsList.map((item, idx) => (
-                <span key={idx} className="px-2 py-1 bg-gray-100 rounded-md">
-                  {item}
-                </span>
-              ))}
-            </div>
-          </section>
+          <div className="flex flex-col gap-10 col-span-2">
+            <section className="col-span-2">
+              <h4>{t('skills_title')}</h4>
+              <div className="text-xs mt-6 flex flex-wrap gap-2">
+                {skillsList.map((item, idx) => (
+                  <span key={idx} className="px-2 py-1 bg-gray-100 rounded-md">
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </section>
+            {/* 聯絡方式 */}
+            <section className="col-span-2">
+              <h4>{t('contact_title')}</h4>
+              <div className="text-xs mt-6 flex flex-wrap">
+                {contactList.map((item, idx) => (
+                  <span key={idx} className="pr-2 py-1 rounded-md">
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </section>
+          </div>
         </div>
       </div>
     </>
