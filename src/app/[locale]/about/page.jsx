@@ -2,18 +2,25 @@
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';
+import Link from 'next/link';
 
 const AboutPage = () => {
   const t = useTranslations('about');
-
   const [isHovered, setIsHovered] = useState(false);
+  const [showCopied, setShowCopied] = useState(false);
 
   // 取出物件型陣列
   const educationList = Object.values(t.raw('education_list'));
   const workList = Object.values(t.raw('work_list'));
   const activityList = Object.values(t.raw('activity_list'));
   const skillsList = Object.values(t.raw('skills_list'));
-  const contactList = Object.values(t.raw('contact_list'));
+
+  const handleEmailClick = () => {
+    // copy email to clipboard
+    navigator.clipboard.writeText('oliver8410252594@gmail.com');
+    setShowCopied(true);
+    setTimeout(() => setShowCopied(false), 2000);
+  };
 
   return (
     <>
@@ -44,6 +51,13 @@ const AboutPage = () => {
       </div>
 
       <div className="mt-4 flex flex-col gap-20 font-medium p-4 leading-relaxed">
+        {/* 複製成功 popup */}
+        {showCopied && (
+          <div className="fixed top-8 left-1/2 -translate-x-1/2 bg-green-400 text-white px-4 py-2 rounded shadow z-50 transition-all">
+            \ Email copied /
+          </div>
+        )}
+
         <div className="flex flex-col gap-6">
           <h2>{t('brief_intro')}</h2>
           <p>
@@ -109,12 +123,39 @@ const AboutPage = () => {
             {/* 聯絡方式 */}
             <section className="col-span-2">
               <h4>{t('contact_title')}</h4>
-              <div className="text-xs mt-6 flex flex-wrap">
-                {contactList.map((item, idx) => (
-                  <span key={idx} className="pr-2 py-1 rounded-md">
-                    {item}
-                  </span>
-                ))}
+              <div className="text-xs mt-6 flex flex-wrap gap-2">
+                <Link
+                  href="https://www.linkedin.com/in/ching-hsuan-huang-a5248b1a7"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <div className="cursor-pointer">
+                    <Image src="/icon_linkedin.svg" alt="LinkedIn" width={24} height={24} />
+                  </div>
+                </Link>
+                <Link
+                  href="https://www.instagram.com/chinghsuan1025/"
+                  className="cursor-pointer"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <div className="cursor-pointer">
+                    <Image src="/icon_instagram.svg" alt="Instagram" width={24} height={24} />
+                  </div>
+                </Link>
+                <Link
+                  href="https://github.com/oliver841025"
+                  className="cursor-pointer"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <div className="cursor-pointer">
+                    <Image src="/icon_github.svg" alt="GitHub" width={24} height={24} />
+                  </div>
+                </Link>
+                <div className="cursor-pointer" onClick={handleEmailClick}>
+                  <Image src="/icon_gmail.svg" alt="Gmail" width={24} height={24} />
+                </div>
               </div>
             </section>
           </div>
