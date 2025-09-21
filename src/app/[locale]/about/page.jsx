@@ -128,30 +128,25 @@ const AboutPage = () => {
                   href="https://www.linkedin.com/in/ching-hsuan-huang-a5248b1a7"
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="cursor-pointer"
                 >
-                  <div className="cursor-pointer">
-                    <Image src="/icon_linkedin.svg" alt="LinkedIn" width={24} height={24} />
-                  </div>
+                  <Image src="/icon_linkedin.svg" alt="LinkedIn" width={24} height={24} />
                 </Link>
                 <Link
                   href="https://www.instagram.com/chinghsuan1025/"
-                  className="cursor-pointer"
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="cursor-pointer"
                 >
-                  <div className="cursor-pointer">
-                    <Image src="/icon_instagram.svg" alt="Instagram" width={24} height={24} />
-                  </div>
+                  <Image src="/icon_instagram.svg" alt="Instagram" width={24} height={24} />
                 </Link>
                 <Link
                   href="https://github.com/oliver841025"
-                  className="cursor-pointer"
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="cursor-pointer"
                 >
-                  <div className="cursor-pointer">
-                    <Image src="/icon_github.svg" alt="GitHub" width={24} height={24} />
-                  </div>
+                  <Image src="/icon_github.svg" alt="GitHub" width={24} height={24} />
                 </Link>
                 <div className="cursor-pointer" onClick={handleEmailClick}>
                   <Image src="/icon_gmail.svg" alt="Gmail" width={24} height={24} />
