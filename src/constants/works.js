@@ -6,8 +6,9 @@ const works = [
     alt: 'Talkative Daisy',
     intro: {
       en: 'Talkative Daisy - Urban stress detection, generating daisies based on the loudness and speed of your voice',
-      'zh-TW': '聒噪小雛菊 - 都市壓力檢測，根據聲音大小、速度生成雛菊',},
-      tags: ['p5.js', 'Matter.js', 'ML5'],
+      'zh-TW': '聒噪小雛菊 - 都市壓力檢測，根據聲音大小、速度生成雛菊',
+    },
+    tags: ['p5.js', 'Matter.js', 'ML5'],
   },
   {
     slug: 'kickscrew',
@@ -70,7 +71,7 @@ const works = [
     tags: ['Graphic'],
   },
   {
-    slug:'littleHouse',
+    slug: 'littleHouse',
     name: 'littleHouse',
     src: '/little_house/little_house_2.png',
     alt: 'littleHouse',
@@ -80,7 +81,7 @@ const works = [
     },
     class: 'object-cover w-full h-full',
     tags: ['Illustration'],
-  }
+  },
 ];
 
 export default works;
