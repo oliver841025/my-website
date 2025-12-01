@@ -1,5 +1,14 @@
 const works = [
   {
+    slug: 'talkativeDaisy',
+    name: 'talkativeDaisy',
+    src: '/talkative_daisy/talkative_daisy.png',
+    alt: 'Talkative Daisy',
+    intro: {
+      en: 'Talkative Daisy - Urban stress detection, generating daisies based on the loudness and speed of your voice',
+      'zh-TW': '聒噪小雛菊 - 都市壓力檢測，根據聲音大小、速度生成雛菊',}
+  },
+  {
     slug: 'kickscrew',
     name: 'kickscrew',
     src: '/kickscrew_logo.svg',
