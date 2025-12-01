@@ -6,7 +6,7 @@ const TalkativeDaisy = () => {
       src="https://oliver841025.github.io/talkativeDaisy/"
       title="Talkative Daisy"
       className="w-full h-screen border-0"
-      allow='microphone; accelerometer'
+      allow="microphone 'src'; accelerometer 'src';"
     ></iframe>
   )
 }
