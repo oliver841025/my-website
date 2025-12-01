@@ -5,8 +5,8 @@ const TalkativeDaisy = () => {
     <iframe
       src="https://oliver841025.github.io/talkativeDaisy/"
       title="Talkative Daisy"
-      allowfullscreen
-      style="width:100%; height:100vh; border:0;"
+      allowFullScreen
+      style={{ width: "100%", height: "100vh", border: "0" }}
       allow="microphone; camera; accelerometer; gyroscope;"
     ></iframe>
   )
