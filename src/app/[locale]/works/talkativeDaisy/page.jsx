@@ -1,15 +1,14 @@
+import { useTranslations } from 'next-intl';
 import React from 'react';
 
 const TalkativeDaisy = () => {
+  const t = useTranslations('works.talkativeDaisy');
+
   return (
     <div className="mt-4">
       <div className="text-sm font-semibold mb-4 md:mb-0">
-        <h1>Talkative Daisy</h1>
-        <p>
-          People in the city speak countless words every day, creating all kinds of noises. These sounds collide with
-          one another, and depending on their intensity and rhythm, daisies appear at different speeds and sizes. And of
-          course—since everyone’s colorful language is assumed to be “fragrant”—I turned all those noises into daisies
-        </p>
+        <h1>{t('title')}</h1>
+        <p className='font-normal italic'>{t('content')}</p>
       </div>
       <div className="border transform scale-100 md:scale-75">
         <iframe

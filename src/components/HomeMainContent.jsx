@@ -14,7 +14,7 @@ const HomeMainContent = () => {
       <section className="h-screen flex flex-col items-center justify-center w-full relative">
         <div className="flex flex-col items-center gap-4 -mt-52">
           <Image src="/me.gif" alt="me" width={300} height={300} className="ml-2" />
-          <p className="tracking-wider italic font-medium">{t('slogan')}</p>
+          <p className="tracking-wider italic text-sm md:text-base font-medium">{t('slogan')}</p>
         </div>
         <span className="absolute bottom-36 left-0 w-full flex justify-center">
           <svg

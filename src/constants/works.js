@@ -8,7 +8,7 @@ const works = [
       en: 'Talkative Daisy - Urban stress detection',
       'zh-TW': '聒噪小雛菊 - 都市壓力檢測，根據聲音大小、速度生成雛菊',
     },
-    tags: ['p5.js', 'Matter.js', 'ML5'],
+    tags: ['p5.js', 'Matter.js', 'ml5.js'],
   },
   {
     slug: 'kickscrew',
