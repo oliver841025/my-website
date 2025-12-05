@@ -6,11 +6,14 @@ const TalkativeDaisy = () => {
 
   return (
     <div className="mt-4">
-      <div className="text-sm font-semibold mb-4 md:mb-0">
+      <div className="text-sm font-semibold mb-4 md:mb-0 flex flex-col gap-4">
+        <div>
         <h1>{t('title')}</h1>
-        <p className='font-normal italic'>{t('content')}</p>
+        <p className="font-normal italic">{t('content')}</p>
+        </div>
+        <p className="font-normal italic">Try to make some noise!</p>
       </div>
-      <div className="border transform scale-100 md:scale-75">
+      <div className="border transform scale-100 md:-mt-16 md:scale-75">
         <iframe
           src="https://oliver841025.github.io/talkativeDaisy/"
           title="Talkative Daisy"
