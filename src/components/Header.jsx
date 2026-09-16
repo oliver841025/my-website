@@ -40,6 +40,12 @@ export default function Header() {
           >
             {t('articles')}
           </Link>
+          <Link
+            href="/itp-blogs"
+            className="btn btn-ghost hover:bg-transparent hover:text-blue-800 focus:outline-none shadow-none border-none px-2"
+          >
+            ITP Blogs
+          </Link>
         </nav>
         <div className="ml-4">
           <LanguageSwitcher />
@@ -76,6 +82,13 @@ export default function Header() {
               onClick={() => setMenuOpen(false)}
             >
               {t('articles')}
+            </Link>
+            <Link
+              href="/itp-blogs"
+              className="w-full text-right py-2 px-4 hover:bg-slate-100 rounded"
+              onClick={() => setMenuOpen(false)}
+            >
+              ITP Blogs
             </Link>
             <div className="w-full flex justify-end mt-2">
               <LanguageSwitcher />
