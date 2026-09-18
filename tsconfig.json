@@ -22,11 +22,10 @@
         "name": "next"
       }
     ],
+    "baseUrl": ".",
     "paths": {
-  "@/*": [
-    "src/*"
-  ]
-},
+    "@/*": ["src/*"]
+    },
     "target": "ES2017",
     "strictNullChecks": true
   },
