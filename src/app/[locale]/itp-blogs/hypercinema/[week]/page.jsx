@@ -4,10 +4,10 @@ const HypercinemaPage = ({params}) => {
     const {week} = params;
 
     switch (week) {
-        case '01':
+        case 'week-01':
             return <Week01 />;
         default:
-            return<div>Cannot find Week {week}</div>
+            return<div>Cannot find {week}</div>
     }
 
 }

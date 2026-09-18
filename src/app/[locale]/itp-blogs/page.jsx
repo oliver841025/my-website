@@ -2,7 +2,7 @@
 import { Link } from '@/i18n/routing';
 import PageTitle from '@/components/PageTitle';
 
-const hypercinemaWeeks = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10'];
+const hypercinemaWeeks = ['week-01', 'week-02', 'week-03', 'week-04', 'week-05', 'week-06', 'week-07', 'week-08', 'week-09', 'week-10'];
 
 export default function ItpBlogsPage() {
   return (
@@ -15,9 +15,9 @@ export default function ItpBlogsPage() {
             <li key={week}>
               <Link
                 href={`/itp-blogs/hypercinema/${week}`}
-                className="text-blue-600 underline"
+                className="text-blue-600"
               >
-                Week {week}
+                {week}
               </Link>
             </li>
           ))}
