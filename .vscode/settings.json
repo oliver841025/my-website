@@ -4,6 +4,8 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "editor.formatOnSave": true,
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 1000,
   "prettier.bracketSameLine": false,
   "prettier.useEditorConfig": false,
   "prettier.vueIndentScriptAndStyle": true
