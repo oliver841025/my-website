@@ -1,9 +1,15 @@
-'use client';
+import Week01 from './components/Week01';
 
-const hypercinemaPage = ({params}) => {
-    return (
-        <div>Week {params.week}</div>
-    )
+const HypercinemaPage = ({params}) => {
+    const {week} = params;
+
+    switch (week) {
+        case '01':
+            return <Week01 />;
+        default:
+            return<div>Cannot find Week {week}</div>
+    }
+
 }
 
-export default hypercinemaPage;
+export default HypercinemaPage;
