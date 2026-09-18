@@ -12,12 +12,12 @@ export default function Header() {
   return (
     <div className="font-bold italic flex items-center justify-between sticky top-0 z-50">
       <div className="hover:text-blue-800">
-        <a
+        <Link
           href="/"
           className="btn btn-ghost text-xl hover:outline-none focus:outline-none shadow-none border-none font-mono"
         >
           HSUANSKY
-        </a>
+        </Link>
       </div>
       {/* 桌機版選單 */}
       <div className="items-center gap-2 hidden md:flex">
