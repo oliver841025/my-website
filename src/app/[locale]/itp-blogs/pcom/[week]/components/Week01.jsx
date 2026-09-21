@@ -36,8 +36,8 @@ const Week01 = () => {
       <PhotoFigure src="/pcom/week_01/cut_wires.webp" alt="Cut wires" caption="Cut wires" />
 
       <p className="mt-6">
-        I started by learning how to cut and strip wires properly. But it was quite challenging at first. I'd tried few
-        times, but I couldn't get the hang of it. I was worried that I might damage the wires.
+        I started by learning how to cut and strip wires properly. But it was quite challenging at first. I&apos;d tried
+        few times, but I couldn&apos;t get the hang of it. I was worried that I might damage the wires.
       </p>
 
       <PhotoFigure src="/pcom/week_01/first_led.webp" alt="First LED" caption="First LED" />
@@ -46,9 +46,10 @@ const Week01 = () => {
 
       <PhotoFigure src="/pcom/week_01/team_discuss.webp" alt="Team discussion" caption="Team discussion" />
 
-      <VideoFigure src="/pcom/week_01/press_controll_led.mp4" caption="Press control LED" />
+      <VideoFigure src="/pcom/week_01/press_controll_led.mp4" caption="Press-controlled LED" />
 
-      <h3 className="text-2xl font-bold">Get your hands dirty</h3>
+      <h3 className="text-2xl font-bold">Get Your Hands Dirty</h3>
+
       <p className="mt-6">I then experimented with using a button to control the LED.</p>
 
       <VideoFigure src="/pcom/week_01/led_parallel.mp4" caption="LED parallel circuit" />
@@ -58,10 +59,10 @@ const Week01 = () => {
       <VideoFigure src="/pcom/week_01/leds_circuit.mp4" caption="LED circuit" />
 
       <p className="mt-6">
-        Overall, through these experiments and the accompanying quizzes, I learned about Ohm’s Law and the relationships
-        between voltage, current, and resistance. I also became familiar with how to calculate voltage, current,
-        resistance, and power in series and parallel circuits, as well as why short circuits occur and why a circuit
-        needs to form a complete loop.
+        Overall, through these experiments and the accompanying quizzes, I learned about Ohm&apos;s Law and the
+        relationships between voltage, current, and resistance. I also became familiar with how to calculate voltage,
+        current, resistance, and power in series and parallel circuits, as well as why short circuits occur and why a
+        circuit needs to form a complete loop.
       </p>
 
       <VideoFigure src="/pcom/week_01/multimeter_test.mp4" caption="Multimeter test" />
@@ -89,38 +90,43 @@ const Week01 = () => {
       <VideoFigure src="/pcom/week_01/dc_motor.mp4" caption="DC motor" />
 
       <p className="mt-6">
-        At this point, I don’t have any major problems. I just need to become more familiar with how to connect circuits
-        and how to draw circuit diagrams.
+        At this point, I don&apos;t have any major problems. I just need to become more familiar with how to connect
+        circuits and how to draw circuit diagrams.
       </p>
 
-      <h3 className="text-xl font-bold my-8">
-        "Are we really going to accept an Interface Of The Future that is less expressive than a sandwich?"
+      <h3 className="my-8 text-xl font-bold">
+        &quot;Are we really going to accept an Interface Of The Future that is less expressive than a sandwich?&quot;
       </h3>
+
       <p>
         After reading{' '}
         <Link
           href="https://worrydream.com/ABriefRantOnTheFutureOfInteractionDesign/"
-          className="underline text-blue-500"
+          className="text-blue-500 underline"
         >
-          A brief rant on the future of interaction design
+          A Brief Rant on the Future of Interaction Design
         </Link>{' '}
         and{' '}
-        <Link href="https://archive.ph/nhyCI" className="underline text-blue-500">
+        <Link href="https://archive.ph/nhyCI" className="text-blue-500 underline">
           No to NoUI
         </Link>
+        , I gained some important points to think about.
       </p>
+
       <p className="mt-6">
-        I also read the two articles, XX and XX, and they gave me some important points to think about. This is
+        I also read two other articles, XX and XX, and they gave me some important points to think about. This is
         especially relevant to me because I have always wanted to explore physical interaction and biotechnology,
-        perhaps even something like using a “sixth finger.” I have also always been skeptical about the existence of
-        interfaces. Does something being more virtual necessarily make it better? Does it need to be more subtle, or
-        less noticeable, to be considered better?
+        perhaps even something like using a &quot;sixth finger&quot; I have also always been skeptical about the
+        existence of interfaces. Does something being more virtual necessarily make it better? Does it need to be more
+        subtle or less noticeable to be considered better?
       </p>
+
       <p className="mt-6">
-        I tend to believe that an interface should be presented in a simple and clear way, so that people can naturally
-        understand how to use it. Of course, “interface” is just a term here. I think about it more like how we don’t
-        need to consciously learn how to use our fingers to perform complex actions. The interaction should feel
-        natural, almost as if it were an extension of our body, rather than something we have to consciously learn.
+        I tend to believe that an interface should be presented in a simple and clear way so that people can naturally
+        understand how to use it. Of course, &quot;interface&quot; is just a term here. I think about it more like how
+        we don&apos;t need to consciously learn how to use our fingers to perform complex actions. The interaction
+        should feel natural, almost as if it were an extension of our body, rather than something we have to consciously
+        learn.
       </p>
     </main>
   );
