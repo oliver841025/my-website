@@ -26,7 +26,7 @@ const Week01 = () => {
         <div className="mt-8" key={index}>
           <p className="text-gray-400">{audio}</p>
           <audio controls preload="metadata">
-            <source src={`/audio/hypercinema/week_01/${audio}.wav`} type="audio/mpeg" />
+            <source src={`/hypercinema/week_01/${audio}.wav`} type="audio/mpeg" />
             Cannot play audio
           </audio>
         </div>

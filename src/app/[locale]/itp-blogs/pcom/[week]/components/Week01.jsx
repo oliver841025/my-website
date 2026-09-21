@@ -1,28 +1,6 @@
-import Image from 'next/image';
 import Link from 'next/link';
-
-const mediaClassName = 'mx-auto mt-4 w-3/5 md:w-1/5';
-
-const PhotoFigure = ({ src, alt, caption }) => {
-  return (
-    <figure className={mediaClassName}>
-      <Image src={src} alt={alt} width={800} height={600} className="w-full" unoptimized />
-      <figcaption className="text-gray-400">{caption}</figcaption>
-    </figure>
-  );
-};
-
-const VideoFigure = ({ src, caption }) => {
-  return (
-    <figure className={mediaClassName}>
-      <video controls preload="metadata" playsInline className="w-full">
-        <source src={src} type="video/mp4" />
-        Your browser does not support video playback.
-      </video>
-      <figcaption className="text-gray-400">{caption}</figcaption>
-    </figure>
-  );
-};
+import PhotoFigure from '@/components/PhotoFigure';
+import VideoFigure from '@/components/VideoFigure';
 
 const Week01 = () => {
   return (

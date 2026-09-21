@@ -4,7 +4,7 @@ import PageTitle from '@/components/PageTitle';
 
 const hypercinemaWeeks = [
   { week: 'week-01', title: 'Turns Out, I Have Ears' },
-  { week: 'week-02', title: '' },
+  { week: 'week-02', title: 'Urban Sound Hunter' },
   { week: 'week-03', title: '' },
   { week: 'week-04', title: '' },
   { week: 'week-05', title: '' },
