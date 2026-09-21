@@ -114,11 +114,10 @@ const Week01 = () => {
       </p>
 
       <p className="mt-6">
-        I also read two other articles, XX and XX, and they gave me some important points to think about. This is
-        especially relevant to me because I have always wanted to explore physical interaction and biotechnology,
-        perhaps even something like using a &quot;sixth finger&quot; I have also always been skeptical about the
-        existence of interfaces. Does something being more virtual necessarily make it better? Does it need to be more
-        subtle or less noticeable to be considered better?
+        This is especially relevant to me because I have always wanted to explore physical interaction and
+        biotechnology, perhaps even something like using a &quot;sixth finger&quot; I have also always been skeptical
+        about the existence of interfaces. Does something being more virtual necessarily make it better? Does it need to
+        be more subtle or less noticeable to be considered better?
       </p>
 
       <p className="mt-6">
