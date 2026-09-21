@@ -1,5 +1,28 @@
 import Image from 'next/image';
 
+const mediaClassName = 'mx-auto mt-4 w-3/5 md:w-1/5';
+
+const PhotoFigure = ({ src, alt, caption }) => {
+  return (
+    <figure className={mediaClassName}>
+      <Image src={src} alt={alt} width={800} height={600} className="w-full" unoptimized />
+      <figcaption className="text-gray-400">{caption}</figcaption>
+    </figure>
+  );
+};
+
+const VideoFigure = ({ src, caption }) => {
+  return (
+    <figure className={mediaClassName}>
+      <video controls preload="metadata" playsInline className="w-full">
+        <source src={src} type="video/mp4" />
+        Your browser does not support video playback.
+      </video>
+      <figcaption className="text-gray-400">{caption}</figcaption>
+    </figure>
+  );
+};
+
 const Week01 = () => {
   return (
     <main className="mx-auto w-full max-w-4xl p-4">
@@ -9,73 +32,25 @@ const Week01 = () => {
         During the first week, I familiarized myself with the names and uses of different tools and materials.
       </p>
 
-      <figure className="mx-auto mt-4 w-3/5 md:w-1/5">
-        <Image
-          src="/pcom/week_01/cut_wires.webp"
-          alt="Cut wires"
-          width={800}
-          height={600}
-          className="w-full"
-          unoptimized
-        />
-        <figcaption className="text-gray-400">Cut wires</figcaption>
-      </figure>
+      <PhotoFigure src="/pcom/week_01/cut_wires.webp" alt="Cut wires" caption="Cut wires" />
 
       <p className="mt-6">I started by learning how to cut and strip wires properly.</p>
 
-      <figure className="mx-auto mt-4 w-3/5 md:w-1/5">
-        <Image
-          src="/pcom/week_01/first_led.webp"
-          alt="First LED"
-          width={800}
-          height={600}
-          className="w-full"
-          unoptimized
-        />
-        <figcaption className="text-gray-400">First LED</figcaption>
-      </figure>
+      <PhotoFigure src="/pcom/week_01/first_led.webp" alt="First LED" caption="First LED" />
 
       <p className="mt-6">After that, I built my first circuit and successfully lit an LED.</p>
 
-      <figure className="mx-auto mt-4 w-3/5 md:w-1/5">
-        <Image
-          src="/pcom/week_01/team_discuss.webp"
-          alt="Team discussion"
-          width={800}
-          height={600}
-          className="w-full"
-          unoptimized
-        />
-        <figcaption className="text-gray-400">Team discussion</figcaption>
-      </figure>
+      <PhotoFigure src="/pcom/week_01/team_discuss.webp" alt="Team discussion" caption="Team discussion" />
 
-      <figure className="mx-auto mt-4 w-3/5 md:w-1/5">
-        <video controls preload="metadata" playsInline className="w-full">
-          <source src="/pcom/week_01/press_controll_led.mp4" type="video/mp4" />
-          Your browser does not support video playback.
-        </video>
-        <figcaption className="text-gray-400">Press control LED</figcaption>
-      </figure>
+      <VideoFigure src="/pcom/week_01/press_controll_led.mp4" caption="Press control LED" />
 
       <p className="mt-6">I then experimented with using a button to control the LED.</p>
 
-      <figure className="mx-auto mt-4 w-3/5 md:w-1/5">
-        <video controls preload="metadata" playsInline className="w-full">
-          <source src="/pcom/week_01/led_parallel.mp4" type="video/mp4" />
-          Your browser does not support video playback.
-        </video>
-        <figcaption className="text-gray-400">LED parallel circuit</figcaption>
-      </figure>
+      <VideoFigure src="/pcom/week_01/led_parallel.mp4" caption="LED parallel circuit" />
 
       <p className="mt-6">Finally, I learned how to build a parallel circuit.</p>
 
-      <figure className="mx-auto mt-4 w-3/5 md:w-1/5">
-        <video controls preload="metadata" playsInline className="w-full">
-          <source src="/pcom/week_01/leds_circuit.mp4" type="video/mp4" />
-          Your browser does not support video playback.
-        </video>
-        <figcaption className="text-gray-400">LED circuit</figcaption>
-      </figure>
+      <VideoFigure src="/pcom/week_01/leds_circuit.mp4" caption="LED circuit" />
 
       <p className="mt-6">
         Overall, through these experiments and the accompanying quizzes, I learned about Ohm’s Law and the relationships
@@ -84,13 +59,7 @@ const Week01 = () => {
         needs to form a complete loop.
       </p>
 
-      <figure className="mx-auto mt-4 w-3/5 md:w-1/5">
-        <video controls preload="metadata" playsInline className="w-full">
-          <source src="/pcom/week_01/multimeter_test.mp4" type="video/mp4" />
-          Your browser does not support video playback.
-        </video>
-        <figcaption className="text-gray-400">Multimeter test</figcaption>
-      </figure>
+      <VideoFigure src="/pcom/week_01/multimeter_test.mp4" caption="Multimeter test" />
 
       <p className="mt-6">
         At the beginning, when doing calculations for series and parallel circuits, I needed to write the formulas down
@@ -98,13 +67,7 @@ const Week01 = () => {
         became much more comfortable with the calculations.
       </p>
 
-      <figure className="mx-auto mt-4 w-3/5 md:w-1/5">
-        <video controls preload="metadata" playsInline className="w-full">
-          <source src="/pcom/week_01/potentiometer.mp4" type="video/mp4" />
-          Your browser does not support video playback.
-        </video>
-        <figcaption className="text-gray-400">Potentiometer</figcaption>
-      </figure>
+      <VideoFigure src="/pcom/week_01/potentiometer.mp4" caption="Potentiometer" />
 
       <p className="mt-6">
         I also looked into why the positive and negative power rails at the bottom of the breadboard need to be
@@ -118,13 +81,7 @@ const Week01 = () => {
         these questions through ChatGPT.
       </p>
 
-      <figure className="mx-auto mt-4 w-3/5 md:w-1/5">
-        <video controls preload="metadata" playsInline className="w-full">
-          <source src="/pcom/week_01/dc_motor.mp4" type="video/mp4" />
-          Your browser does not support video playback.
-        </video>
-        <figcaption className="text-gray-400">DC motor</figcaption>
-      </figure>
+      <VideoFigure src="/pcom/week_01/dc_motor.mp4" caption="DC motor" />
 
       <p className="mt-6">
         At this point, I don’t have any major problems. I just need to become more familiar with how to connect circuits
