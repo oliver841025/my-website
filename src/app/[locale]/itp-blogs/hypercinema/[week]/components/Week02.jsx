@@ -25,7 +25,7 @@ const Week02 = () => {
         entering the subway, noise of subway entrance Our audio journey shows the growing intensity as time counts down.
         The heart beats faster, the breathing becomes more layered, and the ticking becomes denser. We also have the
         battery charge dying sound, which adds to the stress of the situation. The ending is left somewhat ambiguous,
-        culminating with the sound of the train leaving. Did the person catch the subway or not? It's supposed to be a
+        culminating with the sound of the train leaving. Did the person catch the subway or not? It&apos;s supposed to be a
         tension build and then release.
       </p>
 
