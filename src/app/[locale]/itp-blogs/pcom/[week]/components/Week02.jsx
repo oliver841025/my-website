@@ -5,6 +5,21 @@ const Week02 = () => {
   return (
     <main className="mx-auto w-full max-w-4xl p-4">
       <h3 className="text-2xl font-bold">Week 02: One wrong resistor made me question my entire life</h3>
+
+      <PhotoFigure
+        className="mt-8 w-3/5 md:w-3/5"
+        src="/pcom/week_02/new_tool_box.webp"
+        alt="New tool box"
+        caption="Hello, my new tool box. As my stuffs are getting more and more. I need a bigger tool box which has more layers."
+      />
+
+      <PhotoFigure
+        className="mt-8 w-3/5 md:w-3/5"
+        src="/pcom/week_02/old_tool_box.webp"
+        alt="Old tool box"
+        caption="I will miss you, my old friend"
+      />
+
       <p className="mt-4">
         This assignment and the experiments required some C++, which wasn&apos;t a big problem for me. I just needed to
         get used to the syntax again since I hadn&apos;t written C++ in a long time. The logic is basically the same.
@@ -19,7 +34,7 @@ const Week02 = () => {
         started to have some questions about how microcontrollers work.
       </p>
       <h3 className="text-2xl font-bold mt-12">
-        I didn't notice that I was using the wrong resistor—the 220Ω and 10kΩ ones got mixed up
+        I didn&apos;t notice that I was using the wrong resistor—the 220Ω and 10kΩ ones got mixed up
       </h3>
       <PhotoFigure
         className="mt-8 w-3/5 md:w-3/5"
@@ -30,7 +45,7 @@ const Week02 = () => {
       <VideoFigure className="mt-4 w-3/5 md:w-4/5" src="/pcom/week_02/problems.MOV" caption="Unstable signal" />
       <p className="mt-4">
         In the example, the resistor marked in the red box is a 10kΩ resistor connected in series with the button.
-        However, I used a 220Ω resistor instead. They honestly look very similar, so I didn't notice the difference at
+        However, I used a 220Ω resistor instead. They honestly look very similar, so I didn&apos;t notice the difference at
         first.{' '}
       </p>
       <p className="mt-4">
@@ -91,9 +106,9 @@ const Week02 = () => {
       <h3 className="my-8 text-2xl font-bold">Why is Serial.begin(9600) often the first line in setup()?</h3>
 
       <p className="mt-4">
-        &#39;Serial.begin(9600)&#39; tells the Arduino to start serial communication at a baud rate of 9600. What does 9600 mean?
-        It is the baud rate, which you can think of as the agreed-upon communication speed between the Arduino and the
-        computer.
+        &#39;Serial.begin(9600)&#39; tells the Arduino to start serial communication at a baud rate of 9600. What does
+        9600 mean? It is the baud rate, which you can think of as the agreed-upon communication speed between the
+        Arduino and the computer.
       </p>
       <p className="mt-4">
         First, the Arduino initializes the communication channel with the computer and configures the pins it will use
