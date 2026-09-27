@@ -21,7 +21,7 @@ const pcomWeeks = [
   },
   {
     week: 'week-02',
-    title: '',
+    title: 'One wrong resistor made me question my entire life',
   },
   {
     week: 'week-03',

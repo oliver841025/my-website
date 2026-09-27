@@ -1,8 +1,8 @@
 const mediaClassName = 'mx-auto mt-4 w-3/5 md:w-1/5';
 
-const VideoFigure = ({ src, caption }) => {
+const VideoFigure = ({ src, caption, className = '' }) => {
   return (
-    <figure className={mediaClassName}>
+    <figure className={`${mediaClassName} ${className}`}>
       <video controls preload="metadata" playsInline className="w-full">
         <source src={src} type="video/mp4" />
         Your browser does not support video playback.
