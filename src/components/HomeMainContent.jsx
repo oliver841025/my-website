@@ -14,7 +14,7 @@ const HomeMainContent = () => {
       <section className="h-screen flex flex-col items-center justify-center w-full relative">
         <div className="flex flex-col items-center gap-4 -mt-52">
           <Image src="/me.gif" alt="me" width={300} height={300} className="ml-2" />
-          <p className="tracking-wider italic text-sm md:text-base font-medium">{t('slogan')}</p>
+          <p className="text-center tracking-wider italic text-sm md:text-base font-medium">{t('slogan')}</p>
         </div>
         <span className="absolute bottom-36 left-0 w-full flex justify-center">
           <svg
@@ -30,14 +30,14 @@ const HomeMainContent = () => {
         </span>
       </section>
       {/* 第二區塊：WorksContent */}
-      <section className='flex flex-col gap-32'>
-        <div className='flex justify-center items-center flex-col gap-16'>
-          <h2 className='text-3xl font-semibold border-b-4 border-black pb-2'>{t('title.recent_works')}</h2>
+      <section className="flex flex-col gap-32">
+        <div className="flex justify-center items-center flex-col gap-16">
+          <h2 className="text-3xl font-semibold border-b-4 border-black pb-2">{t('title.recent_works')}</h2>
           <WorksContent />
         </div>
-        <div className='flex justify-center items-center flex-col gap-16'>
-          <h2 className='text-3xl font-semibold border-b-4 border-black pb-2'>{t('title.recent_articles')}</h2>
-          <ArticlesList number={3} isDisplayArticlesLength={false}/>
+        <div className="flex justify-center items-center flex-col gap-16">
+          <h2 className="text-3xl font-semibold border-b-4 border-black pb-2">{t('title.recent_articles')}</h2>
+          <ArticlesList number={3} isDisplayArticlesLength={false} />
         </div>
       </section>
     </div>
