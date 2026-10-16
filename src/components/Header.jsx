@@ -1,6 +1,7 @@
 'use client';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
+import Image from 'next/image';
 import { useState } from 'react';
 
 import LanguageSwitcher from './LanguageSwitcher';
@@ -14,9 +15,17 @@ export default function Header() {
       <div className="hover:text-blue-800">
         <Link
           href="/"
-          className="btn btn-ghost text-xl hover:outline-none focus:outline-none shadow-none border-none font-mono"
+          className="btn btn-ghost inline-flex items-center gap-2 text-xl hover:text-blue-800 hover:outline-none focus:outline-none shadow-none border-none font-mono"
         >
-          HSUANSKY
+          <Image
+            src="/oliver_logo.png"
+            alt=""
+            aria-hidden="true"
+            width={30}
+            height={30}
+            className="h-8 w-8 object-contain"
+          />
+          <span>OliverDaaBest</span>
         </Link>
       </div>
       {/* 桌機版選單 */}

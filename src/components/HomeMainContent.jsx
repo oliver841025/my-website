@@ -13,7 +13,22 @@ const HomeMainContent = () => {
       {/* 第一區塊：滿版高，置中 HSUANSKY 和箭頭 */}
       <section className="h-screen flex flex-col items-center justify-center w-full relative">
         <div className="flex flex-col items-center gap-4 -mt-52">
-          <Image src="/me.gif" alt="me" width={300} height={300} className="ml-2" />
+          <button type="button" className="group relative h-[300px] w-[300px]" aria-label="Show animated image">
+            <Image
+              src="/oliver_logo.png"
+              alt="Oliver logo"
+              width={300}
+              height={300}
+              className="absolute inset-0 h-full w-full object-contain opacity-100 transition-opacity duration-200 group-hover:opacity-0 group-focus-visible:opacity-0"
+            />
+            <Image
+              src="/me.gif"
+              alt="Animated image"
+              width={300}
+              height={300}
+              className="absolute inset-0 ml-2 h-full w-full object-contain opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-visible:opacity-100"
+            />
+          </button>
           <p className="text-center tracking-wider italic text-sm md:text-base font-medium">{t('slogan')}</p>
         </div>
         <span className="absolute bottom-36 left-0 w-full flex justify-center">
