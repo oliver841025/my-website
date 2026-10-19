@@ -1,5 +1,16 @@
 const works = [
   {
+    slug: 'wintershowPoster2026',
+    name: 'wintershowPoster2026',
+    src: '/wintershow_poster_2026/wintershow_poster_2026.png',
+    alt: 'Wintershow Poster 2026',
+    intro: {
+      en: 'ITP Wintershow Poster 2026',
+      'zh-TW': 'ITP 冬日展覽海報 2026',
+    },
+    tags: ['handDrawing'],
+  },
+  {
     slug: 'talkativeDaisy',
     name: 'talkativeDaisy',
     src: '/talkative_daisy/talkative_daisy.png',
