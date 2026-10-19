@@ -1,10 +1,6 @@
-import { useTranslations } from 'next-intl';
 import Image from 'next/image';
-import Link from 'next/link';
 
 const KicksCrew = () => {
-  const t = useTranslations('works.kickscrew');
-  const imgAlt = t.raw('imgAlt');
 
   return (
     <div className="mt-12 flex flex-col gap-20 text-sm sm:px-48 leading-relaxed">
