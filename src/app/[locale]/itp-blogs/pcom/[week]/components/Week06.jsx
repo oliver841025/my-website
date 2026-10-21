@@ -48,7 +48,7 @@ const Week06 = () => {
 
       <p className="mt-4">
         The relay acts as an electrically controlled switch. The Arduino sends a small control signal to the relay, and
-        the relay switches the pump's power circuit on or off.
+        the relay switches the pump&apos;s power circuit on or off.
       </p>
 
       <h3 className="text-2xl font-bold mt-12 mb-4">2. Understanding the HC-SR04 Ultrasonic Sensor</h3>
@@ -64,7 +64,7 @@ const Week06 = () => {
 
       <ul className="list-disc pl-6 space-y-3">
         <li>
-          <strong>VCC:</strong> Supplies power to the sensor. In this setup, it is connected to the Arduino's 5V supply.
+          <strong>VCC:</strong> Supplies power to the sensor. In this setup, it is connected to the Arduino&apos;s 5V supply.
         </li>
         <li>
           <strong>GND:</strong> Connects to ground and provides the electrical reference for the circuit.
@@ -85,7 +85,7 @@ const Week06 = () => {
         <li>The Arduino sends a trigger pulse through TRIG.</li>
         <li>The sensor emits ultrasonic sound waves toward the object.</li>
         <li>The sound waves bounce off the object and return to the sensor.</li>
-        <li>The ECHO pin stays HIGH for a duration related to the sound's round-trip travel time.</li>
+        <li>The ECHO pin stays HIGH for a duration related to the sound&apos;s round-trip travel time.</li>
         <li>The Arduino measures this duration and calculates the distance.</li>
       </ol>
 
@@ -118,7 +118,7 @@ const Week06 = () => {
       </ul>
 
       <p className="mt-4">
-        These are signal levels, not descriptions of how much current is flowing. For example, the ECHO pin's HIGH
+        These are signal levels, not descriptions of how much current is flowing. For example, the ECHO pin&apos;s HIGH
         duration carries timing information that the Arduino can use to calculate distance.
       </p>
 
@@ -189,7 +189,7 @@ void loop() {
       <h3 className="text-2xl font-bold mt-12 mb-4">3. Understanding Pulses and pulseIn()</h3>
 
       <p className="mt-4">
-        A pulse is a temporary change in a signal's logic level. In this project, the Arduino sends a short trigger
+        A pulse is a temporary change in a signal&apos;s logic level. In this project, the Arduino sends a short trigger
         pulse, while the sensor returns an echo pulse whose duration is used to measure distance.
       </p>
 
@@ -270,7 +270,7 @@ if (duration == 0) {
           <strong>DC+:</strong> Supplies power to the relay module.
         </li>
         <li>
-          <strong>DC&minus;:</strong> Ground connection for the module's control circuit.
+          <strong>DC&minus;:</strong> Ground connection for the module&apos;s control circuit.
         </li>
         <li>
           <strong>IN1:</strong> Receives the control signal from Arduino D4 to switch the first relay channel.
@@ -278,9 +278,9 @@ if (duration == 0) {
       </ul>
 
       <p className="mt-4">
-        The relay module's trigger mode determines whether a HIGH or LOW signal activates the relay. My current setup
+        The relay module&apos;s trigger mode determines whether a HIGH or LOW signal activates the relay. My current setup
         uses the COM&minus;High jumper configuration, so the code is written for HIGH-level activation. The actual
-        behavior should always be verified against the module's labeling and documentation.
+        behavior should always be verified against the module&apos;s labeling and documentation.
       </p>
 
       <h4 className="text-xl font-semibold mt-6 mb-3">What are COM, NO, and NC?</h4>
@@ -336,7 +336,7 @@ if (distance < triggerDistance) {
         time, such as moving a hand toward the sensor and then moving it away.
       </p>
 
-      <h4 className="text-xl font-semibold mt-6 mb-3">Understanding the pump's power requirements</h4>
+      <h4 className="text-xl font-semibold mt-6 mb-3">Understanding the pump&apos;s power requirements</h4>
 
       <p className="mt-4">My mini pump is rated at DC 5V and 1.2W. Its estimated rated current is:</p>
 
@@ -349,24 +349,19 @@ if (distance < triggerDistance) {
       </div>
 
       <p className="mt-4">
-        The relay switches the pump's power circuit, but it does not provide power by itself. The pump needs a suitable
+        The relay switches the pump&apos;s power circuit, but it does not provide power by itself. The pump needs a suitable
         5V supply capable of providing enough current. An external 5V supply is preferable to powering the pump directly
-        from the Arduino's USB 5V rail.
+        from the Arduino&apos;s USB 5V rail.
       </p>
 
       <p className="mt-4">
         When using an external supply, its positive terminal should feed the pump through the relay contacts, and its
-        negative terminal should connect to the pump's negative terminal. The Arduino and relay module's control circuit
-        must also be powered and grounded correctly according to the relay module's specifications.
+        negative terminal should connect to the pump&apos;s negative terminal. The Arduino and relay module&apos;s control circuit
+        must also be powered and grounded correctly according to the relay module&apos;s specifications.
       </p>
 
       <h3 className="text-2xl font-bold mt-12 mb-4">6. Why I Switched to Arduino Uno R3</h3>
-      <PhotoFigure
-        className="mt-8 w-3/5 md:w-3/5"
-        src="/pcom/week_06/uno R3.webp"
-        alt="uno R3"
-        caption="uno R3"
-      />
+      <PhotoFigure className="mt-8 w-3/5 md:w-3/5" src="/pcom/week_06/uno R3.webp" alt="uno R3" caption="uno R3" />
       <PhotoFigure
         className="mt-8 w-3/5 md:w-3/5"
         src="/pcom/week_06/uno R3 spec.png"
@@ -374,7 +369,7 @@ if (distance < triggerDistance) {
         caption="uno R3 spec"
       />
       <p className="mt-4">
-        The Uno R3 also uses 5V logic, which is compatible with the HC-SR04 ultrasonic sensor's 5V Echo signal.
+        The Uno R3 also uses 5V logic, which is compatible with the HC-SR04 ultrasonic sensor&apos;s 5V Echo signal.
         Switching boards made it easier to troubleshoot the circuit and focus on understanding how the whole system
         works.
       </p>
