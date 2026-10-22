@@ -53,7 +53,13 @@ const Week06 = () => {
 
       <h3 className="text-2xl font-bold mt-12 mb-4">2. Understanding the HC-SR04 Ultrasonic Sensor</h3>
       <PhotoFigure className="mt-8 w-3/5 md:w-3/5" src="/pcom/week_06/sensor.webp" alt="sensor" caption="sensor" />
-      <PhotoFigure className="mt-8 w-3/5 md:w-3/5" src="/pcom/week_06/sensor spec.png" alt="sensor spec" />
+      <PhotoFigure className="mt-8 w-3/5 md:w-3/5" src="/pcom/week_06/sensor spec 1.png" alt="sensor spec" />
+      <PhotoFigure
+        className="mt-8 w-3/5 md:w-3/5"
+        src="/pcom/week_06/sensor spec 2.png"
+        alt="sensor spec"
+        caption="sensor spec"
+      />
 
       <p className="mt-4">
         The HC-SR04 measures distance by sending out ultrasonic sound waves and measuring how long they take to travel
@@ -256,12 +262,6 @@ if (duration == 0) {
       <PhotoFigure
         className="mt-8 w-3/5 md:w-3/5"
         src="/pcom/week_06/relay spec 2.png"
-        alt="relay spec"
-        caption="relay spec"
-      />
-      <PhotoFigure
-        className="mt-8 w-3/5 md:w-3/5"
-        src="/pcom/week_06/relay spec 3.png"
         alt="relay spec"
         caption="relay spec"
       />
