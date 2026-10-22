@@ -29,11 +29,11 @@ const pcomWeeks = [
   },
   {
     week: 'week-04',
-    title: '',
+    title: 'Component Specifications and Oscilloscope Practice',
   },
   {
     week: 'week-05',
-    title: '',
+    title: 'Midterm Project — Crying Statue',
   },
   {
     week: 'week-06',
