@@ -41,7 +41,7 @@ const pcomWeeks = [
   },
   {
     week: 'week-07',
-    title: '',
+    title: 'Mid term project - Crying statue',
   },
   {
     week: 'week-08',
