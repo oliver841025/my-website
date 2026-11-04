@@ -10,7 +10,7 @@ const hypercinemaWeeks = [
   { week: 'week-05', title: '' },
   { week: 'week-06', title: '' },
   { week: 'week-07', title: '' },
-  { week: 'week-08', title: '' },
+  { week: 'week-08', title: 'Beef, Fish, Potato' },
   { week: 'week-09', title: '' },
   { week: 'week-10', title: '' },
 ];
