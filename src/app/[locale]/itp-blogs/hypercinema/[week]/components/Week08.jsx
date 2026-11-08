@@ -1,5 +1,3 @@
-import Link from 'next/link';
-
 const Week08 = () => {
   return (
     <main className="mx-auto w-full max-w-4xl p-4">

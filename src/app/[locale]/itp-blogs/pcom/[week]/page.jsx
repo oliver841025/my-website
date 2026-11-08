@@ -5,6 +5,8 @@ import Week04 from './components/Week04';
 import Week05 from './components/Week05';
 import Week06 from './components/Week06';
 import Week07 from './components/Week07';
+import Week08 from './components/Week08';
+
 
 const PcomPage = ({ params }) => {
   const { week } = params;
@@ -24,6 +26,8 @@ const PcomPage = ({ params }) => {
       return <Week06 />;
     case 'week-07':
       return <Week07 />;
+    case 'week-08':
+      return <Week08 />;
     default:
       return <div>Cannot find {week}</div>;
   }

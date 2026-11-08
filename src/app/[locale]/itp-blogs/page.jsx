@@ -45,7 +45,7 @@ const pcomWeeks = [
   },
   {
     week: 'week-08',
-    title: '',
+    title: 'The Mystery of Communication',
   },
   {
     week: 'week-09',
