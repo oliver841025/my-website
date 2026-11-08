@@ -35,7 +35,7 @@ const Week08 = () => {
       <p className="mt-4">
         {' '}
         We also explored the difference between ASCII and binary transmission. ASCII sends data as readable characters,
-        while binary sends raw bytes. For example, <code>Serial.print(65)</code> sends the characters "65", which
+        while binary sends raw bytes. For example, <code>Serial.print(65)</code> sends the characters &quot;65&quot;, which
         requires two bytes, whereas <code>Serial.write(65)</code> sends the numerical value 65 as a single byte.{' '}
       </p>{' '}
       <p className="mt-4">
@@ -82,7 +82,7 @@ const Week08 = () => {
       </p>{' '}
       <p className="mt-4">
         {' '}
-        On the p5.js side, we can use methods such as <code>split(",")</code> to separate the incoming string into
+        On the p5.js side, we can use methods such as <code>split(&quot;,&quot;)</code> to separate the incoming string into
         individual values, then convert them into numbers for further processing. This process is called parsing.{' '}
       </p>{' '}
       <p className="mt-4">
