@@ -7,8 +7,8 @@ const Week09 = () => {
         observing it. They can choose whether to participate, how to interact, and how much they want to engage with the
         experience. I think interactivity can add another layer to artmaking and storytelling because every audience
         member may have a different experience. Their actions can influence what happens, making the artwork feel more
-        personal and dynamic. However, I don'\&apos;t think every artwork needs to be interactive. Sometimes, adding
-        interaction just for the sake of it can distract from the story or the artist's original intention.
+        personal and dynamic. However, I don&apos;t think every artwork needs to be interactive. Sometimes, adding
+        interaction just for the sake of it can distract from the story or the artist&apos;s original intention.
         Interactivity works best when it has a meaningful connection to the concept and gives the audience a genuine
         choice. Ultimately, I believe the audience should have the freedom to be either an observer or a participant.
         The choice itself is part of the experience.
