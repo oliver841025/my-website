@@ -2,6 +2,7 @@ import Week01 from './components/Week01';
 import Week02 from './components/Week02';
 import Week03 from './components/Week03';
 import Week08 from './components/Week08';
+import Week09 from './components/Week09';
 
 const HypercinemaPage = ({ params }) => {
   const { week } = params;
@@ -15,6 +16,8 @@ const HypercinemaPage = ({ params }) => {
       return <Week03 />;
     case 'week-08':
       return <Week08 />;
+    case 'week-09':
+      return <Week09 />;
     default:
       return <div>Cannot find {week}</div>;
   }

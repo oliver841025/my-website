@@ -11,7 +11,7 @@ const hypercinemaWeeks = [
   { week: 'week-06', title: '' },
   { week: 'week-07', title: '' },
   { week: 'week-08', title: 'Beef, Fish, Potato' },
-  { week: 'week-09', title: '' },
+  { week: 'week-09', title: 'What is interactivity to me?' },
   { week: 'week-10', title: '' },
 ];
 const pcomWeeks = [

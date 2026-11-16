@@ -63,6 +63,8 @@ const Week08 = () => {
         down to 0~255. However, this reduces the resolution of the data. Another approach is to split the original value
         into two bytes, allowing us to preserve the full reading.{' '}
       </p>{' '}
+      <VideoFigure className="mt-8 w-3/5 md:w-3/5" src="/pcom/week_08/ball_moving.MOV" alt="Ball Moving" caption="Ball Moving" />{' '}
+      
       <h3 className="text-xl font-bold mt-12 mb-4"> Data Formatting and Parsing </h3>{' '}
       <p>
         {' '}
